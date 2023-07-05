@@ -1,0 +1,63 @@
+DOCUMENTO FUNCIONAL:
+
+REQUERIMIENTOS TÉCNICOS.
+
+
+
+SECCIONES DE LA APLICACIÓN.
+
+Home:
+	Header/navbar
+	Buscador + filtros  > listado de ofertas
+	Sugerencias/Últimas ofertas
+	Servicios/Quienes somos
+	Eventos/Actualidad
+	(Recursos) >> si hay tiempo
+	RRSS (modal o FAB)
+
+Login/Registro:
+	Formulario Registro:
+	Opción candidatos
+	Opción empresas
+	Formulario Login
+	(Guías de uso: tooltips o similar)
+	(PWD recovery)
+
+Panel usuario/empresa registrado/a:
+	Dashboard (ofertas registradas)
+
+Buscador :
+	Listado de Filtros segun tipo de oferta
+	Listas de ofertas
+	Listado detalle oferta
+
+Sugerencias/Últimas ofertas:
+	slider o grid de ofertas
+
+Quienes somos/Que hacemos:
+	Institucional
+	Servicios: 
+	Para empresas
+	Para candidatos
+	Formación
+
+Eventos/Actualidad:
+	Miniblog con noticias/eventos
+
+RRSS (modal o FAB)
+
+OBJETIVOS DE USO DE LA APP.
+
+- Descripción de los objetivos de la aplicación:
+	- Objetivo principal:
+		La aplicación que vamos a definir es un portal de empleo orientado a personas con distintos tipos de discapacidad e incapacidad reconocidas por algún organismo gubernamental oficial dentro del territorio nacional español.
+
+	- Objetivos secundarios:
+	- Objetivos terciarios:
+
+
+- Target o público objetivo:
+
+- Limitaciones técnicas de uso:
+
+- Funcionalidad:
