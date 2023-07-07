@@ -2,17 +2,17 @@
 
 ## REQUERIMIENTOS TÉCNICOS.
  - ### Criterios técnicos del frontend:
-	- Definición de módulos y componentes
-	- Responsive
-	- Alteración del DOM con directivas estructurales/atributo.
-	- Testing
-	- Implementacion de servicios y entidades.
-	- API keys
-	- Estructura de la aplicación
+	- **Definición de módulos y componentes**
+	- **Responsive**
+	- **Alteración del DOM con directivas estructurales/atributo.**
+	- **Testing**
+	- **Implementacion de servicios y entidades.**
+	- **API keys**
+	- **Estructura de la aplicación**
  - ### Criterios técnicos del deployment:
 	- Node.js
  - ### Criterios técnicos de la conexión de datos/api:
-	- Firebase
+	- **Firebase**
 
 ## SECCIONES DE LA APLICACIÓN.
 
@@ -31,6 +31,8 @@
 	Contendrá herramientas, guías y otra clase de recursos o enlaces a recursos que puedan resultar de utilidad para mejorar la empleabilidad/cultura empresarial, focalizados indistintamente hacia ambos tipos/roles de usuarios de nuestra aplicación.
 	- **RRSS (modal o FAB)**
 	Se ubicará en uno de los extremos inferiores de la pantalla y contendrá las funcionalidades añadidas necesarias para poder compartir las ofertas que nos puedan resultar interesantes o de utilidad, con conocidxs/amigxs/familiares de lxs usuarixs de nuestra aplicación.
+	- **Política de 'Cookies':**
+	Se ubicará en uno de los extremos inferiores de la pantalla y contendrá la información necesaria para conocer el uso que haremos de las diferentes 'cookies' propias y de terceros, para la consiguiente optimización de nuestro sitio web y de su usabilidad ofertada hacia lxs usuarios. En esta sección, se solicitará a su vez la correspondiente aceptación de dicha política o se le notificará de que, si sigue usándola, esta se entenderá implícitamente aceptada.
 
 - ### Login/Registro:
 	- #### Formulario Registro:
@@ -51,7 +53,7 @@
 		- **Dashboard Candidatos:** En este se les mostrará un __formulario multipágina__ con el cual podrán __cumplimentar__ los __datos de su perfil__ y cargar su __CV__ en primera instancia. A su vez, también se les mostrará un listado con las ofertas a las que se hayan inscrito previamente, mostrando cada una de ellas en una __tarjeta desplegable__, dentro de la cual se mostrarán todos los __detalles referentes a cada oferta__.
 
 		- **Dashboard Emplesas:** En este se les mostrará un __formulario multipágina__ con el cual podrán __cumplimentar__ los __datos de su perfil__. También se les presentará otro formulario, el cual les permitirá realizar la publicación de las ofertas de empleo pertinentes. Y para finalizar, también se les mostrará un listado con las ofertas publicadas por ellxs, los detalles de estas y un sublistado con los candidatxs inscritos en cada una de ellas. 
-		
+
 		- **Dashboard Administrador:** Si nos diera tiempo, esta vista contendría las mismas opciones que los dos otros paneles de administración, presentados anteriormente, junto a un listado para administrar correctamente todos los usuarios de nuestro sitio web. Y conteniendo a su vez y de forma primordial un formulario con el que poder proceder a publicar los diferentes 'post'/articulos/entradas, contenidxs y presentados en nuestra sección de 'Actualidad'.
 
 - ### Buscador :
