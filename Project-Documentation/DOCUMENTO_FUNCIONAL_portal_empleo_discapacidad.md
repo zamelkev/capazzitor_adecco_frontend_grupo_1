@@ -14,6 +14,9 @@
  - ### Criterios técnicos de la conexión de datos/api:
 	- **Firebase**
 
+## MAPA DE NAVEGACIÓN:
+![Mapa de navegacion:](/Project-Documentation/Project-Sitemap.jpg "Mapa de navegacion: Conexión y enrutamiento entre las diferentes páginas de nuestro sitio web")
+
 ## SECCIONES DE LA APLICACIÓN.
 
 - ### Home:
