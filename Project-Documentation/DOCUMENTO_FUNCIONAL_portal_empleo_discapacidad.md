@@ -108,3 +108,7 @@ La aplicación que vamos a definir es un portal de empleo orientado a personas c
 	- **MVP** >> Minimum viable product 
 	- **Aplicación web:** __Angular__ framework: frontend, __Firebase__: backend.
 	- **App IOS/Android:** __Ionic__ framework: frontend, __Firebase__: backend.
+
+## Relación entre Tablas de la Base de Datos (DB Tables Relationship):
+
+![Relación entre Tablas (DB):](/Project-Documentation/DB-Tables-Relationship.jpg "Mapa de interconexión entre las tablas de la base de datos de nuestra aplicación")
