@@ -1,11 +1,19 @@
 # angular_grupo_1
 Proyecto Trasversal - Grupo 1 - Curso Frontend
 
+## Tipo de proyecto:
+Portal web de búsqueda de empleo para personas con discapacidad
+
 ## Integrantes del grupo:
 - Ariel Gonzalez
 - Eneko Galván
 - Javi Carrión
 - Kevin Zamora
+
+## Primeros pasos:
+
+- **Análisis de los sitios web de la competencia:** Por Talento / Disjob / Indeed & Universia
+- [Desarrollo del **Documento Funcional**](https://github.com/zamelkev/angular_grupo_1/blob/develop/Project-Documentation/DOCUMENTO_FUNCIONAL_portal_empleo_discapacidad.md)
 
 
 # REQUERIMIENTOS TÉCNICOS.
