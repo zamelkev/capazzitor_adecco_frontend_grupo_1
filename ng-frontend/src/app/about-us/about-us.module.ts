@@ -16,6 +16,12 @@ import { CompanyServicesComponent } from './company-services/company-services.co
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    AboutUsComponent,
+    FormationComponent,
+    CandidateServicesComponent,
+    CompanyServicesComponent
   ]
 })
 export class AboutUsModule { }

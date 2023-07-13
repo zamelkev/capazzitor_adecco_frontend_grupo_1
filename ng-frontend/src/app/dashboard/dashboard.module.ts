@@ -14,6 +14,11 @@ import { CompanyDashboardComponent } from './company-dashboard/company-dashboard
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    AdminDashboardComponent,
+    CandidateDashboardComponent,
+    CompanyDashboardComponent
   ]
 })
 export class DashboardModule { }

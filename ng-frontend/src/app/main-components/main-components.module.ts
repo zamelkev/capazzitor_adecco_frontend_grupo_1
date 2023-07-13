@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { SocialButtonComponent } from './social-button/social-button.component';
-import { OffersListComponent } from './offers-list/offers-list.component';
 import { OfferDetailComponent } from './offer-detail/offer-detail.component';
 import { OfferFormComponent } from './offer-form/offer-form.component';
 import { SearcherComponent } from './searcher/searcher.component';
@@ -24,8 +22,6 @@ import { LeftMenuComponent } from './left-menu/left-menu.component';
   declarations: [
     HeaderComponent,
     FooterComponent,
-    SocialButtonComponent,
-    OffersListComponent,
     OfferDetailComponent,
     OfferFormComponent,
     SearcherComponent,
@@ -42,6 +38,23 @@ import { LeftMenuComponent } from './left-menu/left-menu.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    HeaderComponent,
+    FooterComponent,
+    OfferDetailComponent,
+    OfferFormComponent,
+    SearcherComponent,
+    OfferListComponent,
+    CandidateListComponent,
+    CandidateFormComponent,
+    CandidateDetailComponent,
+    CompanyDetailComponent,
+    CompanyFormComponent,
+    CompanyListComponent,
+    SocialNetworksComponent,
+    RightMenuComponent,
+    LeftMenuComponent
   ]
 })
 export class MainComponentsModule { }
