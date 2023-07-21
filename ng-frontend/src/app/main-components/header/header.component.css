@@ -1,0 +1,15 @@
+mat-toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 5rem;
+  background-color: transparent;
+}
+.account_button {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+/* .account_button span {
+  font-size: small;
+} */
