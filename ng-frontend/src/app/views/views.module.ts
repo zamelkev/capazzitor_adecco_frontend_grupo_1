@@ -7,7 +7,6 @@ import { CurrentNewsComponent } from './current-news/current-news.component';
 import { OfferListComponent } from './offer-list/offer-list.component';
 import { OfferFormComponent } from './offer-form/offer-form.component';
 import { OfferDetailComponent } from './offer-detail/offer-detail.component';
-import { AboutUsComponent } from './about-us/about-us.component';
 import { CandidateServicesComponent } from './candidate-services/candidate-services.component';
 import { CompanyServicesComponent } from './company-services/company-services.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -28,7 +27,6 @@ import { UseGuidesComponent } from './use-guides/use-guides.component';
     OfferListComponent,
     OfferFormComponent,
     OfferDetailComponent,
-    AboutUsComponent,
     CandidateServicesComponent,
     CompanyServicesComponent,
     DashboardComponent,
@@ -50,7 +48,6 @@ import { UseGuidesComponent } from './use-guides/use-guides.component';
     OfferListComponent,
     OfferFormComponent,
     OfferDetailComponent,
-    AboutUsComponent,
     CandidateServicesComponent,
     CompanyServicesComponent,
     DashboardComponent,
