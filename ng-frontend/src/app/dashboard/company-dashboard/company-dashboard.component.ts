@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-company-dashboard',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./company-dashboard.component.css']
 })
 export class CompanyDashboardComponent {
-
+  usuario!: User;
+  constructor() {}
+  ngOnInit(): void {}
 }
