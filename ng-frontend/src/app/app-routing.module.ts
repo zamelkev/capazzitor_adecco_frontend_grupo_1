@@ -15,9 +15,7 @@ import { UseGuidesComponent } from './views/use-guides/use-guides.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'about-us', component: AboutUsComponent },
-  { path: 'currentnews', component: CurrentNewsComponent },
-  
+    
   { path: 'dashboard', component: DashboardComponent },
 
   { path: 'login', component: SignInComponent },
