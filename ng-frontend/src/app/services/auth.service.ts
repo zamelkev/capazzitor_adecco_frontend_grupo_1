@@ -37,14 +37,14 @@ export class AuthService {
   SignIn(email: string, password: string) {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
-      // .then((result) => {
-      //   this.SetUserData(result.user);
-      //   this.afAuth.authState.subscribe((user) => {
-      //     if (user) {
-      //       this.router.navigate(['candidate-dashboard']);
-      //     }
-      //   });
-      // })
+      .then((result) => {
+        // this.SetUserData(result.user);
+        // this.afAuth.authState.subscribe((user) => {
+        //   if (user) {
+            this.router.navigate(['candidate-dashboard']);
+        //   }
+        // });
+      })
       .catch((error) => {
         window.alert(error.message);
       });
@@ -68,7 +68,7 @@ export class AuthService {
     return this.afAuth.currentUser
       .then((u: any) => u.sendEmailVerification())
       .then(() => {
-        this.router.navigate(['verify-email-address']);
+        this.router.navigate(['verify-emailaddress']);
       });
   }
   // Reset Forggot password
@@ -97,7 +97,9 @@ export class AuthService {
     const userData: User = {
       uid: user.uid,
       email: user.email,
-      username: user.userName,
+      username: user.username,
+      password: user.password,
+      rol: user.rol,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
     };

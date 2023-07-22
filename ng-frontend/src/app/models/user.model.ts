@@ -1,11 +1,11 @@
 export interface User {
-    uid?: number;
-    email?: string;
-    username?: string;
-    password?: string;
-    rol?: number;
+    uid: number;
+    email: string;
+    username: string;
+    password: string;
+    rol: number;
     photoURL: string;
-   emailVerified: boolean;
+    emailVerified: boolean;
 }
 
 // const users: User[] = [
