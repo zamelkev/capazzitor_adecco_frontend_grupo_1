@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { User } from '../../models/usuario.model';
+import { User } from '../../models/user.model';
 
 @Component({
   selector: 'app-candidate-dashboard',
@@ -8,7 +8,7 @@ import { User } from '../../models/usuario.model';
   styleUrls: ['./candidate-dashboard.component.css']
 })
 export class CandidateDashboardComponent implements OnInit {
-  usuario!: User;
+  user!: User | any;
   constructor(public authService: AuthService) {}
   ngOnInit(): void {}
 }

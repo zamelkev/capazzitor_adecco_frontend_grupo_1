@@ -8,6 +8,5 @@ export const environment = {
     authDomain: 'portal-empleo-7f519.firebaseapp.com',
     messagingSenderId: '700855171868',
     measurementId: 'G-F067FM1D9W',
-  },
-  production: true
+  }
 };

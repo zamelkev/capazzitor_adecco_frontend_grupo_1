@@ -9,10 +9,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Firebase services + environment module
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-// import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-// import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+// import { environment } from '../environments/environment';
 
 // Forms
 import { ReactiveFormsModule } from '@angular/forms';
@@ -63,6 +64,11 @@ export const firebaseConfig = {
     ViewsModule,
     // environment,
     AccountModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),

@@ -1,9 +1,9 @@
-export interface Usuario {
+export interface User {
     uid: number;
     email: string;
     displayName: string;
-    password: string;
-    rol: number;
+    // password: string;
+    // rol: number;
     photoURL: string;
     emailVerified: boolean;
 }

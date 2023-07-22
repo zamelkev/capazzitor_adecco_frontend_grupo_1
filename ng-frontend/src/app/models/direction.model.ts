@@ -1,4 +1,4 @@
-import { User } from "./usuario.model";
+import { User } from "./user.model";
 
 export class Direction extends User {
     idUsuario?: number;

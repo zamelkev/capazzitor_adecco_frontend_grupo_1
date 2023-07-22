@@ -1,18 +1,19 @@
 import { Injectable, NgZone } from '@angular/core';
-import { Usuario } from '../models/usuario.model';
+import { User } from '../models/user.model';
 import {
   AngularFirestore,
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
-import { User } from "firebase/auth";
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { Console } from 'console';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  userData!: Usuario; // Save logged in user data
+  userData!: any; // Save logged in user data
+
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
@@ -38,6 +39,8 @@ export class AuthService {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
+        console.log(result);
+        console.log(result.user);
         this.SetUserData(result.user);
         this.afAuth.authState.subscribe((user) => {
           if (user) {
@@ -57,6 +60,7 @@ export class AuthService {
         /* Call the SendVerificaitonMail() function when new user sign 
         up and returns promise */
         this.SendVerificationMail();
+        console.log(result.user);
         this.SetUserData(result.user);
       })
       .catch((error) => {
@@ -90,16 +94,16 @@ export class AuthService {
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-  SetUserData(user: User) {
+  SetUserData(user: any) {
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(
       `users/${user.uid}`
     );
-    const userData: User = {
+    const userData: any = {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
-      password: user.password,
-      rol: user.rol,
+      // password: user.password,
+      // rol: user.rol,
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
     };
