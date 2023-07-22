@@ -50,7 +50,6 @@ import { ReactiveFormsModule } from "@angular/forms";
     AppComponent,
   ],
   imports: [
-    
     MainComponentsModule,
     ViewsModule,
     BrowserModule,
@@ -71,7 +70,11 @@ import { ReactiveFormsModule } from "@angular/forms";
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
-    RouterModule
+    MatButtonModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatMenuModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService],
   // providers: [AuthService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],

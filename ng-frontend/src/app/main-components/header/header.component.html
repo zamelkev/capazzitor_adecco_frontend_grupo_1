@@ -1,47 +1,52 @@
-<mat-toolbar class="mat-elevation-z8">
-        <span class="fill-remaining-space">
-          <button mat-icon-button [matMenuTriggerFor]="menu">
-            <mat-icon>menu</mat-icon>
-          </button>
-          <mat-menu #menu="matMenu" [overlapTrigger]="false">
-            <!-- <button mat-menu-item routerLink="/home">
-              <span>Inicio</span>
-            </button> -->
-            <button mat-menu-item routerLink="/offer-list" disabled="">
-                <span>Ofertas</span>
-              </button>
-            <button mat-menu-item routerLink="/about-us">
-              <span>Conocenos</span>
+<div class="background">
+  <mat-toolbar class="mat-elevation-z8">
+          <span class="fill-remaining-space">
+            <button mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon>menu</mat-icon>
             </button>
-            <button mat-menu-item routerLink="/currentnews">
-                <span>Eventos</span>
+            <mat-menu #menu="matMenu" [overlapTrigger]="false">
+              <!-- <button mat-menu-item routerLink="/home">
+                <span>Inicio</span>
+              </button> -->
+              <button mat-menu-item routerLink="/offer-list" disabled="">
+                  <span>Ofertas</span>
+                </button>
+              <button mat-menu-item routerLink="/about-us">
+                <span>Conocenos</span>
               </button>
+              <button mat-menu-item routerLink="/currentnews">
+                  <span>Eventos</span>
+                </button>
+            </mat-menu>
+          </span>
+          <span class="fill-remaining-space">
+      <button class="account_button" mat-icon-button aria-label="Configuración de la cuenta de usuario" [matMenuTriggerFor]="userMenu">
+          <mat-icon>account_circle</mat-icon>
+      </button>
+          <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
+            <button mat-menu-item routerLink="/login">
+              <span>Iniciar sesión</span>
+            </button>
+            <button mat-menu-item routerLink="/register">
+              <span>Registrarse</span>
+            </button>
+            <button mat-menu-item routerLink="/dashboard">
+              <span>Configuración cuenta</span>
+            </button>
+            <button mat-menu-item routerLink="/use-guides" disabled="">
+              <span>Guías de uso</span>
+            </button>
+            <button mat-menu-item routerLink="/forgot-password">
+              <span>Recuperar contraseña</span>
+            </button>
+            <button mat-menu-item disabled="">
+              <span>Salir</span>
+            </button>
           </mat-menu>
         </span>
-        <span routerLink="/home" class="fill-remaining-space pointer logo-text"><img src="" class="logo" /> Portal Empleo </span>
-        <span class="fill-remaining-space">
-    <button class="account_button" mat-icon-button aria-label="Configuración de la cuenta de usuario" [matMenuTriggerFor]="userMenu">
-        <mat-icon>account_circle</mat-icon>
-    </button>
-        <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
-          <button mat-menu-item routerLink="/login">
-            <span>Iniciar sesión</span>
-          </button>
-          <button mat-menu-item routerLink="/register">
-            <span>Registrarse</span>
-          </button>
-          <button mat-menu-item routerLink="/dashboard">
-            <span>Configuración cuenta</span>
-          </button>
-          <button mat-menu-item routerLink="/use-guides" disabled="">
-            <span>Guías de uso</span>
-          </button>
-          <button mat-menu-item routerLink="/forgot-password">
-            <span>Recuperar contraseña</span>
-          </button>
-          <button mat-menu-item disabled="">
-            <span>Salir</span>
-          </button>
-        </mat-menu>
-      </span>
-</mat-toolbar> 
+  </mat-toolbar> 
+  <div class="logotype">
+    <img src="../../../assets/img/mercedes_logo.png" alt="Imagen de logotipo">
+    <h6>Brand</h6>
+  </div>
+</div>
