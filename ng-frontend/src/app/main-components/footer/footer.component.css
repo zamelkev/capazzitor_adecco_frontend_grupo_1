@@ -1,0 +1,58 @@
+.fooContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: fit-content;
+  background-color: rgba(0,0,0,1);
+  padding: 1rem 0;
+
+}
+.fooLinks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 80%;
+  padding: 2rem;
+}
+.linksUp, .linksDown {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 50%;
+  min-height: fit-content;
+  flex-wrap: wrap;
+}
+.linksUp > button {
+  color: rgba(255,255,255,1);
+  min-width: fit-content;
+  margin: 0.5rem 1rem;
+}
+.linksDown > button{
+  color: rgba(255,255,255,1);
+  min-width: fit-content;
+  margin: 1rem 1rem;
+}
+.cookies {
+  min-height: 3rem;
+}
+.cookies > button {
+  color: rgba(255,255,255,1);
+}
+
+
+
+
+
+
+
+.cookies > button {
+  color: rgba(255,255,255,1);
+  background-color: rgb(255, 165, 0);
+}
+p {
+  color: rgba(255,255,255,1);
+}
