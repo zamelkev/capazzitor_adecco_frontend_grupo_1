@@ -17,16 +17,16 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'about-us', component: AboutUsComponent },
-  { path: 'current-news', component: CurrentNewsComponent },
+  { path: 'currentnews', component: CurrentNewsComponent },
   
   { path: 'admin-dashboard', component: AdminDashboardComponent },
   { path: 'candidate-dashboard', component: CandidateDashboardComponent },
   { path: 'company-dashboard', component: CompanyDashboardComponent },
 
-  { path: 'sign-in', component: SignInComponent },
-  { path: 'register-user', component: SignUpComponent },
+  { path: 'signin', component: SignInComponent },
+  { path: 'register', component: SignUpComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'verify-email-address', component: VerifyEmailComponent },
+  { path: 'verify-emailaddress', component: VerifyEmailComponent },
   
   // { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
