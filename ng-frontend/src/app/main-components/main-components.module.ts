@@ -4,7 +4,9 @@ import { RouterModule } from '@angular/router';
 
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -40,14 +42,15 @@ import { LeftMenuComponent } from './left-menu/left-menu.component';
     CompanyListComponent,
     SocialNetworksComponent,
     RightMenuComponent,
-    LeftMenuComponent
+    LeftMenuComponent,
   ],
   imports: [
     CommonModule,
     RouterModule,
     MatIconModule,
     MatButtonModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatMenuModule
   ],
   exports: [
     HeaderComponent,
@@ -64,7 +67,7 @@ import { LeftMenuComponent } from './left-menu/left-menu.component';
     CompanyListComponent,
     SocialNetworksComponent,
     RightMenuComponent,
-    LeftMenuComponent
-  ]
+    LeftMenuComponent,
+  ],
 })
-export class MainComponentsModule { }
+export class MainComponentsModule {}
