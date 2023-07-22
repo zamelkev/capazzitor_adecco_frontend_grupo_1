@@ -24,12 +24,9 @@ import { AuthService } from './services/auth.service';
 // import { UserService } from './services/user.service';
 
 // Modules
-import { AboutUsModule } from './about-us/about-us.module';
-import { DashboardModule } from './dashboard/dashboard.module';
 import { MainComponentsModule } from './main-components/main-components.module';
 import { ViewsModule } from './views/views.module';
 import { environment } from '../environments/environment';
-import { AccountModule } from './account/account.module';
 
 // Firebase
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -58,23 +55,23 @@ export const firebaseConfig = {
     RouterModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AboutUsModule,
-    DashboardModule,
     MainComponentsModule,
     ViewsModule,
     // environment,
-    AccountModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    // AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    // provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
   ],
-  providers: [AuthService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
+  providers: [AuthService],
+  // providers: [AuthService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

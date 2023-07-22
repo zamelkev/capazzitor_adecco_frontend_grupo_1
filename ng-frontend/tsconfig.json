@@ -19,7 +19,7 @@
     "target": "ES2015",
     "module": "ES2015",
     "lib": [
-      "ES2015",
+      "es2020",
       "dom"
     ]
   },

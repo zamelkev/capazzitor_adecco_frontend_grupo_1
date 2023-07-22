@@ -15,6 +15,9 @@ import { OfferListComponent } from './offer-list/offer-list.component';
 import { SocialNetworksComponent } from './social-networks/social-networks.component';
 import { RightMenuComponent } from './right-menu/right-menu.component';
 import { LeftMenuComponent } from './left-menu/left-menu.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { CandidateDashboardComponent } from './candidate-dashboard/candidate-dashboard.component';
+import { CompanyDashboardComponent } from './company-dashboard/company-dashboard.component';
 
 
 
@@ -28,7 +31,10 @@ import { LeftMenuComponent } from './left-menu/left-menu.component';
     OfferListComponent,
     SocialNetworksComponent,
     RightMenuComponent,
-    LeftMenuComponent
+    LeftMenuComponent,
+    AdminDashboardComponent,
+    CandidateDashboardComponent,
+    CompanyDashboardComponent,
   ],
   imports: [
     CommonModule,
@@ -46,7 +52,10 @@ import { LeftMenuComponent } from './left-menu/left-menu.component';
     OfferListComponent,
     SocialNetworksComponent,
     RightMenuComponent,
-    LeftMenuComponent
+    LeftMenuComponent,
+    AdminDashboardComponent,
+    CandidateDashboardComponent,
+    CompanyDashboardComponent,
   ]
 })
 export class MainComponentsModule { }

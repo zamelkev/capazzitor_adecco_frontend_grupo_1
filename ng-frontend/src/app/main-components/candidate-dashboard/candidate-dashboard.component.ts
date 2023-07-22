@@ -8,7 +8,15 @@ import { User } from '../../models/user.model';
   styleUrls: ['./candidate-dashboard.component.css']
 })
 export class CandidateDashboardComponent implements OnInit {
-  user!: User | any;
-  constructor(public authService: AuthService) {}
+  user!: User;
+  constructor(public authService: AuthService) {
+    this.user = this.user = {
+              uid: 1,
+              displayName: "",
+              email: "",
+              photoURL: "",
+              emailVerified: true,
+          };
+  }
   ngOnInit(): void {}
 }
