@@ -2,22 +2,41 @@ mat-toolbar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: 5rem;
-  /* background-color: transparent; */
+  height: 3rem;
+  background-color: rgba(255,255,255,0.75)
 }
 .account_button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-
-
-/** media query for mobile */
-@media (min-width: 0px) and (max-width: 390px) {
-  .logo {
-      width: 1.3rem;
-  }
-  .logo-text {
-      font-size: 1rem;
-  }
+.background {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-image: url(../../../assets/img/disabled_girl.jpeg);
+  background-repeat: no-repeat;
+  background-position-y: 20%;
+  background-position-x: 70%;
+  background-size: cover;
+  width: 100vw;
+  min-height: 50%;
+}
+.logotype {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: rgba(0,0,0,0.5);
+  width: 10vw;
+  min-height: 10vh;
+  top: 25vh;
+}
+.logotype > img {
+  max-width: 75%;
+}
+h6 {
+  color: white;
 }
