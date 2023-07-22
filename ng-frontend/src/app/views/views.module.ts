@@ -17,6 +17,7 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { MainComponentsModule } from '../main-components/main-components.module';
+import { UseGuidesComponent } from './use-guides/use-guides.component';
 
 
 
@@ -35,7 +36,8 @@ import { MainComponentsModule } from '../main-components/main-components.module'
     FormationComponent,
     SignInComponent,
     SignUpComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    UseGuidesComponent
   ],
   imports: [
     CommonModule,
@@ -56,7 +58,8 @@ import { MainComponentsModule } from '../main-components/main-components.module'
     FormationComponent,
     SignInComponent,
     SignUpComponent,
-    VerifyEmailComponent
+    VerifyEmailComponent,
+    UseGuidesComponent
   ]
 })
 export class ViewsModule { }

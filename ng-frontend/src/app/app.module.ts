@@ -46,6 +46,13 @@ export const firebaseConfig = {
   measurementId: "G-F067FM1D9W"
 };
 
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -69,6 +76,7 @@ export const firebaseConfig = {
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),
     provideFirestore(() => getFirestore()),
+    RouterModule
   ],
   providers: [AuthService],
   // providers: [AuthService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
