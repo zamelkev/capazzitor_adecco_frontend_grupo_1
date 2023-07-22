@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { CandidateDashboardComponent } from './candidate-dashboard/candidate-dashboard.component';
 import { CompanyDashboardComponent } from './company-dashboard/company-dashboard.component';
-import { User } from '../models/user.model';
+import { User } from '../models/usuario.model';
 
 
 
@@ -11,10 +11,10 @@ import { User } from '../models/user.model';
   declarations: [
     AdminDashboardComponent,
     CandidateDashboardComponent,
-    CompanyDashboardComponent
+    CompanyDashboardComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
   ],
   exports: [
     AdminDashboardComponent,

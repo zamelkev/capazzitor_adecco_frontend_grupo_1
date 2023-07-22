@@ -29,7 +29,6 @@ import { MainComponentsModule } from './main-components/main-components.module';
 import { ViewsModule } from './views/views.module';
 import { environment } from '../environments/environment';
 import { AccountModule } from './account/account.module';
-import { UsersModule } from './users/users.module';
 
 // Firebase
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -64,7 +63,6 @@ export const firebaseConfig = {
     ViewsModule,
     // environment,
     AccountModule,
-    UsersModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideDatabase(() => getDatabase()),

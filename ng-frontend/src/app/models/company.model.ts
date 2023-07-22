@@ -1,7 +1,7 @@
 import { Direction } from "./direction.model";
 import { Email } from "./email.model";
 import { Telephone } from "./telephone.model";
-import { User } from "./user.model";
+import { User } from "./usuario.model";
 
 export interface Company extends User {
     id: number;

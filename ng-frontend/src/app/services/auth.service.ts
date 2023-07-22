@@ -1,10 +1,10 @@
 import { Injectable, NgZone } from '@angular/core';
-import { User } from '../models/user.model';
+import { Usuario } from '../models/usuario.model';
 import {
   AngularFirestore,
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
-import * as auth from 'firebase/auth';
+import { User } from "firebase/auth";
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  userData: any; // Save logged in user data
+  userData!: Usuario; // Save logged in user data
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
@@ -38,12 +38,12 @@ export class AuthService {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
-        // this.SetUserData(result.user);
-        // this.afAuth.authState.subscribe((user) => {
-        //   if (user) {
+        this.SetUserData(result.user);
+        this.afAuth.authState.subscribe((user) => {
+          if (user) {
             this.router.navigate(['candidate-dashboard']);
-        //   }
-        // });
+          }
+        });
       })
       .catch((error) => {
         window.alert(error.message);
@@ -53,12 +53,12 @@ export class AuthService {
   SignUp(email: string, password: string) {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
-      // .then((result) => {
-      //   /* Call the SendVerificaitonMail() function when new user sign 
-      //   up and returns promise */
-      //   this.SendVerificationMail();
-      //   this.SetUserData(result.user);
-      // })
+      .then((result) => {
+        /* Call the SendVerificaitonMail() function when new user sign 
+        up and returns promise */
+        this.SendVerificationMail();
+        this.SetUserData(result.user);
+      })
       .catch((error) => {
         window.alert(error.message);
       });
@@ -90,14 +90,14 @@ export class AuthService {
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-  SetUserData(user: any) {
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(
+  SetUserData(user: User) {
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(
       `users/${user.uid}`
     );
     const userData: User = {
       uid: user.uid,
       email: user.email,
-      username: user.username,
+      displayName: user.displayName,
       password: user.password,
       rol: user.rol,
       photoURL: user.photoURL,

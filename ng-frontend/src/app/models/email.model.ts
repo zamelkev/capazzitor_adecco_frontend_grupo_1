@@ -1,4 +1,4 @@
-import { User } from "./user.model";
+import { User } from "./usuario.model";
 
 export class Email extends User{
     idUsuario?: number;
