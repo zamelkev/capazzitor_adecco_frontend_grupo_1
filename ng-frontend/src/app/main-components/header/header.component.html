@@ -1,13 +1,24 @@
-<mat-toolbar>
-    <button mat-icon-button aria-label="Menú de navegación" [matMenuTriggerFor]="menu" routerLink="">
-        <mat-icon>menu</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item>Item 1</button>
-      <button mat-menu-item>Item 2</button>
-    </mat-menu>
-    <button class="account_button" mat-icon-button aria-label="Configuración de la cuenta de usuario">
-        <mat-icon>account_circle</mat-icon>
-        <!-- <span>Nombre</span> -->
-    </button>
-</mat-toolbar> 
+<div class="background">
+  <mat-toolbar>
+      <button mat-icon-button aria-label="Menú principal" [matMenuTriggerFor]="menu" routerLink="">
+          <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>Ofertas</button>
+        <button mat-menu-item>Conócenos</button>
+        <button mat-menu-item>Eventos</button>
+      </mat-menu>
+      <button mat-icon-button aria-label="Configuración del usuario" [matMenuTriggerFor]="user" routerLink="">
+          <mat-icon>account_circle</mat-icon>
+      <mat-menu #user="matMenu">
+        <button mat-menu-item>Iniciar sesión</button>
+        <button mat-menu-item>Registrarse</button>
+        <button mat-menu-item>Guías de uso</button>
+      </mat-menu>
+      </button>
+  </mat-toolbar>
+  <div class="logotype">
+    <img src="../../../assets/img/mercedes_logo.png" alt="Imagen de logotipo">
+    <h6>Brand</h6>
+  </div>
+</div>
