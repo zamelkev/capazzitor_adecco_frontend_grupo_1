@@ -12,7 +12,6 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-
   userData: any; // Save logged in user data
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
@@ -33,18 +32,19 @@ export class AuthService {
       }
     });
   }
-  // Sign in with email/password
+
+// Sign in with email/password
   SignIn(email: string, password: string) {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
-      .then((result) => {
-        this.SetUserData(result.user);
-        this.afAuth.authState.subscribe((user) => {
-          if (user) {
-            this.router.navigate(['candidate-dashboard']);
-          }
-        });
-      })
+      // .then((result) => {
+      //   this.SetUserData(result.user);
+      //   this.afAuth.authState.subscribe((user) => {
+      //     if (user) {
+      //       this.router.navigate(['candidate-dashboard']);
+      //     }
+      //   });
+      // })
       .catch((error) => {
         window.alert(error.message);
       });
@@ -53,12 +53,12 @@ export class AuthService {
   SignUp(email: string, password: string) {
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
-      .then((result) => {
-        /* Call the SendVerificaitonMail() function when new user sign 
-        up and returns promise */
-        this.SendVerificationMail();
-        this.SetUserData(result.user);
-      })
+      // .then((result) => {
+      //   /* Call the SendVerificaitonMail() function when new user sign 
+      //   up and returns promise */
+      //   this.SendVerificationMail();
+      //   this.SetUserData(result.user);
+      // })
       .catch((error) => {
         window.alert(error.message);
       });
@@ -109,7 +109,7 @@ export class AuthService {
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['sign-in']);
+      this.router.navigate(['login']);
     });
   }
 }

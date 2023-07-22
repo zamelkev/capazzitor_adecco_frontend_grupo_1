@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'candidate-dashboard', component: CandidateDashboardComponent },
   { path: 'company-dashboard', component: CompanyDashboardComponent },
 
-  { path: 'signin', component: SignInComponent },
+  { path: 'login', component: SignInComponent },
   { path: 'register', component: SignUpComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-emailaddress', component: VerifyEmailComponent },
