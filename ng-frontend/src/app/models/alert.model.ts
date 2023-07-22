@@ -7,7 +7,7 @@ export interface Alert {
   fade?: boolean;
 
   // constructor () {
-  //   return {}
+    
   // }
 }
 

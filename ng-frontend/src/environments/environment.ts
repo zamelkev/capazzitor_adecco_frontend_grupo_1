@@ -5,14 +5,14 @@
 export const environment = {
   production: false,
   firebase: {
-
-    apiKey: "AIzaSyD0AbbmzeYFL-rkVg33648GRS2ExHLIs8w",
-    authDomain: "fir-login-f655a.firebaseapp.com",
-    projectId: "fir-login-f655a",
-    storageBucket: "fir-login-f655a.appspot.com",
-    messagingSenderId: "620711211306",
-    appId: "1:620711211306:web:13aaca728d799218e0ae53"
-
+    projectId: 'portal-empleo-7f519',
+    appId: '1:700855171868:web:33633e3bbe5a5d674bd8d9',
+    databaseURL: 'https://portal-empleo-7f519-default-rtdb.firebaseio.com',
+    storageBucket: 'portal-empleo-7f519.appspot.com',
+    apiKey: 'AIzaSyD5sMKznzYQst-vDhTbUDZKWrHPFn8Fm0U',
+    authDomain: 'portal-empleo-7f519.firebaseapp.com',
+    messagingSenderId: '700855171868',
+    measurementId: 'G-F067FM1D9W',
   }
 };
 
