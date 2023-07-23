@@ -65,7 +65,7 @@ h6 {
   display: table;
   width: 100%;
   height: 100%;
-  background: #12056d;
+  background: #c497ff;
 }
 
 .displayTableCell {
@@ -141,7 +141,7 @@ input:-moz-placeholder {
   font-size: 16px;
   font-weight: 600;
   padding: 15px 0;
-  background: #f96ea8;
+  background: #6200ff;
   color: #ffffff;
   cursor: pointer;
   outline: none;
@@ -211,7 +211,7 @@ input:-moz-placeholder {
 }
 
 .forgotPassword span {
-  color: #4dd5fe;
+  color: #1100ff;
   font-size: 14px;
   font-weight: 400;
   cursor: pointer;
@@ -223,14 +223,15 @@ input:-moz-placeholder {
   padding: 15px 0 0;
   text-align: center;
   font-size: 14px;
+  font-style: normal;
   font-weight: 400;
   display: block;
-  color: rgba(255, 255, 255, 0.6);
+  color: #000000;
 }
 
 .redirectToLogin .redirect {
   cursor: pointer;
-  color: #ffffff;
+  color: #1100ff;
   text-decoration: underline;
 }
 
