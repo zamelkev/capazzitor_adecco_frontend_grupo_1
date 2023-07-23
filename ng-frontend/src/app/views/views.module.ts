@@ -4,9 +4,6 @@ import { RouterModule } from '@angular/router';
 
 import { HomeComponent } from './home/home.component';
 import { CurrentNewsComponent } from './current-news/current-news.component';
-import { OfferListComponent } from './offer-list/offer-list.component';
-import { OfferFormComponent } from './offer-form/offer-form.component';
-import { OfferDetailComponent } from './offer-detail/offer-detail.component';
 import { CandidateServicesComponent } from './candidate-services/candidate-services.component';
 import { CompanyServicesComponent } from './company-services/company-services.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -24,9 +21,6 @@ import { UseGuidesComponent } from './use-guides/use-guides.component';
   declarations: [
     HomeComponent,
     CurrentNewsComponent,
-    OfferListComponent,
-    OfferFormComponent,
-    OfferDetailComponent,
     CandidateServicesComponent,
     CompanyServicesComponent,
     DashboardComponent,
@@ -45,9 +39,6 @@ import { UseGuidesComponent } from './use-guides/use-guides.component';
   exports: [
     HomeComponent,
     CurrentNewsComponent,
-    OfferListComponent,
-    OfferFormComponent,
-    OfferDetailComponent,
     CandidateServicesComponent,
     CompanyServicesComponent,
     DashboardComponent,

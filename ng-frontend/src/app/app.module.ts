@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MainComponentsModule } from './main-components/main-components.module';
 import { ViewsModule } from './views/views.module';
 import { environment } from '../environments/environment';
@@ -41,24 +42,26 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
-import { ReactiveFormsModule } from "@angular/forms";
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 //import { UsersModule } from './users/users.module';
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     MainComponentsModule,
     ViewsModule,
     BrowserModule,
     RouterModule,
+    /*     UsersModule,
+     */ BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MainComponentsModule,
-    ViewsModule,
     // environment,
     // AngularFireModule.initializeApp(environment.firebase),
     AngularFireModule.initializeApp(firebaseConfig),
@@ -75,10 +78,15 @@ import { ReactiveFormsModule } from "@angular/forms";
     MatIconModule,
     MatToolbarModule,
     MatMenuModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    //FormControl,
+    ReactiveFormsModule,
+    MatAutocompleteModule,
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [AuthService],
   // providers: [AuthService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
