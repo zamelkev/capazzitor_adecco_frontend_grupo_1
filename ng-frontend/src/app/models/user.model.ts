@@ -1,11 +1,13 @@
-export interface User {
-    uid: number;
-    email: string;
-    displayName: string;
+import { Roles } from "./roles.model";
+
+export class User {
+    uid!: number;
+    email!: string;
+    displayName!: string;
     // password: string;
-    // rol: number;
-    photoURL: string;
-    emailVerified: boolean;
+    rol!: number;
+    photoURL!: string;
+    emailVerified!: boolean;
 }
 
 // const users: User[] = [

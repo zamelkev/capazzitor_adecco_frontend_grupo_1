@@ -14,6 +14,7 @@ export class CandidateDashboardComponent implements OnInit {
               uid: 1,
               displayName: "",
               email: "",
+              rol: 1,
               photoURL: "",
               emailVerified: true,
           };
