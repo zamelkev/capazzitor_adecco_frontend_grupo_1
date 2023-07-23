@@ -3,7 +3,7 @@ mat-toolbar {
   flex-direction: row;
   justify-content: space-between;
   height: 5rem;
-  background-color: transparent;
+  /* background-color: transparent; */
 }
 .account_button {
   display: flex;

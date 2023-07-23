@@ -1,7 +1,7 @@
 <div class="displayTable">
     <div class="displayTableCell">
       <div class="authBlock">
-        <h3>Sign In</h3>
+        <h3>Entrar / Login</h3>
         <div class="formGroup">
           <input
             type="email"
@@ -25,26 +25,26 @@
           <input
             type="button"
             class="btn btnPrimary"
-            value="Log in"
+            value="Entrar"
             (click)="authService.SignIn(userName.value, userPassword.value)"
           />
         </div>
         <div class="formGroup">
-          <span class="or"><span class="orInner">Or</span></span>
+          <span class="or"><span class="orInner">O</span></span>
         </div>
         <div class="forgotPassword">
           <span routerLink="/forgot-password">¿Olvidaste tu contraseña?</span>
         </div>
-      </div>
-      <div class="redirectToLogin">
-        <span
-          >¿Aún no tienes una cuenta?<span
-            class="redirect"
-            routerLink="/register-user"
+        <div class="redirectToLogin">
+          <span
+            >¿Aún no tienes una cuenta?<span
+              class="redirect"
+              routerLink="/register"
+            >
+              Registrase</span
+            ></span
           >
-            Registrase</span
-          ></span
-        >
+        </div>
       </div>
     </div>
   </div>
