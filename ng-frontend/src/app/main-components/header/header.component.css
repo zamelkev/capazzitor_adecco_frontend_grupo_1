@@ -10,6 +10,14 @@ mat-toolbar {
   flex-direction: column;
   justify-content: space-between;
 }
-/* .account_button span {
-  font-size: small;
-} */
+
+
+/** media query for mobile */
+@media (min-width: 0px) and (max-width: 390px) {
+  .logo {
+      width: 1.3rem;
+  }
+  .logo-text {
+      font-size: 1rem;
+  }
+}
