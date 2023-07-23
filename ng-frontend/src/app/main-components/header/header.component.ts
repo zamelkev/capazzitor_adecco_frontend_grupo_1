@@ -8,6 +8,13 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  
+
+  // constructor () {
+  //   this.SignOut();
+  // }
+
+  // SignOut() {
+  //     localStorage.removeItem('user');
+  //     // this.router.navigate(['login']);
+  // }
 }
- 
