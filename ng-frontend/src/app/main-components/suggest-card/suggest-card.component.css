@@ -1,42 +1,21 @@
-mat-card {
-  display: flex;
-  flex-wrap: wrap;
+.suggestContainer {
   background-color: rgba(0,0,0,0.20);
   border-radius: 0.5rem;
-  max-width: fit-content;
-  min-height: 10vh;
+  max-width: 80vw;
+  margin: 0.25rem 0;
 }
-mat-card-header {
-  display: flex;
-  flex-wrap: wrap;
- }
-
-/* mat-card-subtitle {
-  word-wrap: break-word !important;
-  word-break: break-all !important;
-  overflow-wrap: break-word !important;
-}
- */
 .firmLogo {
   background-image: url('../../../assets/img/mercedes_logo.png');
   background-size: cover;
-  background-repeat: no-repeat;
   background-color: rgba(255,255,255,1);
   background-position: center;
 }
+mat-card-header {
+  min-width: 100%;
+  padding: 1rem;
+  overflow: visible;
+}
 
 mat-card-content {
-  display: flex;
-  flex-wrap: wrap;
-/*   word-wrap: break-word !important;
-  word-break: break-all !important;
-  overflow-wrap: break-word !important;
- */  
-  max-width: 30vw;
+  max-width: 50vw;
 }
-/* span {
-  word-wrap: break-word !important;
-  word-break: break-all !important;
-  text-overflow: ellipsis;
-}
- */

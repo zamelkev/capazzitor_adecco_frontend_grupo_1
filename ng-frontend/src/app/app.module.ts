@@ -17,7 +17,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //import { FormControl } from '@angular/forms';
 
 
-import { AboutUsModule } from './about-us/about-us.module';
 // import { DashboardModule } from './dashboard/dashboard.module';
 import { MainComponentsModule } from './main-components/main-components.module';
 import { ViewsModule } from './views/views.module';
@@ -38,8 +37,6 @@ import { MatCardModule } from '@angular/material/card';
 @NgModule({
   declarations: [AppComponent],
   imports: [
-    AboutUsModule,
-    // DashboardModule,
     MainComponentsModule,
     ViewsModule,
     /*     UsersModule,
