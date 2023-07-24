@@ -8,6 +8,7 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 // Auth service
+import { AuthService } from './services/auth.service';
 
 // Main
 import { RouterModule } from '@angular/router';
@@ -40,7 +41,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
-import { AuthService } from './services/auth.service';
+import { ReactiveFormsModule } from "@angular/forms";
+
 
 
 @NgModule({

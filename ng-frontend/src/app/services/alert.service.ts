@@ -26,35 +26,35 @@ export class AlertService {
 
   // convenience methods
 
-  // success(message: string, options?: AlertOptions) {
+  success(message: string, options?: AlertOptions) {
 
-  //   this.alert(new Alert({ ...options, type: AlertType.Success, message }));
+    this.alert(new Alert({ ...options, type: AlertType.Success, message }));
 
-  // }
-
-
-
-  // error(message: string, options?: AlertOptions) {
-
-  //   this.alert(new Alert({ ...options, type: AlertType.Error, message }));
-
-  // }
+  }
 
 
 
-  // info(message: string, options?: AlertOptions) {
+  error(message: string, options?: AlertOptions) {
 
-  //   this.alert(new Alert({ ...options, type: AlertType.Info, message }));
+    this.alert(new Alert({ ...options, type: AlertType.Error, message }));
 
-  // }
+  }
 
 
 
-  // warn(message: string, options?: AlertOptions) {
+  info(message: string, options?: AlertOptions) {
 
-  //   this.alert(new Alert({ ...options, type: AlertType.Warning, message }));
+    this.alert(new Alert({ ...options, type: AlertType.Info, message }));
 
-  // }
+  }
+
+
+
+  warn(message: string, options?: AlertOptions) {
+
+    this.alert(new Alert({ ...options, type: AlertType.Warning, message }));
+
+  }
 
 
 
@@ -72,10 +72,10 @@ export class AlertService {
 
   // clear alerts
 
-  // clear(id = this.defaultId) {
+  clear(id = this.defaultId) {
 
-  //   this.subject.next(new Alert({ id }));
+    this.subject.next(new Alert({ id }));
 
-  // }
+  }
   
 }
