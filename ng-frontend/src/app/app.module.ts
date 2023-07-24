@@ -24,11 +24,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { environment } from '../environments/environment';
 
 // Firebase
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideDatabase,getDatabase } from '@angular/fire/database';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+// import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+// import { provideAuth,getAuth } from '@angular/fire/auth';
+// import { provideDatabase,getDatabase } from '@angular/fire/database';
+// import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+// import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyD5sMKznzYQst-vDhTbUDZKWrHPFn8Fm0U",
@@ -62,6 +62,8 @@ import { ViewsModule } from './views/views.module';
     AppComponent
   ],
   imports: [
+    MainComponentsModule,
+    ViewsModule,
     BrowserModule,
     RouterModule,
     AppRoutingModule,
@@ -90,7 +92,19 @@ import { ViewsModule } from './views/views.module';
     MatInputModule,
     MatFormFieldModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    // environment,
+    // AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
+    // provideFirebaseApp(() => initializeApp(environment.firebase)),
+    // provideFirebaseApp(() => initializeApp(firebaseConfig)),
+    // provideAuth(() => getAuth()),
+    // provideDatabase(() => getDatabase()),
+    // provideFirestore(() => getFirestore()),
     /*     UsersModule,
      */
   ],

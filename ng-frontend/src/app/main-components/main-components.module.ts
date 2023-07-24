@@ -23,9 +23,6 @@ import { SearcherComponent } from './searcher/searcher.component';
 import { SocialNetworksComponent } from './social-networks/social-networks.component';
 import { RightMenuComponent } from './right-menu/right-menu.component';
 import { LeftMenuComponent } from './left-menu/left-menu.component';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { CandidateDashboardComponent } from './candidate-dashboard/candidate-dashboard.component';
-import { CompanyDashboardComponent } from './company-dashboard/company-dashboard.component';
 import { OfferListComponent } from './offer-list/offer-list.component';
 import { OfferFormComponent } from './offer-form/offer-form.component';
 import { OfferDetailComponent } from '../main-components/offer-detail/offer-detail.component';
@@ -53,9 +50,6 @@ import { NowadaysComponent } from './nowadays/nowadays.component';
     SocialNetworksComponent,
     RightMenuComponent,
     LeftMenuComponent,
-    AdminDashboardComponent,
-    CandidateDashboardComponent,
-    CompanyDashboardComponent,
     OfferListComponent,
     OfferFormComponent,
     OfferDetailComponent,
@@ -67,7 +61,7 @@ import { NowadaysComponent } from './nowadays/nowadays.component';
     TeamComponent,
     EventsComponent,
     NewsComponent,
-    NowadaysComponent,
+    NowadaysComponent
   ],
   imports: [
     CommonModule,
@@ -92,9 +86,6 @@ import { NowadaysComponent } from './nowadays/nowadays.component';
     SocialNetworksComponent,
     RightMenuComponent,
     LeftMenuComponent,
-    AdminDashboardComponent,
-    CandidateDashboardComponent,
-    CompanyDashboardComponent,
     OfferListComponent,
     OfferFormComponent,
     OfferDetailComponent,
