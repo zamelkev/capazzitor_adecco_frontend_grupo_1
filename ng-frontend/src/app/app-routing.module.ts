@@ -1,10 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
-// Components Import
-import { AboutUsComponent } from './views/about-us/about-us.component';
 import { DashboardComponent } from './views/dashboard/dashboard.component';
-import { CurrentNewsComponent } from './views/current-news/current-news.component';
 import { HomeComponent } from './views/home/home.component';
 import { SignInComponent } from './views/sign-in/sign-in.component';
 import { SignUpComponent } from './views/sign-up/sign-up.component';

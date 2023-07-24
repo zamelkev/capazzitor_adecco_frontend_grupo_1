@@ -16,9 +16,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MainComponentsModule } from './main-components/main-components.module';
-import { ViewsModule } from './views/views.module';
-import { environment } from '../environments/environment';
+//import { FormControl } from '@angular/forms';
+
+
+// import { DashboardModule } from './dashboard/dashboard.module';
+
+// import { environment } from '../environments/environment';
 
 // Firebase
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -47,6 +50,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { MainComponentsModule } from './main-components/main-components.module';
+import { ViewsModule } from './views/views.module';
 
 
 //import { UsersModule } from './users/users.module';
@@ -57,12 +62,8 @@ import { MatCardModule } from '@angular/material/card';
     AppComponent
   ],
   imports: [
-    MainComponentsModule,
-    ViewsModule,
     BrowserModule,
     RouterModule,
-    /*     UsersModule,
-     */ BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     // environment,
@@ -83,12 +84,15 @@ import { MatCardModule } from '@angular/material/card';
     MatMenuModule,
     ReactiveFormsModule,
     //FormControl,
+    FormsModule,
     ReactiveFormsModule,
     MatAutocompleteModule,
     MatInputModule,
     MatFormFieldModule,
     MatListModule,
     MatCardModule
+    /*     UsersModule,
+     */
   ],
   providers: [AuthService],
   // providers: [AuthService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],

@@ -33,6 +33,12 @@ import { SuggestionsComponent } from './suggestions/suggestions.component';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { ListComponent } from './list/list.component';
 import { SuggestCardComponent } from './suggest-card/suggest-card.component';
+import { MeetUsComponent } from './meet-us/meet-us.component';
+import { OurServicesComponent } from './our-services/our-services.component';
+import { TeamComponent } from './team/team.component';
+import { EventsComponent } from './events/events.component';
+import { NewsComponent } from './news/news.component';
+import { NowadaysComponent } from './nowadays/nowadays.component';
 
 
 
@@ -56,6 +62,12 @@ import { SuggestCardComponent } from './suggest-card/suggest-card.component';
     SuggestionsComponent,
     ListComponent,
     SuggestCardComponent,
+    MeetUsComponent,
+    OurServicesComponent,
+    TeamComponent,
+    EventsComponent,
+    NewsComponent,
+    NowadaysComponent,
   ],
   imports: [
     CommonModule,
@@ -70,7 +82,7 @@ import { SuggestCardComponent } from './suggest-card/suggest-card.component';
     MatInputModule,
     MatFormFieldModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
   ],
   exports: [
     AutocompleteComponent,
@@ -89,6 +101,12 @@ import { SuggestCardComponent } from './suggest-card/suggest-card.component';
     SuggestionsComponent,
     ListComponent,
     SuggestCardComponent,
+    MeetUsComponent,
+    OurServicesComponent,
+    TeamComponent,
+    EventsComponent,
+    NewsComponent,
+    NowadaysComponent
   ],
 })
 export class MainComponentsModule {}

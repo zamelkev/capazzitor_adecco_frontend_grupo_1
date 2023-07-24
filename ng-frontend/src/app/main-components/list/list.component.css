@@ -1,6 +1,7 @@
-.suggestItem {
-  min-height: 12vh;
-  max-height: min-content;
-  margin: 1rem 0.25rem;
-  max-width: 85vw;
+.listContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
