@@ -5,12 +5,11 @@ import { AdminDashboardComponent } from './dashboard/admin-dashboard/admin-dashb
 import { CandidateDashboardComponent } from './dashboard/candidate-dashboard/candidate-dashboard.component';
 import { CompanyDashboardComponent } from './dashboard/company-dashboard/company-dashboard.component';
 import { CurrentNewsComponent } from './views/current-news/current-news.component';
-import { HomeComponent } from './views/home/home.component';
+
 import { LoginComponent } from './views/login/login.component';
 import { SignupComponent } from './views/signup/signup.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
