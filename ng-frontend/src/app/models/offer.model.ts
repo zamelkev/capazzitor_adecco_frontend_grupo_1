@@ -11,5 +11,5 @@ export class Offer {
     urgencia?: string;
     telefono?: string;
     correo?: Email;
-    // candidatos?: List<Candidate>;
+    candidatos?: Candidate;
 }

@@ -5,7 +5,7 @@ export class User {
     email!: string;
     displayName!: string;
     // password: string;
-    rol!: number;
+    rol?: number;
     photoURL!: string;
     emailVerified!: boolean;
 }
