@@ -3,7 +3,7 @@ import { Email } from "./email.model";
 import { Telephone } from "./telephone.model";
 import { User } from "./user.model";
 
-export class Candidate extends User {
+export interface Candidate extends User {
     idCandidato?: number;
     nombre?: string;
     apellidos?: string;

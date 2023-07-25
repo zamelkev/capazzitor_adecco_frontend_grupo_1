@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
+
+
 
 
 @Component({
@@ -6,5 +9,14 @@ import { Component } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
-export class HeaderComponent {}
- 
+export class HeaderComponent {
+
+  // constructor () {
+  //   this.SignOut();
+  // }
+
+  // SignOut() {
+  //     localStorage.removeItem('user');
+  //     // this.router.navigate(['login']);
+  // }
+}

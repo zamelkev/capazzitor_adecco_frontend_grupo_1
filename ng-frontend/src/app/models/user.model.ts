@@ -1,9 +1,10 @@
+import { Role } from '../services/model/roles.type';
 export interface User {
     uid?: number;
     email?: string;
-    username?: string;
+    displayName?: string;
     password?: string;
-    rol?: number;
+    rol?: Role;
     photoURL: string;
    emailVerified: boolean;
 }

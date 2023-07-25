@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "portal-empleo-7f519": {
+      "hosting": {
+        "ng-frontend": [
+          "portal-empleo-7f519"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "portal-empleo-7f519"
+  }
+}

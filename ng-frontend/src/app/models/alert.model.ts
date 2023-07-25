@@ -1,4 +1,4 @@
-export interface Alert {
+export class Alert {
   id?: string;
   type?: AlertType;
   message?: string;
@@ -6,9 +6,9 @@ export interface Alert {
   keepAfterRouteChange?: boolean;
   fade?: boolean;
 
-  // constructor () {
-  //   return {}
-  // }
+  constructor(init?: Partial<Alert>) {
+    Object.assign(this, init);
+  }
 }
 
 export enum AlertType {

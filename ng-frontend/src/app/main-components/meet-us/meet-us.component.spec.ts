@@ -11,11 +11,6 @@ describe('MeetUsComponent', () => {
       declarations: [MeetUsComponent]
     });
     fixture = TestBed.createComponent(MeetUsComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  }
+}

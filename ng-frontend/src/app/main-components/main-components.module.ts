@@ -36,6 +36,9 @@ import { TeamComponent } from './team/team.component';
 import { EventsComponent } from './events/events.component';
 import { NewsComponent } from './news/news.component';
 import { NowadaysComponent } from './nowadays/nowadays.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { CandidateDashboardComponent } from './candidate-dashboard/candidate-dashboard.component';
+import { CompanyDashboardComponent } from './company-dashboard/company-dashboard.component';
 
 
 
@@ -62,6 +65,9 @@ import { NowadaysComponent } from './nowadays/nowadays.component';
     EventsComponent,
     NewsComponent,
     NowadaysComponent,
+    AdminDashboardComponent,
+    CandidateDashboardComponent,
+    CompanyDashboardComponent
   ],
   imports: [
     CommonModule,
@@ -97,7 +103,10 @@ import { NowadaysComponent } from './nowadays/nowadays.component';
     TeamComponent,
     EventsComponent,
     NewsComponent,
-    NowadaysComponent
+    NowadaysComponent,
+    AdminDashboardComponent,
+    CandidateDashboardComponent,
+    CompanyDashboardComponent
   ],
 })
 export class MainComponentsModule {}
