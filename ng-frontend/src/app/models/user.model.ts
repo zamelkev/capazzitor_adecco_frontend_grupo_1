@@ -4,7 +4,7 @@ export interface User {
     email?: string;
     displayName?: string;
     password?: string;
-    rol?: Role;
+    rol?: string | undefined;
     photoURL: string;
    emailVerified: boolean;
 }

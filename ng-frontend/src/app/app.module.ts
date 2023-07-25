@@ -16,6 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 //import { FormControl } from '@angular/forms';
 
 
@@ -60,6 +61,7 @@ import { ViewsModule } from './views/views.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [
+    HttpClientModule,
     MainComponentsModule,
     ViewsModule,
     AppRoutingModule,

@@ -11,14 +11,14 @@ import { UseGuidesComponent } from './views/use-guides/use-guides.component';
 import { ViewsModule } from './views/views.module';
 
 const routes: Routes = [
-  { path: '', canLoad: [IsLoggedInGuard], component: HomeComponent },
+  { path: '', /*canLoad: [IsLoggedInGuard],*/ component: HomeComponent },
   { path: 'home', component: HomeComponent },
     
-  { path: 'dashboard', canActivate: [IsLoggedInGuard], component: DashboardComponent },
+  { path: 'dashboard', /*canActivate: [IsLoggedInGuard],*/ component: DashboardComponent },
   
   { path: 'login', component: SignInComponent },
   { path: 'register', component: SignUpComponent },
-  { path: 'forgot-password', canLoad: [IsLoggedInGuard], component: ForgotPasswordComponent },
+  { path: 'forgot-password', /*canLoad: [IsLoggedInGuard],*/ component: ForgotPasswordComponent },
   { path: 'verify-emailaddress', component: VerifyEmailComponent },
   { path: 'use-guides', component: UseGuidesComponent },
   // { path: '**', redirectTo: '/home', pathMatch: 'full' },
