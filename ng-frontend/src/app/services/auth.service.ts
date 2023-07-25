@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable, NgZone } from '@angular/core';
 import { User } from '../models/user.model';
 import {
@@ -10,20 +11,21 @@ import {
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import * as firebase from 'firebase/app'
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
-// import 'rxjs/add/Observable/of'
-// import 'rxjs/add/operator/switchMap'
+import { BehaviorSubject, ignoreElements, map, Observable, tap } from 'rxjs';
 import { Console } from 'console';
 import { Auth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { IsLoggedInGuard } from './guards/is-logged-in.guard';
+import { LoginCredentials } from './model/login-credentials.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   userData!: any; // Save logged in user data
-  user$: Observable<User> | undefined;
+  private user = new BehaviorSubject<User | null>(null);
+  user$ = this.user.asObservable();
+  isLoggedIn$: Observable<boolean> = this.user$.pipe(map(Boolean));
 
   constructor(
     public afs: AngularFirestore, // Inject Firestore service
@@ -31,6 +33,7 @@ export class AuthService {
     private db: AngularFireDatabase,
     public router: Router,
     public ngZone: NgZone, // NgZone service to remove outside scope warning
+    private httpClient: HttpClient
   ) {
     /* Saving user data in localstorage when 
     logged in and setting up null when logged out */
@@ -62,8 +65,6 @@ export class AuthService {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
-        // console.log(result);
-        // console.log(result.user);
         this.SetUserData(result.user);
         this.afAuth.authState.subscribe((user) => {
           if (user) {

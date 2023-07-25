@@ -18,11 +18,11 @@ export class UserService {
   constructor(private readonly firestore: Firestore) {
     this.usersCollection = collection(this.firestore, 'users');
   }
-  
+
   getAll() {
     return collectionData(this.usersCollection, {
       idField: 'id',
     }) as Observable<User[]>;
   }
-  
+
 }
