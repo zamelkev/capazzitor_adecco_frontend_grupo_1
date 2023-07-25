@@ -53,6 +53,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MainComponentsModule } from './main-components/main-components.module';
 import { ViewsModule } from './views/views.module';
+import { authTokeninterceptorProvider } from './services/interceptors';
 
 
 //import { UsersModule } from './users/users.module';
@@ -67,6 +68,19 @@ import { ViewsModule } from './views/views.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     RouterModule,
+    HttpClientModule,
+    // environment,
+    // AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
+    // provideFirebaseApp(() => initializeApp(environment.firebase)),
+    // provideFirebaseApp(() => initializeApp(firebaseConfig)),
+    // provideAuth(() => getAuth()),
+    // provideDatabase(() => getDatabase()),
+    // provideFirestore(() => getFirestore()),
     MatButtonModule,
     MatIconModule,
     MatToolbarModule,
@@ -96,7 +110,8 @@ import { ViewsModule } from './views/views.module';
     BrowserModule,
     */
   ],
-  providers: [AuthService],
+  providers:  [AuthService],
+  // providers:  [AuthService, authTokeninterceptorProvider],
   // providers: [AuthService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   bootstrap: [AppComponent]
 })

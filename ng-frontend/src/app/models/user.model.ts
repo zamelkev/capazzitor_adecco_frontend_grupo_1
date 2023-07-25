@@ -1,4 +1,4 @@
-import { Role } from '../services/model/roles.type';
+import { Rol } from '../services/model/roles.type';
 export interface User {
     uid?: number;
     email?: string;
@@ -6,7 +6,8 @@ export interface User {
     password?: string;
     rol?: string | undefined;
     photoURL: string;
-   emailVerified: boolean;
+    emailVerified: boolean;
+    token: string;
 }
 
 // const users: User[] = [

@@ -20,6 +20,7 @@ export class DashboardComponent implements OnInit {
               rol: "",
               photoURL: "",
               emailVerified: true,
+              token: "",
           };
   }
 

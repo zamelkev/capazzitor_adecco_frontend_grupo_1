@@ -21,11 +21,11 @@ export class LoginComponent {
   form = new FormGroup({
     username: new FormControl('', {
       validators: [Validators.required],
-      nonNullable: true,
+      // nonNullable: true,
     }),
     password: new FormControl('', {
       validators: [Validators.required],
-      nonNullable: true,
+      // nonNullable: true,
     }),
   });
 
@@ -34,24 +34,24 @@ export class LoginComponent {
     private cdr: ChangeDetectorRef
   ) {}
 
-  login() {
-    this.processingRequest = true;
+  // login() {
+  //   this.processingRequest = true;
 
-    this.authService
-      .login(this.form.value as LoginCredentials)
-      .pipe(
-        finalize(() => (this.processingRequest = false)),
-        catchError((error: HttpErrorResponse) => {
-          if (error.status === 401) {
-            this.handleUnauthorized();
-            return EMPTY;
-          }
+  //   this.authService
+  //     .login(this.form.value as LoginCredentials)
+  //     .pipe(
+  //       finalize(() => (this.processingRequest = false)),
+  //       catchError((error: HttpErrorResponse) => {
+  //         if (error.status === 401) {
+  //           this.handleUnauthorized();
+  //           return EMPTY;
+  //         }
 
-          throw error;
-        })
-      )
-      .subscribe();
-  }
+  //         throw error;
+  //       })
+  //     )
+  //     .subscribe();
+  // }
 
   handleUnauthorized() {
     this.form.setErrors({ invalidCredentials: true });
