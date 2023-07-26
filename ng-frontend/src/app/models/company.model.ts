@@ -8,12 +8,12 @@ export interface Company extends User {
     nombreSocial: string;
     nombreFiscal: string;
     cif: string;
-    telefono: Telephone;
-    correo: Email;
-    // direcciones: List<Direction>;
+    telefono: number;
+    correo: string;
+    direcciones: string;
     sector: string;
     estado: string;
-    // ofertas: List<Offer>;
+    ofertas: number;
     numeroEmpleados: number;
     proyeccion: string;
 }

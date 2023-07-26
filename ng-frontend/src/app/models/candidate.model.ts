@@ -8,9 +8,9 @@ export interface Candidate extends User {
     nombre?: string;
     apellidos?: string;
     dni?:string;
-    telefono?: Telephone;
-    correo?: Email;
-    direccion?: Direction;
-    formacion?: any;
-    ofertas?: any;
+    telefono?: number;
+    correo?: string;
+    direccion?: string;
+    formacion?: string;
+    ofertas?: number;
 }
