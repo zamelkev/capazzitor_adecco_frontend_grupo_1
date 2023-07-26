@@ -17,7 +17,6 @@ export class CandidateDashboardComponent implements OnInit {
               rol: "Candidato",
               photoURL: "",
               emailVerified: true,
-              token: "",
           };
   }
   ngOnInit(): void {}

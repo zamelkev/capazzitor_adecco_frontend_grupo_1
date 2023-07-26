@@ -17,10 +17,9 @@ export class DashboardComponent implements OnInit {
               uid: 1,
               displayName: "",
               email: "",
-              rol: "",
+              rol: "Candidato",
               photoURL: "",
               emailVerified: true,
-              token: "",
           };
   }
 

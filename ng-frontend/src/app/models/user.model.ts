@@ -1,12 +1,15 @@
-import { Rol } from '../services/model/roles.type';
+import { Role } from '../services/model/roles.type';
 export interface User {
     uid?: number;
     email?: string;
     displayName?: string;
     password?: string;
-    rol?: string | undefined;
+    rol?: Role;
     photoURL: string;
-    emailVerified: boolean;
+   emailVerified: boolean;
+}
+
+export interface UserWithToken extends User {
     token: string;
 }
 

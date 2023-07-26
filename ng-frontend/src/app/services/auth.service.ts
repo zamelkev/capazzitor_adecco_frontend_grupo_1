@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, NgZone } from '@angular/core';
-import { User } from '../models/user.model';
+import { User, UserWithToken } from '../models/user.model';
 import {
   AngularFirestore,
   AngularFirestoreDocument,

@@ -7,7 +7,7 @@ import {
 } from '@angular/router';
 import { map, Observable, tap } from 'rxjs';
 import { AuthService } from '../auth.service';
-import { Rol } from '../model/roles.type';
+import { Role } from '../model/roles.type';
 
 @Injectable({
   providedIn: 'root',
@@ -34,10 +34,10 @@ export class HasRoleGuard implements CanLoad, CanActivate {
 }
 
 // Only available for v14.2 and above
-export function hasRole(allowedRoles: Rol[]) {
-  return () =>
-    inject(AuthService).user$.pipe(
-      map((user) => Boolean(user && allowedRoles.includes(user.rol))),
-      tap((hasRole) => hasRole === false && alert('Acceso Denegado'))
-    );
-}
+// export function hasRole(allowedRoles: Role[]) {
+//   return () =>
+//     inject(AuthService).user$.pipe(
+//       map((user) => Boolean(user && allowedRoles.includes(user.rol))),
+//       tap((hasRole) => hasRole === false && alert('Acceso Denegado'))
+//     );
+// }

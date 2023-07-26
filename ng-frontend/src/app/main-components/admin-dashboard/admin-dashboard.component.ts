@@ -17,7 +17,6 @@ export class AdminDashboardComponent {
               rol: "Admin",
               photoURL: "",
               emailVerified: true,
-              token: "",
           };
   }
 }
