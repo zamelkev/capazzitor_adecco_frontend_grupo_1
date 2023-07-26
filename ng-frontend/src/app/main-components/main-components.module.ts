@@ -55,6 +55,7 @@ import { CompanyListComponent } from './company-list/company-list.component';
 
 
 
+
 @NgModule({
   declarations: [
     AutocompleteComponent,

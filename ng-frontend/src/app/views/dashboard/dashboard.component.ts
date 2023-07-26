@@ -22,11 +22,6 @@ export class DashboardComponent implements OnInit {
               emailVerified: true,
           };
   }
-
-  
-
-  ngOnInit(): void {
-    
-  }
+  ngOnInit(): void {}
 
 }
