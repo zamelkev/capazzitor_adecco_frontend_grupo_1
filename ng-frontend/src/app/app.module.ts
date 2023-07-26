@@ -9,7 +9,6 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 // Auth service
 import { AuthService } from './services/auth.service';
-import { HttpClientModule } from '@angular/common/http';
 
 // Main
 import { RouterModule } from '@angular/router';
@@ -52,6 +51,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
 import { MainComponentsModule } from './main-components/main-components.module';
 import { ViewsModule } from './views/views.module';
 
@@ -79,6 +79,7 @@ import { ViewsModule } from './views/views.module';
     MatFormFieldModule,
     MatListModule,
     MatCardModule,
+    MatDividerModule,
     // environment,
     // AngularFireModule.initializeApp(environment.firebase),
     AngularFireModule.initializeApp(firebaseConfig),

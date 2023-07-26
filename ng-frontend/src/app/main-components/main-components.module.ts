@@ -13,6 +13,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+
 
 
 
@@ -67,7 +69,7 @@ import { CompanyDashboardComponent } from './company-dashboard/company-dashboard
     NowadaysComponent,
     AdminDashboardComponent,
     CandidateDashboardComponent,
-    CompanyDashboardComponent
+    CompanyDashboardComponent,
   ],
   imports: [
     CommonModule,
@@ -83,6 +85,7 @@ import { CompanyDashboardComponent } from './company-dashboard/company-dashboard
     MatFormFieldModule,
     MatListModule,
     MatCardModule,
+    MatDividerModule
   ],
   exports: [
     AutocompleteComponent,
