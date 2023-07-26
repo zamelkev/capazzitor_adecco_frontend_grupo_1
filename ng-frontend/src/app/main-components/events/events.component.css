@@ -1,0 +1,13 @@
+.eventsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 100vw;
+  max-width: 100vw;
+  background-color: rgb(186, 180, 180);
+  padding: 1rem;
+}
+h5 {
+  font-weight: bold;
+}
