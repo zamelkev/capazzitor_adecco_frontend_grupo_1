@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CompanyService } from 'src/app/services/company.service';
-
+import { Company } from 'src/app/models/company.model';
 @Component({
   selector: 'app-company-form',
   templateUrl: './company-form.component.html',
@@ -23,25 +23,93 @@ export class CompanyFormComponent {
   createFormGroup() {
     return new FormGroup({
       id: new FormControl({ value: null, disabled: true }),
-      fullName: new FormControl('', {
+      nombreSocial: new FormControl('', {
         // nonNullable: true,
         validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
       }),
-      slug: new FormControl('', {
+      nombreFiscal: new FormControl('', {
         // nonNullable: true,
-        validators: [Validators.required, Validators.minLength(5), Validators.maxLength(100), Validators.pattern('(^[a-z]+)(?![A-Z])([a-z_0-9]*$)')]
+        validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
       }),
-      imgUrl: new FormControl('', {
+      cif: new FormControl('', {
+        // nonNullable: true,
+        validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
+      }),
+      telefono: new FormControl('', {
+        // nonNullable: true,
+        validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
+      }),
+      correo: new FormControl('', {
+        // nonNullable: true,
+        validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
+      }),
+      direcciones: new FormControl('', {
+        // nonNullable: true,
+        validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
+      }),
+      sector: new FormControl('', {
+        // nonNullable: true,
+        validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
+      }),
+      estado: new FormControl('', {
+        // nonNullable: true,
+        validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
+      }),
+      ofertas: new FormControl('', {
         // nonNullable: true,
         validators: [Validators.required]
+      }),
+      numeroEmpleados: new FormControl('', {
+        // nonNullable: true,
+        validators: [Validators.required]
+      }),
+      proyeccion: new FormControl('', {
+        // nonNullable: true,
+        validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
       }),
      
     })
   }
 
+
+  ngOnInit(): void {
+
+
+  }
+
+  private getCompanyAndLoadInForm(id: string) {
+    
+  }
+
+  save() {
+    if (!this.editForm.valid) return
+    let categories = {
+      name: this.editForm.get("fullName")?.value,
+      slug: this.editForm.get("slug")?.value,
+      imgUrl: this.editForm.get("imgUrl")?.value
+    } as any;
+
+    let id = this.editForm.get("id")?.value;
+
+    
+    if (id) { // actualización
+      
+
+    } else { // creación
+      
+    }
+  }
+
+
+
   private showError(err: any): void {
     console.log(err);
     this.error = true;
   }
+
+  public onDelete(): void {
+    
+  }
+
 
 }

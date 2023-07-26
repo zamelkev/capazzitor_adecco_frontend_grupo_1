@@ -1,0 +1,127 @@
+<mat-card class="example-card" *ngIf="error">
+    Se ha producido un error, Inténtalo de nuevo más tarde.
+  </mat-card>
+
+
+  <form class="example-form" [formGroup]="editForm" (ngSubmit)="save()">
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Id</mat-label>
+      <input matInput type="number" formControlName="id">
+    </mat-form-field>
+
+    
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Nombre Social</mat-label>
+      <input matInput formControlName="Nombre Social">
+
+      <mat-error *ngIf="editForm.get('nombreSocial')!.invalid && (editForm.get('nombreSocial')!.dirty || editForm.get('nombreSocial')!.touched)">
+        <span *ngIf="editForm.get('nombreSocial')!.getError('required')">Nombre Social obligatorio</span>
+      </mat-error>
+
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Identificación Fiscal</mat-label>
+        <input matInput formControlName="Nombre Fiscal">
+  
+        <mat-error *ngIf="editForm.get('nombreFiscal')!.invalid && (editForm.get('nombreFiscal')!.dirty || editForm.get('nombreFiscal')!.touched)">
+          <span *ngIf="editForm.get('nombreFiscal')!.getError('required')">Identificación Fiscal obligatoria</span>
+        </mat-error>
+  
+    </mat-form-field>
+    
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>CIF</mat-label>
+        <input matInput formControlName="CIF">
+  
+        <mat-error *ngIf="editForm.get('cif')!.invalid && (editForm.get('cif')!.dirty || editForm.get('cif')!.touched)">
+          <span *ngIf="editForm.get('cif')!.getError('required')">CIF obligatorio</span>
+        </mat-error>
+  
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Teléfono</mat-label>
+        <input matInput formControlName="Teléfono">
+  
+        <mat-error *ngIf="editForm.get('telefono')!.invalid && (editForm.get('telefono')!.dirty || editForm.get('telefono')!.touched)">
+          <span *ngIf="editForm.get('telefono')!.getError('required')">Teléfono obligatorio</span>
+        </mat-error>
+  
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Correo Electrónico</mat-label>
+        <input matInput formControlName="correo">
+  
+        <mat-error *ngIf="editForm.get('correo')!.invalid && (editForm.get('correo')!.dirty || editForm.get('correo')!.touched)">
+          <span *ngIf="editForm.get('correo')!.getError('required')">e-mail obligatorio</span>
+        </mat-error>
+  
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Direcciones</mat-label>
+        <input matInput formControlName="direcciones">
+  
+        <mat-error *ngIf="editForm.get('direcciones')!.invalid && (editForm.get('direcciones')!.dirty || editForm.get('direcciones')!.touched)">
+          <span *ngIf="editForm.get('direcciones')!.getError('required')">Dirección obligatoria</span>
+        </mat-error>
+  
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Sector</mat-label>
+        <input matInput formControlName="sector">
+  
+        <mat-error *ngIf="editForm.get('sector')!.invalid && (editForm.get('sector')!.dirty || editForm.get('sector')!.touched)">
+          <span *ngIf="editForm.get('sector')!.getError('sector')">Sector obligatorio</span>
+        </mat-error>
+  
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Estado</mat-label>
+        <input matInput formControlName="estado">
+  
+        <mat-error *ngIf="editForm.get('estado')!.invalid && (editForm.get('estado')!.dirty || editForm.get('estado')!.touched)">
+          <span *ngIf="editForm.get('estado')!.getError('estado')">Estado obligatorio</span>
+        </mat-error>
+  
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Ofertas</mat-label>
+        <input matInput formControlName="ofertas">
+  
+        <mat-error *ngIf="editForm.get('ofertas')!.invalid && (editForm.get('ofertas')!.dirty || editForm.get('ofertas')!.touched)">
+          <span *ngIf="editForm.get('ofertas')!.getError('ofertas')">Estado obligatorio</span>
+        </mat-error>
+  
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nº de Emplead@s</mat-label>
+        <input matInput formControlName="numeroEmpleados">
+  
+        <mat-error *ngIf="editForm.get('numeroEmpleados')!.invalid && (editForm.get('numeroEmpleados')!.dirty || editForm.get('numeroEmpleados')!.touched)">
+          <span *ngIf="editForm.get('numeroEmpleados')!.getError('numeroEmpleados')">Numero de Empleados obligatorio</span>
+        </mat-error>
+  
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Proyección</mat-label>
+        <input matInput formControlName="proyeccion">
+  
+        <mat-error *ngIf="editForm.get('proyeccion')!.invalid && (editForm.get('proyeccion')!.dirty || editForm.get('proyeccion')!.touched)">
+          <span *ngIf="editForm.get('proyeccion')!.getError('proyeccion')">Proyección obligatoria</span>
+        </mat-error>
+  
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Guardar</button>
+    <button mat-raised-button color="warn" routerLink="/back_office/categories">Cancelar</button>
+    <button *ngIf="id" mat-raised-button color="warn" (click)="onDelete()">Borrar</button>
+  </form>
