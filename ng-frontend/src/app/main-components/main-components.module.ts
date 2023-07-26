@@ -44,6 +44,12 @@ import { CompanyDashboardComponent } from './company-dashboard/company-dashboard
 import { BedsideComponent } from './bedside/bedside.component';
 import { OfferItemComponent } from './offer-item/offer-item.component';
 import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
+import { CandidateDetailComponent } from './candidate-detail/candidate-detail.component';
+import { CandidateFormComponent } from './candidate-form/candidate-form.component';
+import { CandidateListComponent } from './candidate-list/candidate-list.component';
+import { CompanyDetailComponent } from './company-detail/company-detail.component';
+import { CompanyFormComponent } from './company-form/company-form.component';
+import { CompanyListComponent } from './company-list/company-list.component';
 
 
 
@@ -76,6 +82,12 @@ import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
     BedsideComponent,
     OfferItemComponent,
     BottomSheetComponent,
+    CandidateDetailComponent,
+    CandidateFormComponent,
+    CandidateListComponent,
+    CompanyDetailComponent,
+    CompanyFormComponent,
+    CompanyListComponent
   ],
   imports: [
     CommonModule,
@@ -121,12 +133,21 @@ import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
     BedsideComponent,
     OfferItemComponent,
     BottomSheetComponent,
+    CompanyDetailComponent,
+    CompanyFormComponent,
+    CompanyListComponent
   ],
   providers: [
     {
       provide: MAT_BOTTOM_SHEET_DEFAULT_OPTIONS,
       useValue: { panelClass: 'mybottomsheet', hasBackdrop: false },
     },
+    CandidateDetailComponent,
+    CandidateFormComponent,
+    CandidateListComponent,
+    CompanyDetailComponent,
+    CompanyFormComponent,
+    CompanyListComponent
   ],
 })
 export class MainComponentsModule {}

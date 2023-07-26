@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MainComponentsModule } from '../main-components/main-components.module';
 
-import {MatTableModule} from '@angular/material/table';
-
 import { HomeComponent } from './home/home.component';
 // import { CandidateServicesComponent } from './candidate-services/candidate-services.component';
 // import { CompanyServicesComponent } from './company-services/company-services.component';
@@ -31,8 +29,7 @@ import { UseGuidesComponent } from './use-guides/use-guides.component';
   imports: [
     CommonModule,
     RouterModule,
-    MainComponentsModule,
-    MatTableModule
+    MainComponentsModule
   ],
   exports: [
     HomeComponent,

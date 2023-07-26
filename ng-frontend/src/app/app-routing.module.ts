@@ -9,6 +9,7 @@ import { ForgotPasswordComponent } from './views/forgot-password/forgot-password
 import { VerifyEmailComponent } from './views/verify-email/verify-email.component';
 import { UseGuidesComponent } from './views/use-guides/use-guides.component';
 import { ViewsModule } from './views/views.module';
+import { CompanyDashboardComponent } from './main-components/company-dashboard/company-dashboard.component';
 
 const routes: Routes = [
   { path: '', /*canLoad: [IsLoggedInGuard],*/ component: HomeComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'forgot-password', /*canLoad: [IsLoggedInGuard],*/ component: ForgotPasswordComponent },
   { path: 'verify-emailaddress', component: VerifyEmailComponent },
   { path: 'use-guides', component: UseGuidesComponent },
+  { path: 'company-dashboard', component: CompanyDashboardComponent },
   // { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
 

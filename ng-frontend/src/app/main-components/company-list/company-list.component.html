@@ -1,0 +1,38 @@
+<div *ngFor="let empresa of empresas">
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+                        (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{empresa.nombreSocial}}
+          {{empresa.sector}}
+          {{empresa.ofertas}}
+        </mat-panel-title>
+        <mat-panel-description>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      {{empresa.nombreFiscal}}
+        {{empresa.cif}}
+        {{empresa.telefono}}
+        {{empresa.correo}}
+        {{empresa.direcciones}}
+        {{empresa.estado}}
+        {{empresa.proyeccion}}
+        {{empresa.numeroEmpleados}}
+    </mat-expansion-panel>
+</mat-accordion>
+</div>
+  
+  
+  <!-- id: number;
+  nombreSocial: string;
+  nombreFiscal: string;
+  cif: string;
+  telefono: number;
+  correo: string;
+  direcciones: string;
+  sector: string;
+  estado: string;
+  ofertas: number;
+  numeroEmpleados: number;
+  proyeccion: string; -->
