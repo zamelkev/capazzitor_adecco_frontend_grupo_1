@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
+//Angular material modules
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -14,11 +14,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatExpansionModule } from '@angular/material/expansion';
 
-
-
-
-
+//App components
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SearcherComponent } from './searcher/searcher.component';
@@ -41,6 +39,7 @@ import { NowadaysComponent } from './nowadays/nowadays.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { CandidateDashboardComponent } from './candidate-dashboard/candidate-dashboard.component';
 import { CompanyDashboardComponent } from './company-dashboard/company-dashboard.component';
+import { OfferItemComponent } from './offer-item/offer-item.component';
 
 
 
@@ -70,6 +69,7 @@ import { CompanyDashboardComponent } from './company-dashboard/company-dashboard
     AdminDashboardComponent,
     CandidateDashboardComponent,
     CompanyDashboardComponent,
+    OfferItemComponent,
   ],
   imports: [
     CommonModule,
@@ -85,7 +85,8 @@ import { CompanyDashboardComponent } from './company-dashboard/company-dashboard
     MatFormFieldModule,
     MatListModule,
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    MatExpansionModule,
   ],
   exports: [
     AutocompleteComponent,
@@ -109,7 +110,8 @@ import { CompanyDashboardComponent } from './company-dashboard/company-dashboard
     NowadaysComponent,
     AdminDashboardComponent,
     CandidateDashboardComponent,
-    CompanyDashboardComponent
+    CompanyDashboardComponent,
+    OfferItemComponent
   ],
 })
 export class MainComponentsModule {}

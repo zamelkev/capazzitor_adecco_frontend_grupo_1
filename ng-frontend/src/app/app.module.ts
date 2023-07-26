@@ -31,6 +31,24 @@ import { HttpClientModule } from '@angular/common/http';
 // import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 // import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
+//Angular material modules
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatExpansionModule } from '@angular/material/expansion';
+
+//App modules
+import { MainComponentsModule } from './main-components/main-components.module';
+import { ViewsModule } from './views/views.module';
+//import { UsersModule } from './users/users.module';
+
 export const firebaseConfig = {
   apiKey: "AIzaSyD5sMKznzYQst-vDhTbUDZKWrHPFn8Fm0U",
   authDomain: "portal-empleo-7f519.firebaseapp.com",
@@ -42,29 +60,13 @@ export const firebaseConfig = {
   measurementId: "G-F067FM1D9W"
 };
 
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatListModule } from '@angular/material/list';
-import { MatCardModule } from '@angular/material/card';
-import { MatDividerModule } from '@angular/material/divider';
-import { MainComponentsModule } from './main-components/main-components.module';
-import { ViewsModule } from './views/views.module';
-
-
-//import { UsersModule } from './users/users.module';
-
-
 @NgModule({
   declarations: [AppComponent],
   imports: [
     HttpClientModule,
     MainComponentsModule,
     ViewsModule,
+    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     RouterModule,
@@ -80,6 +82,7 @@ import { ViewsModule } from './views/views.module';
     MatListModule,
     MatCardModule,
     MatDividerModule,
+    MatExpansionModule,
     // environment,
     // AngularFireModule.initializeApp(environment.firebase),
     AngularFireModule.initializeApp(firebaseConfig),
