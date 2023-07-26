@@ -8,8 +8,8 @@ export interface Company extends User {
     nombreSocial: string;
     nombreFiscal: string;
     cif: string;
-    telefono: Telephone;
-    correo: Email;
+    telefono: number;
+    correo: string;
     // direcciones: List<Direction>;
     sector: string;
     estado: string;
@@ -17,3 +17,16 @@ export interface Company extends User {
     numeroEmpleados: number;
     proyeccion: string;
 }
+
+/*  id: number;
+    nombreSocial: string;
+    nombreFiscal: string;
+    cif: string;
+    telefono: number;
+    correo: string;
+    direcciones: string;
+    sector: string;
+    estado: string;
+    ofertas: number;
+    numeroEmpleados: number;
+    proyeccion: string; */

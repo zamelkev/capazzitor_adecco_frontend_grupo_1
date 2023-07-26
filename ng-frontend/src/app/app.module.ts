@@ -9,13 +9,14 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 // Auth service
 import { AuthService } from './services/auth.service';
-
-// Main
 import { RouterModule } from '@angular/router';
+// Main
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {MatTableModule} from '@angular/material/table';
 //import { FormControl } from '@angular/forms';
 
 
@@ -83,6 +84,8 @@ import { ViewsModule } from './views/views.module';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
+    HttpClientModule,
+    MatTableModule
     // provideFirebaseApp(() => initializeApp(environment.firebase)),
     // provideFirebaseApp(() => initializeApp(firebaseConfig)),
     // provideAuth(() => getAuth()),

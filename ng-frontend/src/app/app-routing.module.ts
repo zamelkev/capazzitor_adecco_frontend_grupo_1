@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: '', canLoad: [IsLoggedInGuard], component: HomeComponent },
   { path: 'home', component: HomeComponent },
     
-  { path: 'dashboard', canActivate: [IsLoggedInGuard], component: DashboardComponent },
+  { path: 'dashboard', /* canActivate: [IsLoggedInGuard], */ component: DashboardComponent },
   
   { path: 'login', component: SignInComponent },
   { path: 'register', component: SignUpComponent },
