@@ -1,28 +1,28 @@
-import {
-  CollectionReference,
-  DocumentData,
-  collection,
-} from '@firebase/firestore';
-
-// import { collectionData, Firestore } from '@angular/fire/firestore';
-import { Injectable, OnInit } from '@angular/core';
 import { User } from '../models/user.model';
-import { Observable } from 'rxjs/internal/Observable';
+import { Injectable, OnInit } from '@angular/core';
+import { Firestore, collection, addDoc, collectionData, doc, deleteDoc } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  // private usersCollection: CollectionReference<DocumentData>;
 
-  // constructor(private readonly firestore: Firestore) {
-  //   this.usersCollection = collection(this.firestore, 'users');
-  // }
+  constructor(private firestore: Firestore) { }
 
-  // getAll() {
-  //   return collectionData(this.usersCollection, {
-  //     idField: 'id',
-  //   }) as Observable<User[]>;
-  // }
+  addUser(user: any) {
+    const userRef = collection(this.firestore, 'users');
+    return addDoc(userRef, user);
+  }
+
+  getUsers(): Observable<User[]> {
+    const userRef = collection(this.firestore, 'users');
+    return collectionData(userRef, { idField: 'uid' }) as Observable<User[]>;
+  }
+
+  deleteUser(user: User) {
+    const placeDocRef = doc(this.firestore, `users/${user.uid}`);
+    return deleteDoc(placeDocRef);
+  }
 
 }

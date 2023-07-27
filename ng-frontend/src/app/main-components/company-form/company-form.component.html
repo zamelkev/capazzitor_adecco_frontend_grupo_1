@@ -13,7 +13,7 @@
       
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Nombre Social</mat-label>
-        <input matInput formControlName="Nombre Social">
+        <input matInput formControlName="nombreSocial">
         
         <mat-error *ngIf="editForm.get('nombreSocial')!.invalid && (editForm.get('nombreSocial')!.dirty || editForm.get('nombreSocial')!.touched)">
           <span *ngIf="editForm.get('nombreSocial')!.getError('required')">Nombre Social obligatorio</span>
@@ -23,7 +23,7 @@
       
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Identificación Fiscal</mat-label>
-        <input matInput formControlName="Nombre Fiscal">
+        <input matInput formControlName="nombreFiscal">
         
         <mat-error *ngIf="editForm.get('nombreFiscal')!.invalid && (editForm.get('nombreFiscal')!.dirty || editForm.get('nombreFiscal')!.touched)">
           <span *ngIf="editForm.get('nombreFiscal')!.getError('required')">Identificación Fiscal obligatoria</span>
@@ -33,7 +33,7 @@
       
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>CIF</mat-label>
-        <input matInput formControlName="CIF">
+        <input matInput formControlName="cif">
         
         <mat-error *ngIf="editForm.get('cif')!.invalid && (editForm.get('cif')!.dirty || editForm.get('cif')!.touched)">
           <span *ngIf="editForm.get('cif')!.getError('required')">CIF obligatorio</span>
@@ -43,7 +43,7 @@
       
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Teléfono</mat-label>
-        <input matInput formControlName="Teléfono">
+        <input matInput formControlName="teléfono">
         
         <mat-error *ngIf="editForm.get('telefono')!.invalid && (editForm.get('telefono')!.dirty || editForm.get('telefono')!.touched)">
           <span *ngIf="editForm.get('telefono')!.getError('required')">Teléfono obligatorio</span>

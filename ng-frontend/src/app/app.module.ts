@@ -7,6 +7,10 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
+
 // Auth service
 import { AuthService } from './services/auth.service';
 
@@ -19,9 +23,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 //import { FormControl } from '@angular/forms';
-
-
-// import { DashboardModule } from './dashboard/dashboard.module';
 
 // import { environment } from '../environments/environment';
 
@@ -121,6 +122,8 @@ export const firebaseConfig = {
       provide: MAT_BOTTOM_SHEET_DEFAULT_OPTIONS,
       useValue: { panelClass: 'mybottomsheet', hasBackdrop: false },
     },
+    { provide: FIREBASE_OPTIONS, useValue: firebaseConfig },
+  // providers: [AuthService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   ],
   // providers: [AuthService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   bootstrap: [AppComponent],
