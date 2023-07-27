@@ -1,3 +1,13 @@
+@font-face {
+  font-family: Oswald light;
+  src: url(../../../assets/fonts/Oswald-Light.ttf);
+}
+@font-face {
+  font-family: Oswald medium;
+  src: url(../../../assets/fonts/Oswald-Medium.ttf);
+}
+
+
 mat-toolbar {
   display: flex;
   flex-direction: row;
@@ -15,7 +25,7 @@ mat-toolbar {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  background-image: url(../../../assets/img/disabled_girl.jpeg);
+  background-image: url(../../../assets/img/pics/disabled_girl.jpeg);
   background-repeat: no-repeat;
   background-position-y: 20%;
   background-position-x: 70%;
@@ -29,14 +39,25 @@ mat-toolbar {
   justify-content: center;
   align-items: center;
   position: relative;
-  background-color: rgba(0,0,0,0.5);
-  width: 10vw;
+  background-color: rgba(255,255,255,0.7);
+  width: 20vw;
   min-height: 10vh;
-  top: 25vh;
+  top: 2.2rem;
+  border-radius:  0.5rem;
+  margin-top: -5rem;
+  overflow: visible;
+  padding: 2rem;
 }
 .logotype > img {
-  max-width: 75%;
+  max-width: 20vw;
+  min-width: 150px;
 }
 h6 {
-  color: white;
+  margin-top: -1rem;
+  font-family:  Oswald light;
+  color: rgba(0,0,0,1);
+}
+.logotype > h6 > span {
+  font-family:  Oswald medium;
+
 }
