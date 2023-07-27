@@ -10,7 +10,13 @@ mat-toolbar {
   flex-direction: column;
   justify-content: space-between;
 }
-.background {
+
+mat-toolbar{
+  position: absolute;
+  z-index: 1,5rem;
+  
+}
+/* .background {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -22,8 +28,8 @@ mat-toolbar {
   background-size: cover;
   width: 100vw;
   min-height: 50%;
-}
-.logotype {
+} */
+/* .logotype {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -36,7 +42,7 @@ mat-toolbar {
 }
 .logotype > img {
   max-width: 75%;
-}
+} */
 h6 {
   color: white;
 }

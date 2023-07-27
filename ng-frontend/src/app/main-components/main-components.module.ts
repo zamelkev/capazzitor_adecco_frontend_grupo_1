@@ -39,6 +39,7 @@ import { NowadaysComponent } from './nowadays/nowadays.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { CandidateDashboardComponent } from './candidate-dashboard/candidate-dashboard.component';
 import { CompanyDashboardComponent } from './company-dashboard/company-dashboard.component';
+import { BedsideComponent } from './bedside/bedside.component';
 
 
 
@@ -67,7 +68,8 @@ import { CompanyDashboardComponent } from './company-dashboard/company-dashboard
     NowadaysComponent,
     AdminDashboardComponent,
     CandidateDashboardComponent,
-    CompanyDashboardComponent
+    CompanyDashboardComponent,
+    BedsideComponent
   ],
   imports: [
     CommonModule,
@@ -106,7 +108,8 @@ import { CompanyDashboardComponent } from './company-dashboard/company-dashboard
     NowadaysComponent,
     AdminDashboardComponent,
     CandidateDashboardComponent,
-    CompanyDashboardComponent
+    CompanyDashboardComponent,
+    BedsideComponent
   ],
 })
 export class MainComponentsModule {}
