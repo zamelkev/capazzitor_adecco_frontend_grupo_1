@@ -4,8 +4,8 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 //Angular material modules
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -40,6 +40,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { CandidateDashboardComponent } from './candidate-dashboard/candidate-dashboard.component';
 import { CompanyDashboardComponent } from './company-dashboard/company-dashboard.component';
 import { OfferItemComponent } from './offer-item/offer-item.component';
+import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
 
 
 
@@ -70,6 +71,7 @@ import { OfferItemComponent } from './offer-item/offer-item.component';
     CandidateDashboardComponent,
     CompanyDashboardComponent,
     OfferItemComponent,
+    BottomSheetComponent,
   ],
   imports: [
     CommonModule,
@@ -111,7 +113,8 @@ import { OfferItemComponent } from './offer-item/offer-item.component';
     AdminDashboardComponent,
     CandidateDashboardComponent,
     CompanyDashboardComponent,
-    OfferItemComponent
+    OfferItemComponent,
+    BottomSheetComponent,
   ],
 })
 export class MainComponentsModule {}

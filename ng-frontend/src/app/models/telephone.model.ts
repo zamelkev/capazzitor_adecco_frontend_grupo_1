@@ -1,6 +1,6 @@
 import { User } from "./user.model";
 
-export class Telephone extends User {
+export class Telephone  {
     idUsuario?: number;
     prefijo?: string;
     numero?: number;

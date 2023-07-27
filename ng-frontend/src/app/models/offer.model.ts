@@ -1,15 +1,17 @@
-import { Candidate } from "./candidate.model";
 import { Company } from "./company.model";
 import { Email } from "./email.model";
 
 export class Offer {
     id?: number;
-    company?: Company;
-    descripcion?: string;
-    detallesPuesto?: string;
-    emplazamiento?: string;
-    urgencia?: string;
-    telefono?: string;
-    correo?: Email;
-    candidatos?: Candidate;
+    name?: string;
+    company?: string;
+    contractType?: string;
+    workingDay?: string;
+    description?: string;
+    offerDetails?: string;
+    location?: string;
+    priority?: string;
+    phone?: string;
+    email?: string;
+    susbscribedCandidates?: number;
 }

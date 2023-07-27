@@ -6,7 +6,7 @@ export interface User {
     password?: string;
     rol?: string | undefined;
     photoURL: string;
-   emailVerified: boolean;
+    emailVerified: boolean;
 }
 
 // const users: User[] = [

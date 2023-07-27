@@ -7,11 +7,23 @@
             {{offer.name}}
           </mat-panel-title>
           <mat-panel-description>
-          {{offer.description}}
+          {{offer.heading}}
           </mat-panel-description>
         </mat-expansion-panel-header>
-        <app-suggest-card></app-suggest-card>
+        <mat-card class="offerItemContainer">
+          <mat-card-header>
+            <div mat-card-avatar class="firmLogo"></div>
+            <mat-card-title>{{offer.name}}</mat-card-title>
+            <mat-card-subtitle>{{offer.shortDescription}}</mat-card-subtitle>
+            <button mat-flat-button color="accent" aria-label="Detalles oferta">
+              <mat-icon>read_more</mat-icon>
+            </button>
+          </mat-card-header>
+           <mat-card-content>
+            <app-offer-detail></app-offer-detail>
+          </mat-card-content>
+        </mat-card>
       </mat-expansion-panel>
-</mat-accordion>
+    </mat-accordion>
 </div>
 

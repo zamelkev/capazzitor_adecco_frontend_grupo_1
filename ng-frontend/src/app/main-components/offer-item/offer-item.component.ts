@@ -16,12 +16,16 @@ export class OfferItemComponent implements OnInit {
       {
         id: 1,
         name: 'Administrativo contable',
-        description: 'Contrato indefinido / Jornada fulltime / 18K',
+        heading: 'Contrato indefinido / Jornada fulltime / 18K',
+        shortDescription:
+          'Empresa internacional del sector educativo y de marketing, con sede en Elche (Alicante), busca incorporar de manera inmediata un/a ADMINISTRATIVO/A...',
       },
       {
-        id: 1,
+        id: 2,
         name: 'Desarrollador frontend',
-        description: 'Contrato temporal / Jornada fulltime / 25K',
+        heading: 'Contrato temporal / Jornada fulltime / 25K',
+        shortDescription:
+          'Actualmente, nos encontramos en búsqueda de un Programador Senior de FrontEnd con sólidos conocimientos en Angular para formar parte del equipo de...',
       },
     ];
   }

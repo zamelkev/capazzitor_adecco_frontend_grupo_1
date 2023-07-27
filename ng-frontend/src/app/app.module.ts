@@ -43,7 +43,13 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
-
+/* import {
+  MatBottomSheet,
+  MatBottomSheetConfig,
+  MatBottomSheetModule,
+  MatBottomSheetRef,
+} from '@angular/material/bottom-sheet';
+ */
 //App modules
 import { MainComponentsModule } from './main-components/main-components.module';
 import { ViewsModule } from './views/views.module';
@@ -83,7 +89,11 @@ export const firebaseConfig = {
     MatCardModule,
     MatDividerModule,
     MatExpansionModule,
-    // environment,
+/*     MatBottomSheet,
+    MatBottomSheetConfig,
+    MatBottomSheetModule,
+    MatBottomSheetRef,
+ */    // environment,
     // AngularFireModule.initializeApp(environment.firebase),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
@@ -103,6 +113,6 @@ export const firebaseConfig = {
   ],
   providers: [AuthService],
   // providers: [AuthService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
