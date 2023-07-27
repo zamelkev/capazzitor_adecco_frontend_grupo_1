@@ -3,26 +3,14 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    background-image: url(../../../assets/img/disabled_girl.jpeg);
+    background-image: url(../../../assets/img/pics/disabled_girl.jpeg);
     background-repeat: no-repeat;
-    background-position-y: 20%;
     background-position-x: 70%;
     background-size: cover;
     width: 100vw;
-    min-height: 25rem;
-    top: 0rem;
+    min-height: 40rem;
+    margin-top: -6rem;
   }
-  .logotype {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    background-color: rgba(0,0,0,0.5);
-    width: 10vw;
-    min-height: 10vh;
-    top: 25vh;
-  }
-  .logotype > img {
+/*   .logotype > img {
     max-width: 75%;
-  }
+  } */

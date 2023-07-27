@@ -42,8 +42,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { CandidateDashboardComponent } from './candidate-dashboard/candidate-dashboard.component';
 import { CompanyDashboardComponent } from './company-dashboard/company-dashboard.component';
 import { BedsideComponent } from './bedside/bedside.component';
-//import { OfferItemComponent } from './offer-item/offer-item.component';
-//import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
+import { OfferItemComponent } from './offer-item/offer-item.component';
+import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
 
 
 
@@ -73,9 +73,9 @@ import { BedsideComponent } from './bedside/bedside.component';
     AdminDashboardComponent,
     CandidateDashboardComponent,
     CompanyDashboardComponent,
-    BedsideComponent
-    //OfferItemComponent,
-    //BottomSheetComponent,
+    BedsideComponent,
+    OfferItemComponent,
+    BottomSheetComponent,
   ],
   imports: [
     CommonModule,
@@ -118,9 +118,9 @@ import { BedsideComponent } from './bedside/bedside.component';
     AdminDashboardComponent,
     CandidateDashboardComponent,
     CompanyDashboardComponent,
-    BedsideComponent
-    //OfferItemComponent,
-    //BottomSheetComponent,
+    BedsideComponent,
+    OfferItemComponent,
+    BottomSheetComponent,
   ],
   providers: [
     {

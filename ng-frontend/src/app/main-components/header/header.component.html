@@ -1,46 +1,48 @@
-<div>
-  <mat-toolbar class="mat-elevation-z8">
-    <button mat-icon-button [matMenuTriggerFor]="menu">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <mat-menu #menu="matMenu" [overlapTrigger]="false">
-      <!-- <button mat-menu-item routerLink="/home">
-        <span>Inicio</span>
-      </button> -->
-      <button mat-menu-item routerLink="/offer-list" disabled="">
-          <span>Ofertas</span>
+<div class="headerContainer">
+  <div class="background">
+    <mat-toolbar class="mat-elevation-z8">
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" [overlapTrigger]="false">
+        <!-- <button mat-menu-item routerLink="/home">
+          <span>Inicio</span>
+        </button> -->
+        <button mat-menu-item routerLink="/offer-list" disabled="">
+            <span>Ofertas</span>
+          </button>
+        <button mat-menu-item routerLink="/meet-us"  disabled="">
+          <span>Conocenos</span>
         </button>
-      <button mat-menu-item routerLink="/meet-us"  disabled="">
-        <span>Conocenos</span>
+        <button mat-menu-item routerLink="/news"  disabled="">
+            <span>Eventos</span>
+          </button>
+      </mat-menu>
+      <button class="account_button" mat-icon-button aria-label="Configuración de la cuenta de usuario" [matMenuTriggerFor]="userMenu">
+        <mat-icon>account_circle</mat-icon>
       </button>
-      <button mat-menu-item routerLink="/news"  disabled="">
-          <span>Eventos</span>
+      <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
+        <button mat-menu-item routerLink="/login">
+          <span>Iniciar sesión</span>
         </button>
-    </mat-menu>
-    <button class="account_button" mat-icon-button aria-label="Configuración de la cuenta de usuario" [matMenuTriggerFor]="userMenu">
-      <mat-icon>account_circle</mat-icon>
-    </button>
-    <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
-      <button mat-menu-item routerLink="/login">
-        <span>Iniciar sesión</span>
-      </button>
-      <button mat-menu-item routerLink="/register">
-        <span>Registrarse</span>
-      </button>
-      <button mat-menu-item routerLink="/dashboard">
-        <span>Configuración cuenta</span>
-      </button>
-      <button mat-menu-item routerLink="/use-guides" disabled="">
-        <span>Guías de uso</span>
-      </button>
-      <button mat-menu-item routerLink="/forgot-password">
-        <span>Recuperar contraseña</span>
-      </button>
-      <button mat-menu-item disabled="">
-        <span>Salir</span>
-      </button>
-    </mat-menu>
-  </mat-toolbar> 
+        <button mat-menu-item routerLink="/register">
+          <span>Registrarse</span>
+        </button>
+        <button mat-menu-item routerLink="/dashboard">
+          <span>Configuración cuenta</span>
+        </button>
+        <button mat-menu-item routerLink="/use-guides" disabled="">
+          <span>Guías de uso</span>
+        </button>
+        <button mat-menu-item routerLink="/forgot-password">
+          <span>Recuperar contraseña</span>
+        </button>
+        <button mat-menu-item disabled="">
+          <span>Salir</span>
+        </button>
+      </mat-menu>
+    </mat-toolbar> 
+  </div>
   <div class="logotype">
     <img src="../../../assets/img/Logos/3x/capazzitor_logo@3x.png" alt="Imagen de logotipo">
     <h6>Portal de empleo para personas <span>con diversidad</span></h6>
