@@ -15,7 +15,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
-
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet'; 
 //App components
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -89,6 +89,7 @@ import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
     MatCardModule,
     MatDividerModule,
     MatExpansionModule,
+    MatBottomSheetModule
   ],
   exports: [
     AutocompleteComponent,

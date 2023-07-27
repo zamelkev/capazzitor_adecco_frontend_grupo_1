@@ -32,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
 // import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
 //Angular material modules
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet'; 
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -89,6 +90,7 @@ export const firebaseConfig = {
     MatCardModule,
     MatDividerModule,
     MatExpansionModule,
+    MatBottomSheetModule
 /*     MatBottomSheet,
     MatBottomSheetConfig,
     MatBottomSheetModule,

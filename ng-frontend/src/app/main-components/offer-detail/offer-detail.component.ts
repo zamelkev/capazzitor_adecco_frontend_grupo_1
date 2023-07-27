@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Offer } from 'src/app/models/offer.model';
-
+import { MatBottomSheetRef, MatBottomSheetConfig } from '@angular/material/bottom-sheet';
 
 @Component({
   selector: 'app-offer-detail',
@@ -26,7 +26,7 @@ export class Offer {
 export class OfferDetailComponent implements OnInit {
   offerItem: Offer = {};
 
-  constructor() {
+  constructor(private bottomSheetRef: MatBottomSheetRef) { 
     this.offerItem = this.offerItem = {
       id: 1,
       name: 'Administrativo contable',
@@ -44,6 +44,15 @@ export class OfferDetailComponent implements OnInit {
       susbscribedCandidates: 5,
     };
   }
+
+
+
+	closeBottomSheet() {
+		this.bottomSheetRef.afterDismissed().subscribe(() => {
+			console.log('Bottom sheet is closed.');
+		});
+		this.bottomSheetRef.dismiss();
+	}
 
   ngOnInit(): void {}
 }
