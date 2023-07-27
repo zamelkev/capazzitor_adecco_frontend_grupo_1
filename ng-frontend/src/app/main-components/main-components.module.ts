@@ -154,7 +154,10 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     CandidateListComponent,
     CompanyDetailComponent,
     CompanyFormComponent,
-    CompanyListComponent
+    CompanyListComponent,
+    UserListComponent,
+    UserFormComponent,
+    UserDetailComponent
   ],
 })
 export class MainComponentsModule {}

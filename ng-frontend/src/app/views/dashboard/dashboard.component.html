@@ -49,9 +49,11 @@
         <!-- Show user data when logged in -->
         <div class="row" *ngIf="authService.userData as user">
           <div class="col-md-12">
+            <app-user-form></app-user-form>
+            <app-user-list></app-user-list>
             <!-- <app-candidate-form></app-candidate-form> -->
-            <app-company-form></app-company-form>
-            <app-company-list></app-company-list>
+            <!-- <app-company-form></app-company-form> -->
+            <!-- <app-company-list></app-company-list> -->
             <!-- <ng-switch></ng-switch> -->
             <!-- <app-candidate-dashboard></app-candidate-dashboard> -->
             <!-- <app-company-dashboard></app-company-dashboard> -->

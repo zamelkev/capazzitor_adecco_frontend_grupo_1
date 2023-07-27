@@ -1,1 +1,24 @@
-<p>user-list works!</p>
+<div class="container">
+  <h2>Listado de Usuarios:</h2>
+  <br>
+  <div *ngFor="let usuario of usuarios">
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          ID: <strong>{{usuario.uid}}</strong>
+          email: <strong>{{usuario.email}}</strong>
+        </mat-panel-title>
+        <mat-panel-description>
+          <strong>{{usuario.displayName}}</strong>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      password: <strong>{{usuario.password}}</strong> <br>
+      rol: <strong>{{usuario.rol}}</strong>
+      photoURL: <strong>{{usuario.photoURL}}</strong>
+      emailVerified: <strong>{{usuario.emailVerified}}</strong>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+</div>

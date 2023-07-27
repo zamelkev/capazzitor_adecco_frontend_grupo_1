@@ -1,1 +1,68 @@
-<p>user-form works!</p>
+<mat-card class="example-card" *ngIf="error">
+    Se ha producido un error, Inténtalo de nuevo más tarde.
+  </mat-card>
+
+
+  <form class="example-form" [formGroup]="editForm" (ngSubmit)="save()">
+    <div class="form-inputs">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Id</mat-label>
+        <input matInput type="number" formControlName="uid">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Correo Electrónico</mat-label>
+        <input matInput formControlName="email">
+        
+        <mat-error *ngIf="editForm.get('email')!.invalid && (editForm.get('email')!.dirty || editForm.get('email')!.touched)">
+          <span *ngIf="editForm.get('email')!.getError('required')">Email obligatorio</span>
+        </mat-error>
+        
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nombre Usuario</mat-label>
+        <input matInput formControlName="displayName">
+        
+        <mat-error *ngIf="editForm.get('displayName')!.invalid && (editForm.get('displayName')!.dirty || editForm.get('displayName')!.touched)">
+          <span *ngIf="editForm.get('displayName')!.getError('required')">Email obligatorio</span>
+        </mat-error>
+        
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Contraseña</mat-label>
+        <input matInput formControlName="password">
+        
+        <mat-error *ngIf="editForm.get('password')!.invalid && (editForm.get('password')!.dirty || editForm.get('password')!.touched)">
+          <span *ngIf="editForm.get('password')!.getError('required')">Contraseña obligatorio</span>
+        </mat-error>
+        
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Rol</mat-label>
+        <input matInput formControlName="rol">
+        
+        <mat-error *ngIf="editForm.get('rol')!.invalid && (editForm.get('rol')!.dirty || editForm.get('rol')!.touched)">
+          <span *ngIf="editForm.get('rol')!.getError('required')">Contraseña obligatorio</span>
+        </mat-error>
+      </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Enlace de la Foto de Perfil</mat-label>
+      <input matInput formControlName="photoURL">
+      
+      <mat-error *ngIf="editForm.get('photoURL')!.invalid && (editForm.get('photoURL')!.dirty || editForm.get('password')!.touched)">
+        <span *ngIf="editForm.get('photoURL')!.getError('required')">Contraseña obligatorio</span>
+      </mat-error> 
+    </mat-form-field>
+      
+      
+          </div>
+      <div class="buttons">
+        <button mat-raised-button color="primary" type="submit">Guardar</button>
+        <button mat-raised-button color="warn" routerLink="/back_office/categories">Cancelar</button>
+        <button *ngIf="id" mat-raised-button color="warn" (click)="onDelete()">Borrar</button>
+    </div>
+  </form>

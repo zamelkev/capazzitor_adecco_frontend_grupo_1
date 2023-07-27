@@ -23,47 +23,47 @@ export class CompanyFormComponent {
   createFormGroup() {
     return new FormGroup({
       id: new FormControl({ value: null, disabled: true }),
-      nombreSocial: new FormControl('', {
+      nombreSocial: new FormControl('nombreSocial', {
         // nonNullable: true,
         validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
       }),
-      nombreFiscal: new FormControl('', {
+      nombreFiscal: new FormControl('nombreFiscal', {
         // nonNullable: true,
         validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
       }),
-      cif: new FormControl('', {
+      cif: new FormControl('cif', {
         // nonNullable: true,
         validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
       }),
-      telefono: new FormControl('', {
+      telefono: new FormControl('telefono', {
         // nonNullable: true,
         validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
       }),
-      correo: new FormControl('', {
+      correo: new FormControl('correo', {
         // nonNullable: true,
         validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
       }),
-      direcciones: new FormControl('', {
+      direcciones: new FormControl('direcciones', {
         // nonNullable: true,
         validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
       }),
-      sector: new FormControl('', {
+      sector: new FormControl('sector', {
         // nonNullable: true,
         validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
       }),
-      estado: new FormControl('', {
+      estado: new FormControl('estado', {
         // nonNullable: true,
         validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
       }),
-      ofertas: new FormControl('', {
+      ofertas: new FormControl('ofertas', {
         // nonNullable: true,
         validators: [Validators.required]
       }),
-      numeroEmpleados: new FormControl('', {
+      numeroEmpleados: new FormControl('numeroEmpleados', {
         // nonNullable: true,
         validators: [Validators.required]
       }),
-      proyeccion: new FormControl('', {
+      proyeccion: new FormControl('proyeccion', {
         // nonNullable: true,
         validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
       }),
