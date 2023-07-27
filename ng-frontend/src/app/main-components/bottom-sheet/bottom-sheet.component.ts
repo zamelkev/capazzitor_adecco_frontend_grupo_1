@@ -11,11 +11,11 @@ import { OfferDetailComponent } from '../offer-detail/offer-detail.component';
   styleUrls: ['./bottom-sheet.component.css'],
 })
 export class BottomSheetComponent {
-
+  
   constructor(private _bottomSheet: MatBottomSheet) {}
 
   openBottomSheet(config?: MatBottomSheetConfig) {
-    this.bottomSheet.open(OfferDetailComponent, config);
+    this._bottomSheet.open(OfferDetailComponent, config);
   }
 }
 

@@ -44,6 +44,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MAT_BOTTOM_SHEET_DEFAULT_OPTIONS } from '@angular/material/bottom-sheet';
 /* import {
   MatBottomSheet,
   MatBottomSheetConfig,
@@ -90,12 +91,12 @@ export const firebaseConfig = {
     MatCardModule,
     MatDividerModule,
     MatExpansionModule,
-    MatBottomSheetModule
-/*     MatBottomSheet,
+    MatBottomSheetModule,
+    /*     MatBottomSheet,
     MatBottomSheetConfig,
     MatBottomSheetModule,
     MatBottomSheetRef,
- */    // environment,
+ */ // environment,
     // AngularFireModule.initializeApp(environment.firebase),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
@@ -113,7 +114,13 @@ export const firebaseConfig = {
     BrowserModule,
     */
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    {
+      provide: MAT_BOTTOM_SHEET_DEFAULT_OPTIONS,
+      useValue: { panelClass: 'mybottomsheet', hasBackdrop: false },
+    },
+  ],
   // providers: [AuthService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   bootstrap: [AppComponent],
 })

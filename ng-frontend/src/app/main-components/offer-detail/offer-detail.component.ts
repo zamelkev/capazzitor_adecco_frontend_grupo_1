@@ -26,7 +26,7 @@ export class Offer {
 export class OfferDetailComponent implements OnInit {
   offerItem: Offer = {};
 
-  constructor(private bottomSheetRef: MatBottomSheetRef) { 
+  constructor(/*private bottomSheetRef: MatBottomSheetRef*/) { 
     this.offerItem = this.offerItem = {
       id: 1,
       name: 'Administrativo contable',
@@ -45,14 +45,12 @@ export class OfferDetailComponent implements OnInit {
     };
   }
 
-
-
-	closeBottomSheet() {
+/* 	closeBottomSheet() {
 		this.bottomSheetRef.afterDismissed().subscribe(() => {
 			console.log('Bottom sheet is closed.');
 		});
 		this.bottomSheetRef.dismiss();
 	}
-
+ */
   ngOnInit(): void {}
 }
