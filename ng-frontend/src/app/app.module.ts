@@ -9,7 +9,6 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 // Auth service
 import { AuthService } from './services/auth.service';
-import { HttpClientModule } from '@angular/common/http';
 
 // Main
 import { RouterModule } from '@angular/router';
