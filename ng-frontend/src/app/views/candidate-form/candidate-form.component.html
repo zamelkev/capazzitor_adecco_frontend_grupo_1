@@ -1,54 +1,10 @@
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <h2>Candidatos</h2>
+<h2>Candidatos</h2>
 
-            <mat-card class="candidate-card" *ngIf="error">
-                Se ha producido un error, Inténtalo de nuevo más tarde.
-            </mat-card>
+<div class="Candidate-Container">
+  <mat-form-field>
+    
+  </mat-form-field>
 
-            <form class="candidate-form" [formGroup]="editForm" (ngSubmit)="save()">
-
-            <mat-form-field class="candidate-full-width" appareance="fill">
-                <mat-label>ID</mat-label>
-                <input matInput type="number" formControlName="id">
-            </mat-form-field>
-
-            <mat-form-field class="candidate-full-width" appearance="fill">
-                <mat-label>Nombre</mat-label>
-                <input matInput formControlName="fullName">
-      
-                <mat-error *ngIf="editForm.get('fullName')!.invalid && (editForm.get('fullName')!.dirty || editForm.get('fullName')!.touched)">
-                  <span *ngIf="editForm.get('fullName')!.getError('required')">Nombre obligatorio</span>
-                  <span *ngIf="editForm.get('fullName')!.getError('minlength') || editForm.get('fullName')!.getError('maxlength')">Longitud debe estar entre 2 y 100 caracteres</span>
-                </mat-error>
-      
-              </mat-form-field>
-
-              <mat-form-field class="candidate-full-width" appearance="fill">
-                <mat-label>Url de Imagen</mat-label>
-                <input matInput formControlName="imgUrl">
-      
-                <mat-error *ngIf="editForm.get('imgUrl')!.invalid && (editForm.get('imgUrl')!.dirty || editForm.get('imgUrl')!.touched)">
-                  <span *ngIf="editForm.get('imgUrl')!.getError('required')">Url de la imagen obligatoria</span>
-                </mat-error>
-      
-              </mat-form-field>
-
-              <mat-form-field class="candidate-full-width" appearance="fill">
-                <mat-label>Edad</mat-label>
-                <input matInput formControlName="age">
-      
-                <mat-error *ngIf="editForm.get('age')!.invalid && (editForm.get('age')!.dirty || editForm.get('age')!.touched)">
-                  <span *ngIf="editForm.get('age')!.getError('required')">Fecha obligatoria</span>
-                </mat-error>
-
-              </mat-form-field>
-
-              <button mat-raised-button color="primary" type="submit">Guardar</button>
-              <button mat-raised-button color="warn" routerLink="">Cancelar</button>
-              <button *ngIf="id" mat-raised-button color="warn" (click)="onDelete()">Borrar</button>
-            </form>
-        </div>
-    </div>
 </div>
+
+        

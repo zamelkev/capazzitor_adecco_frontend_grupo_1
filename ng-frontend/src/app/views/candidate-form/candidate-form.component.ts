@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 
 @Component({
@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./candidate-form.component.css']
 })
 export class CandidateFormComponent {
-
+  ngOnInit(): void {}
 }
