@@ -50,6 +50,9 @@ import { CandidateListComponent } from './candidate-list/candidate-list.componen
 import { CompanyDetailComponent } from './company-detail/company-detail.component';
 import { CompanyFormComponent } from './company-form/company-form.component';
 import { CompanyListComponent } from './company-list/company-list.component';
+import { UserListComponent } from './user-list/user-list.component';
+import { UserFormComponent } from './user-form/user-form.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 
 
@@ -88,7 +91,10 @@ import { CompanyListComponent } from './company-list/company-list.component';
     CandidateListComponent,
     CompanyDetailComponent,
     CompanyFormComponent,
-    CompanyListComponent
+    CompanyListComponent,
+    UserListComponent,
+    UserFormComponent,
+    UserDetailComponent
   ],
   imports: [
     CommonModule,
