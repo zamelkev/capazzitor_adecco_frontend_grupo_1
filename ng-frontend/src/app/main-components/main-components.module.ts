@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-
-import {MatIconModule} from '@angular/material/icon';
-import {MatButtonModule} from '@angular/material/button';
+//Angular material modules
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
@@ -13,10 +13,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet'; 
+import { MAT_BOTTOM_SHEET_DEFAULT_OPTIONS } from '@angular/material/bottom-sheet';
 
-
-
-
+//App components
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SearcherComponent } from './searcher/searcher.component';
@@ -40,6 +42,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { CandidateDashboardComponent } from './candidate-dashboard/candidate-dashboard.component';
 import { CompanyDashboardComponent } from './company-dashboard/company-dashboard.component';
 import { BedsideComponent } from './bedside/bedside.component';
+//import { OfferItemComponent } from './offer-item/offer-item.component';
+//import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
 
 
 
@@ -70,6 +74,8 @@ import { BedsideComponent } from './bedside/bedside.component';
     CandidateDashboardComponent,
     CompanyDashboardComponent,
     BedsideComponent
+    //OfferItemComponent,
+    //BottomSheetComponent,
   ],
   imports: [
     CommonModule,
@@ -85,6 +91,9 @@ import { BedsideComponent } from './bedside/bedside.component';
     MatFormFieldModule,
     MatListModule,
     MatCardModule,
+    MatDividerModule,
+    MatExpansionModule,
+    MatBottomSheetModule,
   ],
   exports: [
     AutocompleteComponent,
@@ -110,6 +119,14 @@ import { BedsideComponent } from './bedside/bedside.component';
     CandidateDashboardComponent,
     CompanyDashboardComponent,
     BedsideComponent
+    //OfferItemComponent,
+    //BottomSheetComponent,
+  ],
+  providers: [
+    {
+      provide: MAT_BOTTOM_SHEET_DEFAULT_OPTIONS,
+      useValue: { panelClass: 'mybottomsheet', hasBackdrop: false },
+    },
   ],
 })
 export class MainComponentsModule {}

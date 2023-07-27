@@ -32,6 +32,32 @@ import { HttpClientModule } from '@angular/common/http';
 // import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 // import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
+//Angular material modules
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet'; 
+import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MAT_BOTTOM_SHEET_DEFAULT_OPTIONS } from '@angular/material/bottom-sheet';
+/* import {
+  MatBottomSheet,
+  MatBottomSheetConfig,
+  MatBottomSheetModule,
+  MatBottomSheetRef,
+} from '@angular/material/bottom-sheet';
+ */
+//App modules
+import { MainComponentsModule } from './main-components/main-components.module';
+import { ViewsModule } from './views/views.module';
+//import { UsersModule } from './users/users.module';
+
 export const firebaseConfig = {
   apiKey: "AIzaSyD5sMKznzYQst-vDhTbUDZKWrHPFn8Fm0U",
   authDomain: "portal-empleo-7f519.firebaseapp.com",
@@ -43,28 +69,13 @@ export const firebaseConfig = {
   measurementId: "G-F067FM1D9W"
 };
 
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatAutocompleteModule } from '@angular/material/autocomplete';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatListModule } from '@angular/material/list';
-import { MatCardModule } from '@angular/material/card';
-import { MainComponentsModule } from './main-components/main-components.module';
-import { ViewsModule } from './views/views.module';
-
-
-//import { UsersModule } from './users/users.module';
-
-
 @NgModule({
   declarations: [AppComponent],
   imports: [
     HttpClientModule,
     MainComponentsModule,
     ViewsModule,
+    BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     RouterModule,
@@ -79,7 +90,14 @@ import { ViewsModule } from './views/views.module';
     MatFormFieldModule,
     MatListModule,
     MatCardModule,
-    // environment,
+    MatDividerModule,
+    MatExpansionModule,
+    MatBottomSheetModule,
+    /*     MatBottomSheet,
+    MatBottomSheetConfig,
+    MatBottomSheetModule,
+    MatBottomSheetRef,
+ */ // environment,
     // AngularFireModule.initializeApp(environment.firebase),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
@@ -97,8 +115,14 @@ import { ViewsModule } from './views/views.module';
     BrowserModule,
     */
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    {
+      provide: MAT_BOTTOM_SHEET_DEFAULT_OPTIONS,
+      useValue: { panelClass: 'mybottomsheet', hasBackdrop: false },
+    },
+  ],
   // providers: [AuthService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

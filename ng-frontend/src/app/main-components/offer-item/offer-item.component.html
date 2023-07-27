@@ -1,0 +1,29 @@
+  <div class="offerListWrapper" *ngFor="let offer of offers">
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                          (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{offer.name}}
+          </mat-panel-title>
+          <mat-panel-description>
+          {{offer.heading}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-card class="offerItemContainer">
+          <mat-card-header>
+            <div mat-card-avatar class="firmLogo"></div>
+            <mat-card-title>{{offer.name}}</mat-card-title>
+            <mat-card-subtitle>{{offer.shortDescription}}</mat-card-subtitle>
+            <button mat-flat-button color="accent" aria-label="Detalles oferta">
+              <mat-icon>read_more</mat-icon>
+            </button>
+          </mat-card-header>
+           <mat-card-content>
+            <app-offer-detail></app-offer-detail>
+          </mat-card-content>
+        </mat-card>
+      </mat-expansion-panel>
+    </mat-accordion>
+</div>
+

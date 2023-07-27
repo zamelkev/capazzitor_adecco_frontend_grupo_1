@@ -6,7 +6,7 @@ export interface User {
     password?: string;
     rol?: Role;
     photoURL: string;
-   emailVerified: boolean;
+    emailVerified: boolean;
 }
 
 export interface UserWithToken extends User {

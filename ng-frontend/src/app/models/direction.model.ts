@@ -1,6 +1,6 @@
 import { User } from "./user.model";
 
-export class Direction extends User {
+export class Direction {
     idUsuario?: number;
     direccion?: string;
     cp?: number;
