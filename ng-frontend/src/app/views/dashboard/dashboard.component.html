@@ -8,7 +8,7 @@
     <nav class="col-md-3 d-md-block bg-light sidebar">
       <div class="sidebar-sticky">
         <ul class="nav flex-column">
-          <div class="media">
+          <div class="media" *ngIf="authService.userData as user">
             <li class="nav-item">
               <img class="align-self-start mr-5 img-thumbnail rounded-circle"
               src="{{(user.photoURL) ? user.photoURL : '../../../../../assets/img/dummy-user.png'}}" alt="{{user.displayName}}">
