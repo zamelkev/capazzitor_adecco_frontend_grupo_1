@@ -5,9 +5,6 @@ Proyecto Trasversal - Grupo 1 - Curso Frontend Angular (Adecco 23)
 ## Tipo de proyecto:
 Portal web de búsqueda de empleo para personas con discapacidad
 
-## Tipo de proyecto:
-Portal web de búsqueda de empleo para personas con discapacidad
-
 ## Integrantes del grupo:
 - Ariel Gonzalez
 - Eneko Galván
