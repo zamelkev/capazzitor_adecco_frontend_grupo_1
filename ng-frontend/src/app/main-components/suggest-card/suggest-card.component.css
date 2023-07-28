@@ -1,0 +1,21 @@
+.suggestContainer {
+  background-color: rgba(0,0,0,0.20);
+  border-radius: 0.5rem;
+  max-width: 80vw;
+  margin: 0.25rem 0;
+}
+.firmLogo {
+  background-image: url('../../../assets/img/Logos/3x/capazzitor_logo@3x.png');
+  background-size: cover;
+  background-color: rgba(255,255,255,1);
+  background-position: center;
+}
+mat-card-header {
+  min-width: 100%;
+  padding: 1rem;
+  overflow: visible;
+}
+
+mat-card-content {
+  max-width: 50vw;
+}

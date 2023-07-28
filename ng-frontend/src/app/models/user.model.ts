@@ -1,0 +1,40 @@
+import { Role } from '../services/model/roles.type';
+export class User {
+    uid?: number;
+    email?: string;
+    displayName?: string;
+    password?: string;
+    // rol?: Role;
+    rol?: string | undefined;
+    photoURL?: string;
+   emailVerified?: boolean;
+}
+
+export interface UserWithToken extends User {
+    token: string;
+}
+
+// const users: User[] = [
+//     {
+//         uid: 1,
+//         email: "candidato1@candidato.es",
+//         username: "Candidato1",
+//         password: "1234",
+//         rol: 1
+//     },
+//     {
+//         uid: 2,
+//         email: "empresa1@empresa.es",
+//         username: "Empresa1",
+//         password: "1234",
+//         rol: 1
+//     },
+//     {
+//         uid: 0,
+//         email: "admin@admin.es",
+//         username: "Admin",
+//         password: "admin",
+//         rol: 1
+//     }
+    
+// ]

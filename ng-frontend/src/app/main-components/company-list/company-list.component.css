@@ -1,0 +1,14 @@
+table {
+    width: 100%;
+}
+
+.container {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+mat-panel-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

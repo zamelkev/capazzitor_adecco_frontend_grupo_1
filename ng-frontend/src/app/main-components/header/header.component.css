@@ -1,0 +1,75 @@
+@font-face {
+  font-family: Oswald light;
+  src: url(../../../assets/fonts/Oswald-Light.ttf);
+}
+@font-face {
+  font-family: Oswald medium;
+  src: url(../../../assets/fonts/Oswald-Medium.ttf);
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 9rem;
+}
+mat-toolbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 3rem;
+  background-color: rgba(255,255,255,0.75)
+}
+/* .account_button {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+ */
+ /* mat-toolbar{
+  position: absolute;
+  z-index: 1,5rem;
+  
+}
+ */ 
+ .background {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+/*   background-image: url(../../../assets/img/pics/disabled_girl.jpeg);
+  background-repeat: no-repeat;
+  background-position-y: 20%;
+  background-position-x: 70%;
+  background-size: cover;
+  */
+  width: 100vw;
+}
+ .logotype {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-color: rgba(255,255,255,0.7);
+  width: 20vw;
+  top: 2.2rem;
+  border-radius:  0.5rem;
+  margin-top: -6rem;
+  overflow: visible;
+  padding: 2rem;
+}
+.logotype > img {
+  max-width: 20vw;
+  min-width: 150px;
+}
+h6 {
+  margin-top: -1rem;
+  font-family:  Oswald light;
+  color: rgba(0,0,0,1);
+}
+.logotype > h6 > span {
+  font-family:  Oswald medium;
+
+}

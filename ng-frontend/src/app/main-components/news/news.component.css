@@ -1,0 +1,12 @@
+.newsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: 50vw;
+  max-width: 100vw;
+  min-height: 10rem;
+  background-color: rgba(0,0,0,0.2);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}

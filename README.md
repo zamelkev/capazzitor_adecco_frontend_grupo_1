@@ -1,50 +1,78 @@
 # angular_grupo_1
 Proyecto Trasversal - Grupo 1 - Curso Frontend
 
-## Indentificación del proyecto:
-  - ### Nombre del proyecto:
-  - ### Tipo de aplicación:
-  - Portal de Empleo para Personas con Discapacidad
-  - ### Empresa:
-  - Grupo 1
-  - ### Github:
-  - https://github.com/zamelkev/angular_grupo_1
-  - ### Integrantes del grupo:
-    - Ariel Gonzalez
-    - Eneko Galván
-    - Javi Carrión
-    - Kevin Zamora
-  - ### Ubicación:
-    España
+## Tipo de proyecto:
+Portal web de búsqueda de empleo para personas con discapacidad
 
-## Objetivo del Proyecto:
-Brindar un servicio que permita conectar empresas tecnológicas (y de otra índole) y candidatos con discapacidad, haciendo incapie en el valor añadido y la diversidad de competencias propio de este colectivo.
+## Integrantes del grupo:
+- Ariel Gonzalez
+- Eneko Galván
+- Javi Carrión
+- Kevin Zamora
 
-## Esquema Técnico:
-El esquema técnico se adjuntará y se desarrollará en la memoria del presente proyecto.
+## Primeros pasos:
 
-## Metodología de Trabajo:
-A desarrollar...
+- **Análisis de los sitios web de la competencia:** Por Talento / Disjob / Indeed & Universia
+- [Desarrollo del **Documento Funcional**](https://github.com/zamelkev/angular_grupo_1/blob/develop/Project-Documentation/DOCUMENTO_FUNCIONAL_portal_empleo_discapacidad.md)
 
-## El Proyecto:
-- Buscador de Vacantes de Empleo
-- Base de Datos de Usuarios y Empresas
-- Panel de Anuncios filtrados por Categoria
-- Sección de Formación Ofertada en relación a las vacantes
+
+# REQUERIMIENTOS TÉCNICOS.
+
+## Tecnologías utilizadas
+
+- Angular 16.1
+
+- Node 16.18
+
+- npm
+
+- HTML and CSS
+
+- JavaScript
+
+- TypeScript
+
+## IDE utilizado
+Visual Studio Code
   
+## Para instalar NVM y Node
 
+- **Node Version Management**: herramienta de consola que permite instalar y utilizar diferentes versiones de nodejs.
 
-## Etapas:
+- **Nodejs** es un engine javascript que permite la ejecución de frameworks frontend por ejemplo angular en el lado servidor.
 
-### 1. Planificación:
+1. Descargar de https://github.com/coreybutler/nvm-windows/releases el archivo **nvm-setup.zip**
+3. Descomprimir el zip
+4. Ejecutar el archivo **nvm-setup.exe**
+5. Abrir una **CMD con permisos de administrador** y comprobar que se ha instalado
 
-### 2. Estudio competencia (reseñas y análisis de las interfaces)
+```bash
 
-### 3. Prototipo de las interfaces
+nvm version
 
-### 4. Esquema de cada interfaz
+nvm list
 
-### 5. Interacciones principales
+# Importante, angular soporta hasta la versión 16
+nvm install 16.18.1
 
-### 6. Mapa de navegación entre esas interfaces.
+# Necesaria CMD con permisos de administrador:
+nvm use 16.18.1
 
+node -v
+```
+
+## Para instalar Angular en tu sistema
+Paso 1: Necesitas que "Node.js" (versión 16) y "npm package manager" estén instalados.
+
+Paso 2: Instalar Angular CLI (versión 16)
+
+Run `npm install -g @angular/cli` en tu terminal.  
+  
+## Instrucciones de aplicación  
+  
+1. Abrir una consola en el proyecto abierto de Visual Studio o en el terminal del sistema
+```
+cd frontend
+ng serve
+```
+2. En el navegador, ir a la url: `http://localhost:4200`

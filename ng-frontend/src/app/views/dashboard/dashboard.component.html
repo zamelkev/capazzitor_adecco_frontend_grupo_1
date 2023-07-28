@@ -1,0 +1,62 @@
+<nav class="navbar navbar-dark bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0">
+    Configuración Usuario
+  </a>
+</nav>
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-3 d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <div class="media" *ngIf="authService.userData as user">
+            <li class="nav-item">
+              <img class="align-self-start mr-5 img-thumbnail rounded-circle"
+              src="{{(user.photoURL) ? user.photoURL : '../../../../../assets/img/dummy-user.png'}}" alt="{{user.displayName}}">
+            </li>
+            <div class="media-body">
+            <li class="nav-item">
+              <h1>Hola: <strong>{{(user.displayName) ? user.displayName : 'Usuario'}}</strong></h1>
+            </li>
+            <li class="nav-item">
+              <p>User ID: <strong>{{user.uid}}</strong></p>
+            </li>
+            <li class="nav-item">
+              <p>Email: <strong>{{user.email}}</strong></p>
+            </li>
+            <li class="nav-item">
+              <p><i>Email</i> Verificado: <strong>{{user.emailVerified}}</strong></p>
+            </li>
+            <li class="nav-item">
+              <p>User Role: <strong>{{user.rol}}</strong></p>
+            </li>
+            </div>
+          </div>
+          <li class="nav-item">
+            <a class="nav-link active">
+              <i class="fas fa-user"></i>{{user.displayName ? user.displayName : 'Usuario'}}
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" (click)="authService.SignOut()">
+              <i class="fas fa-sign-out-alt"></i>Salir
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-8 px-4">
+      <div class="inner-adjust">
+        <!-- Show user data when logged in -->
+        <div class="row" *ngIf="authService.userData as user">
+          <div class="col-md-12">
+            
+            <!-- <ng-switch></ng-switch> -->
+            <!-- <app-candidate-dashboard></app-candidate-dashboard> -->
+            <app-company-dashboard></app-company-dashboard>
+            <!-- <app-admin-dashboard></app-admin-dashboard> -->
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
