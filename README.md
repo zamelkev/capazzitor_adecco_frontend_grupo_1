@@ -1,5 +1,9 @@
-# angular_grupo_1
-Proyecto Trasversal - Grupo 1 - Curso Frontend
+# Capazzitor - angular_grupo_1
+Proyecto Trasversal - Grupo 1 - Curso Frontend Angular (Adecco 23)
+[Información del curso](https://fundacionadecco.org/cursos/desarrollo-web-frontend/)
+
+## Tipo de proyecto:
+Portal web de búsqueda de empleo para personas con discapacidad
 
 ## Tipo de proyecto:
 Portal web de búsqueda de empleo para personas con discapacidad
@@ -7,20 +11,28 @@ Portal web de búsqueda de empleo para personas con discapacidad
 ## Integrantes del grupo:
 - Ariel Gonzalez
 - Eneko Galván
-- Javi Carrión
 - Kevin Zamora
 
 ## Primeros pasos:
 
 - **Análisis de los sitios web de la competencia:** Por Talento / Disjob / Indeed & Universia
-- [Desarrollo del **Documento Funcional**](https://github.com/zamelkev/angular_grupo_1/blob/develop/Project-Documentation/DOCUMENTO_FUNCIONAL_portal_empleo_discapacidad.md)
+    - [Planificación inicial con **Trello**](https://trello.com/b/MzW5G4mb/proyectotransversalkevinjavierignacioarieleneko)
+    - [Planificación con **Trello**](https://trello.com/b/QbZhWLWv/proyecto-portal-laboral-discapacidad)
+    - [Análisis de la competencia (en figma)](https://www.figma.com/file/7yUNZ6wXs1o2xraJYrfPLi/Curso-Angular-Grupo-1)
 
+- [**Prototipado de la interfaz con Figma:**](https://www.figma.com/file/O3N7YgQiMZY5iRcFDXIZOR/home-Portal)
+
+- [**Elaboración del documento funcional**]([Desarrollo del **Documento Funcional**](https://github.com/zamelkev/angular_grupo_1/blob/main/Project-Documentation/DOCUMENTO_FUNCIONAL_portal_empleo_discapacidad.md))
+    - [**Sitemap:**](https://github.com/zamelkev/angular_grupo_1/blob/main/Project-Documentation/Project-Sitemap.jpg)
+    - [**Mapa relacional de entidades/DDBB**](https://github.com/zamelkev/angular_grupo_1/blob/main/Project-Documentation/DB-Tables-Relationship.jpg)
+
+- [**Presentación de Final de Curso (con Google Slides)**](https://docs.google.com/presentation/d/1ibKmxMS0sOdhrblvsIfkups-fLdlx51scMS92-nUxsE/)
 
 # REQUERIMIENTOS TÉCNICOS.
 
 ## Tecnologías utilizadas
 
-- Angular 16.1
+- Angular 13
 
 - Node 16.18
 
