@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CandidateDashboardComponent } from 'src/app/main-components/candidate-dashboard/candidate-dashboard.component';
+import { CandidateDashboardComponent } from 'src/app/main-components/dashboard/candidate-dashboard/candidate-dashboard.component';
 import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 
