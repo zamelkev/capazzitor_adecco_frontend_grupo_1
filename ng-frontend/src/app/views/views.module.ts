@@ -4,6 +4,8 @@ import { RouterModule } from '@angular/router';
 import { MainComponentsModule } from '../main-components/main-components.module';
 
 import {MatButtonModule} from '@angular/material/button';
+import {MatRadioModule} from '@angular/material/radio';
+import {FormsModule} from '@angular/forms';
 
 import { HomeComponent } from './home/home.component';
 // import { CandidateServicesComponent } from './candidate-services/candidate-services.component';
@@ -32,7 +34,10 @@ import { UseGuidesComponent } from './use-guides/use-guides.component';
     CommonModule,
     RouterModule,
     MainComponentsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatRadioModule,
+    FormsModule
+    
   ],
   exports: [
     HomeComponent,
