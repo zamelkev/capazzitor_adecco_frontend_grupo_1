@@ -1,10 +1,10 @@
 @font-face {
   font-family: Oswald light;
-  src: url(../../../assets/fonts/Oswald-Light.ttf);
+  src: url(../../../../assets/fonts/Oswald-Light.ttf);
 }
 @font-face {
   font-family: Oswald medium;
-  src: url(../../../assets/fonts/Oswald-Medium.ttf);
+  src: url(../../../../assets/fonts/Oswald-Medium.ttf);
 }
 
 .headerContainer {
