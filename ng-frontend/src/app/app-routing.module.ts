@@ -11,12 +11,14 @@ import { UseGuidesComponent } from './views/use-guides/use-guides.component';
 import { ViewsModule } from './views/views.module';
 import { CompanyDashboardComponent } from './main-components/dashboard/company-dashboard/company-dashboard.component';
 import { HasRoleGuard } from './services/guards/has-role.guard';
+import { IsLoggedInGuard } from './services/guards/is-logged-in.guard';
+import { User, Role } from './models/user.model';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
     
-  { path: 'dashboard', canLoad: [/*IsLoggedInGuard,*/ HasRoleGuard], /*canActivate: [HasRoleGuard],*/
+  { path: 'dashboard', canLoad: [/*IsLoggedInGuard,*/HasRoleGuard], /*canActivate: [HasRoleGuard],*/
     data: {
       allowedRoles: ['candidate','company','admin']
     },

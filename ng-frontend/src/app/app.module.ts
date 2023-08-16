@@ -34,7 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
 // import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
 //Angular material modules
-import {MatBottomSheetModule} from '@angular/material/bottom-sheet'; 
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet'; 
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -57,7 +57,9 @@ import { MAT_BOTTOM_SHEET_DEFAULT_OPTIONS } from '@angular/material/bottom-sheet
 //App modules
 import { MainComponentsModule } from './main-components/main-components.module';
 import { ViewsModule } from './views/views.module';
+import { authTokeninterceptorProvider } from './services/interceptors/auth-token.interceptor';
 //import { UsersModule } from './users/users.module';
+
 
 export const firebaseConfig = {
   apiKey: "AIzaSyD5sMKznzYQst-vDhTbUDZKWrHPFn8Fm0U",
@@ -130,7 +132,8 @@ export const firebaseConfig = {
       useValue: { panelClass: 'mybottomsheet', hasBackdrop: false },
     },
     { provide: FIREBASE_OPTIONS, useValue: firebaseConfig },
-    { provide: AngularFireModule, useValue: firebaseConfig }
+    { provide: AngularFireModule, useValue: firebaseConfig },
+    authTokeninterceptorProvider
   // providers: [AuthService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   ],
   // providers: [AuthService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],

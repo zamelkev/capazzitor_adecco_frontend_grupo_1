@@ -49,17 +49,18 @@
         <!-- Show user data when logged in -->
         <div class="row" *ngIf="authService.userData as user">
           <div class="col-md-12">
-            
-            <div *akoShowForRoles="['candidate']">
-              <app-candidate-dashboard></app-candidate-dashboard>
-            </div>
-            <div *akoShowForRoles="['company']">
-              <app-company-dashboard></app-company-dashboard>
-            </div>
-            <div *akoShowForRoles="['admin']">
-              <app-admin-dashboard></app-admin-dashboard>
-            </div>
-
+            <span [ngSwitch]="user.role">
+              <span *ngSwitchCase="user.role === {admin: true}">
+                <app-admin-dashboard></app-admin-dashboard>
+              </span>
+              <span *ngSwitchCase="user.role === {candidate: true}">
+                <app-candidate-dashboard></app-candidate-dashboard>
+              </span>
+              <span *ngSwitchCase="user.role === {company: true}">
+                <app-company-dashboard></app-company-dashboard>
+              </span>
+              <span *ngSwitchDefault>(No se encontró ningún rol de usuario)</span>
+            </span>
           </div>
         </div>
       </div>
