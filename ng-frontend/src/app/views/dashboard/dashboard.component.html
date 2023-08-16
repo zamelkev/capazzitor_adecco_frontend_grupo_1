@@ -27,7 +27,7 @@
               <p><i>Email</i> Verificado: <strong>{{user.emailVerified}}</strong></p>
             </li>
             <li class="nav-item">
-              <p>User Role: <strong>{{user.rol}}</strong></p>
+              <p>User Role: <strong>{{user.role}}</strong></p>
             </li>
             </div>
           </div>
@@ -50,10 +50,16 @@
         <div class="row" *ngIf="authService.userData as user">
           <div class="col-md-12">
             
-            <!-- <ng-switch></ng-switch> -->
-            <!-- <app-candidate-dashboard></app-candidate-dashboard> -->
-            <app-company-dashboard></app-company-dashboard>
-            <!-- <app-admin-dashboard></app-admin-dashboard> -->
+            <div *akoShowForRoles="['candidate']">
+              <app-candidate-dashboard></app-candidate-dashboard>
+            </div>
+            <div *akoShowForRoles="['company']">
+              <app-company-dashboard></app-company-dashboard>
+            </div>
+            <div *akoShowForRoles="['admin']">
+              <app-admin-dashboard></app-admin-dashboard>
+            </div>
+
           </div>
         </div>
       </div>

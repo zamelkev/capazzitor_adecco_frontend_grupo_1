@@ -8,7 +8,8 @@ import {
 } from '@angular/core';
 import { distinctUntilChanged, map, Subscription, tap } from 'rxjs';
 import { AuthService } from '../auth.service';
-import { Role } from '../model';
+import { User } from 'src/app/models/user.model';
+import { Role } from '../model/roles.type';
 
 @Directive({
   selector: '[akoShowForRoles]',
@@ -25,7 +26,7 @@ export class ShowForRolesDirective implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.sub = this.authService.user$
       .pipe(
-        map((user) => Boolean(user && this.allowedRoles?.includes(user.role))),
+        map((user: User | any) => Boolean(user && this.allowedRoles?.includes(user.role))),
         distinctUntilChanged(),
         tap((hasRole) =>
           hasRole

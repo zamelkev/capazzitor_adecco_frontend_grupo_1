@@ -4,15 +4,21 @@
       <h3>Registrarse / Register</h3><br>
       
         <div class="formGroup">
-          <mat-radio-group #role>
-            <mat-radio-button class="example-margin" value=1>
+          <mat-radio-group>
+            <mat-radio-button class="example-margin" value=candidate #userRole>
               Candidat@
             </mat-radio-button>
-            <mat-radio-button class="example-margin" value=2>
+            <mat-radio-button class="example-margin" value=company #userRole>
               Empresa
             </mat-radio-button>
+            <!-- <mat-radio-button class="example-margin" value=0 #userRole hidden>
+              Admin
+            </mat-radio-button> -->
           </mat-radio-group>
         </div>
+      <div class="formGroup">
+        <input type="" class="formControl" placeholder="Introduce tu nombre de usuario" #displayName required />
+      </div>
       <div class="formGroup">
         <input type="email" class="formControl" placeholder="Introduce tu correo electrónico" #userEmail required />
       </div>
@@ -21,7 +27,7 @@
       </div>
       <div class="formGroup">
         <input type="button" class="btn btnPrimary" value="Registrase"
-          (click)="authService.SignUp(userEmail.value, userPwd.value)" />
+          (click)="authService.SignUp(userEmail.value, userPwd.value, userRole.value)" />
       </div>
       <div class="formGroup">
         <span class="or"><span class="orInner">O</span></span>

@@ -1,28 +1,41 @@
-import { User } from '../models/user.model';
-import { Injectable, OnInit } from '@angular/core';
-import { Firestore, collection, addDoc, collectionData, doc, deleteDoc } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+// import { Injectable } from '@angular/core';
+// import { User } from '../models/user.model';
+// import { Firestore, collection, addDoc, collectionData, doc, deleteDoc } from '@angular/fire/firestore';
+// import { Observable } from 'rxjs';
+// import { AuthService } from './auth.service';
+// // import { app } from '../app.module';
 
-@Injectable({
-  providedIn: 'root'
-})
-export class UserService {
 
-  constructor(private firestore: Firestore) { }
+// @Injectable({
+//   providedIn: 'root'
+// })
+// export class UserService {
+  
+//   users: User[] = [];
+//   user: User | any = this.authService?.user$;
 
-  addUser(user: any) {
-    const userRef = collection(this.firestore, 'users');
-    return addDoc(userRef, user);
-  }
+//   constructor(
+//     private firestore: Firestore,
+//     private authService: AuthService,) { }
+  
+//   addUser(user: User) {
+//     const userRef = collection(this.firestore, 'users');
+//     return addDoc(userRef, user);
+//   }
 
-  getUsers(): Observable<User[]> {
-    const userRef = collection(this.firestore, 'users');
-    return collectionData(userRef, { idField: 'uid' }) as Observable<User[]>;
-  }
+//   getUserDataById(user: User) {
+//     const userDocRef = doc(this.firestore, `users/${user.uid}`);
+//     return userDocRef;
+//   }
 
-  deleteUser(user: User) {
-    const placeDocRef = doc(this.firestore, `users/${user.uid}`);
-    return deleteDoc(placeDocRef);
-  }
+//   getUsers(): Observable<User[]> {
+//     const userRef = collection(this.firestore, 'users');
+//     return collectionData(userRef, { idField: 'uid' }) as Observable<User[]>;
+//   }
 
-}
+//   deleteUser(user: User) {
+//     const userDocRef = doc(this.firestore, `users/${user.uid}`);
+//     return deleteDoc(userDocRef);
+//   }
+
+// }
