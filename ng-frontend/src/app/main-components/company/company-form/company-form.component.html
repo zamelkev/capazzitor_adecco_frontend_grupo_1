@@ -43,7 +43,7 @@
       
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Teléfono</mat-label>
-        <input matInput formControlName="teléfono">
+        <input matInput formControlName="telefono">
         
         <mat-error *ngIf="editForm.get('telefono')!.invalid && (editForm.get('telefono')!.dirty || editForm.get('telefono')!.touched)">
           <span *ngIf="editForm.get('telefono')!.getError('required')">Teléfono obligatorio</span>

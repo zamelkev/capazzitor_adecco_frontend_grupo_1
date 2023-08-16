@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, NgZone } from '@angular/core';
-import { User } from '../models/user.model'; 
+import { User, UserWithToken } from '../models/user.model'; 
 import {
   AngularFirestore,
   AngularFirestoreDocument,
@@ -22,10 +22,10 @@ export class AuthService {
   
   appUser$:Observable<User[]>;
   userData!: User | any; // Save logged in user data
-  private user = new BehaviorSubject<User | any>(null);
-  user$: Observable<User> | any | null | undefined;
+  private user = new BehaviorSubject<User | UserWithToken | any>(null);
+  user$ = this.user.asObservable()
   firestore: Firestore = inject(Firestore);
-  // isLoggedIn$: Observable<boolean> = this.user$.pipe(map(Boolean));
+  isLoggedIn$: Observable<boolean> = this.user$.pipe(map(Boolean));
   
   constructor(
     private afAuth: AngularFireAuth, // Inject Firebase auth service
