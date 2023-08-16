@@ -11,7 +11,6 @@ import { UseGuidesComponent } from './views/use-guides/use-guides.component';
 import { ViewsModule } from './views/views.module';
 import { CompanyDashboardComponent } from './main-components/dashboard/company-dashboard/company-dashboard.component';
 import { HasRoleGuard } from './services/guards/has-role.guard';
-import { IsLoggedInGuard } from './services/guards/is-logged-in.guard';
 import { UserProfileComponent } from './main-components/dashboard/user-profile/user-profile.component';
 import { OfferListComponent } from './main-components/offer/offer-list/offer-list.component';
 
