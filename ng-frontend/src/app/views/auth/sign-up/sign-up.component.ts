@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Roles } from 'src/app/models/roles.model';
+import { Component, Injectable, OnInit } from '@angular/core';
+import { User, Role } from 'src/app/models/user.model';
 import { AuthService } from "../../../services/auth.service";
 
 @Component({
@@ -9,10 +9,9 @@ import { AuthService } from "../../../services/auth.service";
 })
 export class SignUpComponent {
   constructor(
-    public authService: AuthService
+    public authService: AuthService,
+    // public userRole: Roles
   ) { }
-
-  // userRole: Roles = 1;
 
   ngOnInit() { }
 }

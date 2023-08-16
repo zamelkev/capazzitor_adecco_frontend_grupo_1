@@ -9,7 +9,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
-import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 
 // Auth service
 import { AuthService } from './services/auth.service';
@@ -70,6 +70,13 @@ export const firebaseConfig = {
   measurementId: "G-F067FM1D9W"
 };
 
+// Initialize Firebase
+// export const app = initializeApp(firebaseConfig);
+
+// Initialize Cloud Firestore and get a reference to the service
+// export const firestore = getFirestore(app);
+
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -100,17 +107,17 @@ export const firebaseConfig = {
     MatBottomSheetRef,
  */ // environment,
     // AngularFireModule.initializeApp(environment.firebase),
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     HttpClientModule,
     // provideFirebaseApp(() => initializeApp(environment.firebase)),
-    // provideFirebaseApp(() => initializeApp(firebaseConfig)),
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
     // provideAuth(() => getAuth()),
     // provideDatabase(() => getDatabase()),
-    // provideFirestore(() => getFirestore()),
+    provideFirestore(() => getFirestore()),
     /*     UsersModule,
     //FormControl,
     BrowserModule,
@@ -123,6 +130,7 @@ export const firebaseConfig = {
       useValue: { panelClass: 'mybottomsheet', hasBackdrop: false },
     },
     { provide: FIREBASE_OPTIONS, useValue: firebaseConfig },
+    { provide: AngularFireModule, useValue: firebaseConfig }
   // providers: [AuthService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   ],
   // providers: [AuthService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],

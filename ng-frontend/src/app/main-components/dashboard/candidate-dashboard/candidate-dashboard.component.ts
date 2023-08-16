@@ -8,16 +8,20 @@ import { User } from '../../../models/user.model';
   styleUrls: ['./candidate-dashboard.component.css']
 })
 export class CandidateDashboardComponent implements OnInit {
-  user!: User;
-  constructor(public authService: AuthService) {
-    this.user = this.user = {
-              uid: 1,
-              displayName: "",
-              email: "",
-              rol: "Candidato",
-              photoURL: "",
-              emailVerified: true,
-          };
-  }
+  
+  user: User | any = this.authService.user$;
+  constructor(public authService: AuthService) {  }
+
+  // user!: User;
+  // constructor(public authService: AuthService) {
+  //   this.user = this.user = {
+  //             uid: 1,
+  //             displayName: "",
+  //             email: "",
+  //             role: "candidato",
+  //             photoURL: "",
+  //             emailVerified: true,
+  //         };
+  // }
   ngOnInit(): void {}
 }

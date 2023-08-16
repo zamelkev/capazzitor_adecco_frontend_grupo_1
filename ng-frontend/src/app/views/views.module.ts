@@ -16,6 +16,7 @@ import { SignInComponent } from './auth/sign-in/sign-in.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
 import { UseGuidesComponent } from './use-guides/use-guides.component';
+import { AuthModule } from '@angular/fire/auth';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { UseGuidesComponent } from './use-guides/use-guides.component';
     MainComponentsModule,
     MatButtonModule,
     MatRadioModule,
-    FormsModule
+    FormsModule,
+    AuthModule,
     
   ],
   exports: [
