@@ -16,7 +16,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
     
-  { path: 'dashboard', canLoad: [/*IsLoggedInGuard,*/ HasRoleGuard], canActivate: [HasRoleGuard],
+  { path: 'dashboard', canLoad: [/*IsLoggedInGuard,*/ HasRoleGuard], /*canActivate: [HasRoleGuard],*/
     data: {
       allowedRoles: ['candidate','company','admin']
     },
@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'forgot-password', /*canLoad: [IsLoggedInGuard],*/ component: ForgotPasswordComponent },
   { path: 'verify-emailaddress', component: VerifyEmailComponent },
   { path: 'use-guides', component: UseGuidesComponent },
-  { path: 'company-dashboard', canLoad: [/*IsLoggedInGuard,*/ HasRoleGuard], canActivate: [HasRoleGuard],
+  { path: 'company-dashboard', canLoad: [/*IsLoggedInGuard,*/ HasRoleGuard], /*canActivate: [HasRoleGuard],*/
     data: {
       allowedRoles: ['candidate','company','admin']
     },
