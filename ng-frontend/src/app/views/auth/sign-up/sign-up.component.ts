@@ -1,5 +1,5 @@
 import { Component, Injectable, OnInit } from '@angular/core';
-import { User, Role } from 'src/app/models/user.model';
+import { Role } from 'src/app/models/user.model';
 import { AuthService } from "../../../services/auth.service";
 
 @Component({
@@ -8,9 +8,9 @@ import { AuthService } from "../../../services/auth.service";
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent {
+  
   constructor(
     public authService: AuthService,
-    // public userRole: Roles
   ) { }
 
   ngOnInit() { }

@@ -5,20 +5,23 @@
       
         <div class="formGroup">
           <mat-radio-group>
-            <mat-radio-button class="example-margin" value=candidate #userRole>
+            <mat-radio-button class="example-margin" value=true #candidate>
               Candidat@
             </mat-radio-button>
-            <mat-radio-button class="example-margin" value=company #userRole>
+            <mat-radio-button class="example-margin" value=true #company>
               Empresa
             </mat-radio-button>
-            <!-- <mat-radio-button class="example-margin" value=0 #userRole hidden>
+            <mat-radio-button class="example-margin" value=true #admin>
               Admin
-            </mat-radio-button> -->
+            </mat-radio-button>
           </mat-radio-group>
         </div>
       <div class="formGroup">
-        <input type="" class="formControl" placeholder="Introduce tu nombre de usuario" #displayName required />
+        <input type="string" class="formControl" placeholder="Introduce tu nombre de usuario" #displayName required />
       </div>
+      <!-- <div class="formGroup">
+        <input type="string" class="formControl" placeholder="'URL' de la imagen de tu perfil" #displayName required />
+      </div> -->
       <div class="formGroup">
         <input type="email" class="formControl" placeholder="Introduce tu correo electrónico" #userEmail required />
       </div>
@@ -27,7 +30,7 @@
       </div>
       <div class="formGroup">
         <input type="button" class="btn btnPrimary" value="Registrase"
-          (click)="authService.SignUp(userEmail.value, userPwd.value, userRole.value)" />
+          (click)="authService.SignUp(userEmail.value, userPwd.value, company.value, candidate.value, admin.value, displayName.value)"/>
       </div>
       <div class="formGroup">
         <span class="or"><span class="orInner">O</span></span>
