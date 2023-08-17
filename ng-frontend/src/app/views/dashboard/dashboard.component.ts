@@ -16,9 +16,9 @@ export class DashboardComponent implements OnInit {
   constructor(public authService: AuthService) { 
     this.user = this.user = {
       uid: this.user.uid,
-      displayName: this.user.displayName,
+      displayName: "",
       email: "",
-      roles: this.user.role,
+      roles: "",
       photoURL: "",
       emailVerified: true,
     };

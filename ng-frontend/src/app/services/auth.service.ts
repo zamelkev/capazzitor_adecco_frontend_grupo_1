@@ -13,6 +13,7 @@ import { BehaviorSubject, from, ignoreElements, map, Observable, of, switchMap, 
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, getFirestore, getDocs } from '@angular/fire/firestore';
 import * as firebase from 'firebase/compat';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
 
 @Injectable({
@@ -26,6 +27,8 @@ export class AuthService {
   user$ = this.user.asObservable()
   firestore: Firestore = inject(Firestore);
   isLoggedIn$: Observable<boolean> = this.user$.pipe(map(Boolean));
+  formGroup!: FormGroup;
+  error:boolean = false;
   
   constructor(
     private afAuth: AngularFireAuth, // Inject Firebase auth service
@@ -35,6 +38,7 @@ export class AuthService {
     public  ngZone: NgZone, // NgZone service to remove outside scope warning
     private httpClient: HttpClient,
     private http: HttpClient,
+    private formBuilder: FormBuilder,
     ) {
     
       const userCollection = collection(this.firestore, 'users');
@@ -74,10 +78,17 @@ export class AuthService {
       //     return Observable.apply(null);
       //   }
       // }));
-      
-      
-  }
+}
 
+ngOnInit() {
+  this.formGroup = this.formBuilder.group({
+    email: ['', Validators.required],
+    password: ['', Validators.required]
+  });
+}
+
+// convenience getter for easy access to form fields
+get f() { return this.formGroup.controls; }
 
 //////////////////////////////////////////////////////////
 ////////////////////// Auth Functions ///////////////////
@@ -87,7 +98,7 @@ export class AuthService {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
-        this.SetUserData(result.user);
+        this.getUserDataById(result.user.uid);
         this.afAuth.authState.subscribe((user) => {
           if (user) {
             this.router.navigate(['/dashboard']);
@@ -117,8 +128,8 @@ export class AuthService {
     const data: User | any = {
       uid: user.uid,
       email: user.email,
-      roles: {
-        reader: true,
+      role: {
+        // reader: true,
       },
     }
     return userRef.set(data, {merge: true})
@@ -126,7 +137,7 @@ export class AuthService {
   private checkAuthorization(user: User, allowedRoles: string[]) {
     if (!user) return false
     for (const role of allowedRoles) {
-      if ( user.roles != null ) {
+      if ( user.role != null ) {
         return true
       }
       return false
@@ -135,13 +146,13 @@ export class AuthService {
   }
 
   // Sign up with email/password
-  SignUp(email: string, password: string, role:string) {
+  SignUp(email: string, password: string, company: boolean = false, candidate: boolean = true, admin:boolean = false, displayName:string) {
+
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
         this.SendVerificationMail();        
-        this.SetUserData(result.user);
-        this.addUser(this.userData);
+        this.SetUserData(result.user, displayName, company, candidate, admin);
       })
       .catch((error) => {
         window.alert(error.message);
@@ -182,18 +193,21 @@ export class AuthService {
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-  SetUserData(user: User) {
+  SetUserData(user: any, displayName:string, candidate:boolean, company:boolean, admin:boolean) {
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(
       `users/${user.uid}`
     );
-    const userData: User = {
+    console.log(company);
+    console.log(candidate);
+    console.log(admin);
+    const userData: any = {
       uid: user.uid,
       email: user.email,
-      displayName: user.displayName,
-      // password: user.password,
-      roles: {
-        admin: true,
-        // candidate: true,
+      displayName: displayName,
+      role: { 
+        candidate,
+        company,
+        admin
       },
       photoURL: user.photoURL,
       emailVerified: user.emailVerified,
@@ -218,32 +232,33 @@ export class AuthService {
   //////////////////////////////////////////////////////////
   /////////// Abilities and Roles Authorization ///////////
 
-  canRead(user: User): boolean {
-    const allowed = ['admin', 'candidate', 'company']
-    return this.checkAuthorization(user, allowed)
-  }
+  // canRead(user: User): boolean {
+  //   const allowed = ['admin', 'candidate', 'company']
+  //   return this.checkAuthorization(user, allowed)
+  // }
 
-  canEdit(user: User): boolean {
-    const allowed = ['admin', 'candidate', 'company']
-    return this.checkAuthorization(user, allowed)
-  }
+  // canEdit(user: User): boolean {
+  //   const allowed = ['admin', 'candidate', 'company']
+  //   return this.checkAuthorization(user, allowed)
+  // }
 
-  canDelete(user: User): boolean {
-    const allowed = ['admin']
-    return this.checkAuthorization(user, allowed)
-  }
+  // canDelete(user: User): boolean {
+  //   const allowed = ['admin']
+  //   return this.checkAuthorization(user, allowed)
+  // }
 
 
   /////////////////////////////////////////////////////////
   ////////////////// User CRUD ///////////////////////////
   
-  addUser(user: User) {
-    const userRef = collection(this.firestore, 'users');
-    return addDoc(userRef, user);
-  }
+  // addUser(email: string, password: string, displayName: string, role: string) {
+  //   const userRef = collection(this.firestore, 'users');
+  //   const user =
+  //   return addDoc(userRef, user);
+  // }
 
-  getUserDataById(user: User) {
-    const userDocRef = doc(this.firestore, `users/${user.uid}`);
+  getUserDataById(uid: string) {
+    const userDocRef = doc(this.firestore, `users/${uid}`);
     return userDocRef;
   }
 
