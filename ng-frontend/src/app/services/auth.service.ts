@@ -124,7 +124,8 @@ AddUser(result:any, user: User | any) {
       .then((result) => {
         this.afAuth.authState.subscribe((user) => {
           // this.getFirebaseUser();
-          this.SetUserData(result, user);
+          this.getFirebaseUser();
+          // this.SetUserData(result, user);
           if (user) {
             this.router.navigate(['/dashboard']);
           }
@@ -299,10 +300,10 @@ AddUser(result:any, user: User | any) {
   //   return addDoc(userRef, user);
   // }
 
-  getUserDataById(user: User) {
-    const userDocRef = doc(this.firestore, `users/${user.uid}`);
-    return userDocRef;
-  }
+  // getUserDataById(user: User | any) {
+  //   const userDocRef = doc(this.firestore, `users/${user.uid}`);
+  //   return userDocRef;
+  // }
 
   getUsers(): Observable<User[]> {
     const userRef = collection(this.firestore, 'users');
