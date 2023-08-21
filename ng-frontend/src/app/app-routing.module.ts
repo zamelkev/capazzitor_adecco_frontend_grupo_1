@@ -12,7 +12,7 @@ import { ViewsModule } from './views/views.module';
 import { CompanyDashboardComponent } from './main-components/dashboard/company-dashboard/company-dashboard.component';
 import { HasRoleGuard } from './services/guards/has-role.guard';
 import { IsLoggedInGuard } from './services/guards/is-logged-in.guard';
-import { User, Role } from './models/user.model';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,7 +20,10 @@ const routes: Routes = [
     
   { path: 'dashboard', canLoad: [/*IsLoggedInGuard,*/HasRoleGuard], /*canActivate: [HasRoleGuard],*/
     data: {
-      allowedRoles: ['candidate','company','admin']
+      // allowedRoles: [
+      //   user.isAdmin === true, 
+      //   user.isCandidate === true, 
+      //   user.isCompany === true]
     },
     component: DashboardComponent
   },
@@ -31,7 +34,10 @@ const routes: Routes = [
   { path: 'use-guides', component: UseGuidesComponent },
   { path: 'company-dashboard', canLoad: [/*IsLoggedInGuard,*/ HasRoleGuard], /*canActivate: [HasRoleGuard],*/
     data: {
-      allowedRoles: ['candidate','company','admin']
+      // allowedRoles: [
+      //   user.isAdmin === true, 
+      //   user.isCandidate === true, 
+      //   user.isCompany === true]
     },
     component: CompanyDashboardComponent },
   // { path: '**', redirectTo: '/home', pathMatch: 'full' },

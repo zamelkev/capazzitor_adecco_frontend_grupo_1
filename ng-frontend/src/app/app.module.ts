@@ -47,6 +47,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MAT_BOTTOM_SHEET_DEFAULT_OPTIONS } from '@angular/material/bottom-sheet';
+import { MatSelectModule } from '@angular/material/select';
 /* import {
   MatBottomSheet,
   MatBottomSheetConfig,
@@ -73,11 +74,10 @@ export const firebaseConfig = {
 };
 
 // Initialize Firebase
-// export const app = initializeApp(firebaseConfig);
+// const app = initializeApp(firebaseConfig);
 
 // Initialize Cloud Firestore and get a reference to the service
-// export const firestore = getFirestore(app);
-
+// const db = getFirestore(app);
 
 @NgModule({
   declarations: [AppComponent],
@@ -103,6 +103,7 @@ export const firebaseConfig = {
     MatDividerModule,
     MatExpansionModule,
     MatBottomSheetModule,
+    MatSelectModule,
     /*     MatBottomSheet,
     MatBottomSheetConfig,
     MatBottomSheetModule,
@@ -119,7 +120,7 @@ export const firebaseConfig = {
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     // provideAuth(() => getAuth()),
     // provideDatabase(() => getDatabase()),
-    provideFirestore(() => getFirestore()),
+    provideFirestore(() => getFirestore(initializeApp(firebaseConfig))),
     /*     UsersModule,
     //FormControl,
     BrowserModule,

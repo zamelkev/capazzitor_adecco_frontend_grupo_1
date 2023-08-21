@@ -7,13 +7,15 @@ import {
 } from '@angular/router';
 import { map, Observable, tap } from 'rxjs';
 import { AuthService } from '../auth.service';
-import { User, Role } from 'src/app/models/user.model';
+import { User } from 'src/app/models/user.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class HasRoleGuard implements CanLoad, CanActivate {
   constructor(private authService: AuthService) {}
+
+  user: User | any = this.authService.user$;
 
   canActivate(route: ActivatedRouteSnapshot): Observable<boolean> {
     return this.hasRole(route);
@@ -27,7 +29,7 @@ export class HasRoleGuard implements CanLoad, CanActivate {
     const allowedRoles = route.data?.['allowedRoles'];
 
     return this.authService.user$.pipe(
-      map((user) => Boolean(user && allowedRoles.includes().boolean(Role))),
+      map((user) => Boolean(user && allowedRoles.includes().boolean(user.isAdmin || user.isCandidate || user.isCompany))),
       tap((hasRole) => hasRole === false && alert('Acceso Denegado'))
     );
   }
