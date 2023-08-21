@@ -132,7 +132,7 @@ export class AuthService {
         this.checkAuthorization(user);
         this.afAuth.authState.subscribe((user) => {
           // this.getFirebaseUser();
-          this.SetUserData(result, user);
+          // this.SetUserData(result, user);
           if (user) {
               this.router.navigate(['/dashboard']);
             } else { 
