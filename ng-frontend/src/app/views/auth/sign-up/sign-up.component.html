@@ -2,42 +2,72 @@
   <div class="displayTableCell">
     <div class="authBlock">
       <h3>Registrarse / Register</h3><br>
-      
+      <form [formGroup]="signupForm" (ngSubmit)="onSignupSubmit()">
         <div class="formGroup">
-          <mat-radio-group>
-            <mat-radio-button class="example-margin" value=true #candidate>
+        <div>
+          <label for="role">Selecciona un Rol de Usuario:</label>
+          <select formControlName="role" id="role" (change)="updateUserRole()">
+            <option value="candidate">Candidat@</option>
+            <option value="company">Empresa</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+        
+        <!-- <div class="flex-container" [ngSwitch]="user"  *ngFor="let item of entradas">
+                <div *ngSwitchCase="'Ciencia Ficción'">Has seleccionado la categoría "Ciencia Ficción"
+                    <span>{{item.nombre}} : </span>
+                    <span>{{item.precio}} €</span>
+                </div>
+                    <span>{{item.nombre}} : </span>
+                    <span>{{item.precio}} €</span>
+                </div>
+                <div *ngSwitchCase="'documental'">Has seleccionado la categoría "Documental"
+                    <span>{{item.nombre}} : </span>
+                    <span>{{item.precio}} €</span>
+                </div>
+                <div *ngSwitchDefault>Selecciona una opción válida</div>
+        </div> -->
+
+          <!-- <mat-radio-group>
+            <mat-radio-button class="example-margin" formControlName="isCandidate" value=true onclick="itsCandidate()" #candidate>
               Candidat@
             </mat-radio-button>
-            <mat-radio-button class="example-margin" value=true #company>
+            <mat-radio-button class="example-margin" formControlName="isCompany" value=true onclick="itsCompany()" #company>
               Empresa
             </mat-radio-button>
-            <mat-radio-button class="example-margin" value=true #admin>
+            <mat-radio-button class="example-margin" formControlName="isAdmin" value=true onclick="itsAdmin()" #admin>
               Admin
             </mat-radio-button>
-          </mat-radio-group>
+          </mat-radio-group> -->
         </div>
-      <div class="formGroup">
-        <input type="string" class="formControl" placeholder="Introduce tu nombre de usuario" #displayName required />
-      </div>
-      <!-- <div class="formGroup">
-        <input type="string" class="formControl" placeholder="'URL' de la imagen de tu perfil" #displayName required />
-      </div> -->
-      <div class="formGroup">
-        <input type="email" class="formControl" placeholder="Introduce tu correo electrónico" #userEmail required />
-      </div>
-      <div class="formGroup">
-        <input type="password" class="formControl" placeholder="Introduce tu contraseña" #userPwd required />
-      </div>
-      <div class="formGroup">
-        <input type="button" class="btn btnPrimary" value="Registrase"
+        <!-- <label for="displayName">Introduce tu nombre de usuario:</label> -->
+        <div class="formGroup">
+          <input class="formControl"  formControlName="displayName" placeholder="Introduce tu nombre de usuario" #displayName />
+        </div>
+        <div class="formGroup">
+          <input class="formControl" formControlName="photoURL" placeholder="'URL' de la imagen de tu perfil" #displayName required />
+        </div>
+        <div class="formGroup">
+          <input type="email" class="formControl"  formControlName="email" placeholder="Introduce tu correo electrónico" #userEmail required />
+        </div>
+        <div class="formGroup">
+          <input type="password" class="formControl" formControlName="password" placeholder="Introduce tu contraseña" #userPwd required />
+        </div>
+        <div class="formGroup">
+          <input class="formControl" formControlName="emailVerified" value=false hidden/>
+        </div>
+        <input type="submit" value="Registrarse" class="btn btnPrimary">
+        <!-- <div class="formGroup">
+          <input type="button" class="btn btnPrimary" value="Registrase"
           (click)="authService.SignUp(userEmail.value, userPwd.value, company.value, candidate.value, admin.value, displayName.value)"/>
+        </div> -->
+      </form>
+        <div>
+          <span class="or"><span class="orInner">O</span></span>
+        </div>
+        <div class="redirectToLogin">
+          <span>Ya tienes una cuenta?
+            <span class="redirect" routerLink="/login">Entrar</span></span>
+          </div>
+        </div>
       </div>
-      <div class="formGroup">
-        <span class="or"><span class="orInner">O</span></span>
-      </div>
-      <div class="redirectToLogin">
-        <span>Ya tienes una cuenta?
-          <span class="redirect" routerLink="/login">Entrar</span></span>
-      </div>
-    </div>
-  </div>

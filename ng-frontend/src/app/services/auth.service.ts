@@ -14,6 +14,7 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, getFirestore, getDocs } from '@angular/fire/firestore';
 import * as firebase from 'firebase/compat';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { isAdmin } from '@firebase/util';
 
 
 @Injectable({
@@ -21,13 +22,12 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class AuthService {
   
-  appUser$:Observable<User[]>;
+  appUsers$:Observable<User[]>;
   userData!: User | any; // Save logged in user data
   private user = new BehaviorSubject<User | UserWithToken | any>(null);
   user$ = this.user.asObservable()
-  firestore: Firestore = inject(Firestore);
   isLoggedIn$: Observable<boolean> = this.user$.pipe(map(Boolean));
-  formGroup!: FormGroup;
+  // public signupForm: FormGroup;
   error:boolean = false;
   
   constructor(
@@ -35,6 +35,7 @@ export class AuthService {
     private afs: AngularFirestore,  // Inject Firestore service
     private router: Router,
     private db: AngularFireDatabase,
+    private firestore: Firestore,
     public  ngZone: NgZone, // NgZone service to remove outside scope warning
     private httpClient: HttpClient,
     private http: HttpClient,
@@ -42,7 +43,7 @@ export class AuthService {
     ) {
     
       const userCollection = collection(this.firestore, 'users');
-      this.appUser$ = collectionData(userCollection);
+      this.appUsers$ = collectionData(userCollection);
       this.afAuth.authState.pipe(
         switchMap(user => {
           if (user) {
@@ -80,26 +81,50 @@ export class AuthService {
       // }));
 }
 
-ngOnInit() {
-  this.formGroup = this.formBuilder.group({
-    email: ['', Validators.required],
-    password: ['', Validators.required]
-  });
-}
+// ngOnInit() {
+//   this.signupForm = this.formBuilder.group({
+//     email: ['', Validators.required],
+//     password: ['', Validators.required]
+//   });
+// }
 
 // convenience getter for easy access to form fields
-get f() { return this.formGroup.controls; }
+// get f() { return this.signupForm.controls; }
 
 //////////////////////////////////////////////////////////
 ////////////////////// Auth Functions ///////////////////
+
+getFirebaseUser(): User | any {
+  let userData:User | any =  this.afAuth.currentUser;
+  console.log(userData);
+  return userData
+}
+
+AddUser(result:any, user: User | any) {
+  try {
+    const userRef = collection(this.firestore, 'users');
+    
+    user.password       = "" || null;
+    user.photoURL       = user.photoURL || null;
+    user.uid            = result.user.uid || null;
+    user.emailVerified  = result.user.emailVerified || null;
+  
+    return addDoc(userRef, user);
+
+  } catch (e) {
+    console.error("Error adding user: ", e);
+  }
+  return null;
+}
 
 // Sign in with email/password
   SignIn(email: string, password: string) {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
-        this.getUserDataById(result.user.uid);
         this.afAuth.authState.subscribe((user) => {
+          // this.getFirebaseUser();
+          this.SetUserData(result, user);
           if (user) {
             this.router.navigate(['/dashboard']);
           }
@@ -137,7 +162,11 @@ get f() { return this.formGroup.controls; }
   private checkAuthorization(user: User, allowedRoles: string[]) {
     if (!user) return false
     for (const role of allowedRoles) {
-      if ( user.role != null ) {
+      if ( user.role?.name === 'admin') {
+        return true
+      } else if ( user.role?.name === 'candidate' ) {
+        return true
+      } else if ( user.role?.name === 'company' ) {
         return true
       }
       return false
@@ -146,18 +175,35 @@ get f() { return this.formGroup.controls; }
   }
 
   // Sign up with email/password
-  SignUp(email: string, password: string, company: boolean = false, candidate: boolean = true, admin:boolean = false, displayName:string) {
+  SignUp(user:User | any) {
+
+    let email: string | any = user.email;
+    let password: string | any = user.password;
+    console.log(user.uid)
 
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
-        this.SendVerificationMail();        
-        this.SetUserData(result.user, displayName, company, candidate, admin);
+        this.SendVerificationMail();
+        this.SetUserData(result, user);
+        this.AddUser(result, user);
       })
       .catch((error) => {
         window.alert(error.message);
-      }); 
+      });  
   }
+  // SignUp(email: string, password: string, company: boolean = false, candidate: boolean = true, admin:boolean = false, displayName:string) {
+
+  //   return this.afAuth
+  //     .createUserWithEmailAndPassword(email, password)
+  //     .then((result) => {
+  //       this.SendVerificationMail();        
+  //       this.SetUserData(result.user, displayName, company, candidate, admin);
+  //     })
+  //     .catch((error) => {
+  //       window.alert(error.message);
+  //     });  
+  // }
 
 
   // Send email verfificaiton when new user sign up
@@ -193,24 +239,20 @@ get f() { return this.formGroup.controls; }
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-  SetUserData(user: any, displayName:string, candidate:boolean, company:boolean, admin:boolean) {
+  SetUserData(result: any, user: User | any) {
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(
-      `users/${user.uid}`
+      `users/${result.user.uid}`
     );
-    console.log(company);
-    console.log(candidate);
-    console.log(admin);
-    const userData: any = {
-      uid: user.uid,
+    let userRole:boolean = user.role || null;
+    let photoURL:string | any = user.photoURL || null;
+
+    const userData: any | User = {
       email: user.email,
-      displayName: displayName,
-      role: { 
-        candidate,
-        company,
-        admin
-      },
-      photoURL: user.photoURL,
-      emailVerified: user.emailVerified,
+      displayName: user.displayName,
+      role: userRole,
+      photoURL: photoURL,
+      emailVerified: result.user.emailVerified,
+      uid: result.user.uid,
     };
     return userRef.set(userData, {
       merge: true,
@@ -251,14 +293,14 @@ get f() { return this.formGroup.controls; }
   /////////////////////////////////////////////////////////
   ////////////////// User CRUD ///////////////////////////
   
-  // addUser(email: string, password: string, displayName: string, role: string) {
+  // addUser(email: string, password: string, displayName: string, role: boolean) {
   //   const userRef = collection(this.firestore, 'users');
-  //   const user =
+  //   const user = {email: email, displayName: displayName, role: role}
   //   return addDoc(userRef, user);
   // }
 
-  getUserDataById(uid: string) {
-    const userDocRef = doc(this.firestore, `users/${uid}`);
+  getUserDataById(user: User) {
+    const userDocRef = doc(this.firestore, `users/${user.uid}`);
     return userDocRef;
   }
 

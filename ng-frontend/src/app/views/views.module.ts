@@ -3,9 +3,9 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MainComponentsModule } from '../main-components/main-components.module';
 
-import {MatButtonModule} from '@angular/material/button';
-import {MatRadioModule} from '@angular/material/radio';
-import {FormsModule} from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatRadioModule } from '@angular/material/radio';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HomeComponent } from './home/home.component';
 // import { CandidateServicesComponent } from './candidate-services/candidate-services.component';
@@ -17,6 +17,7 @@ import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { VerifyEmailComponent } from './auth/verify-email/verify-email.component';
 import { UseGuidesComponent } from './use-guides/use-guides.component';
 import { AuthModule } from '@angular/fire/auth';
+import { MatSelectModule } from '@angular/material/select';
 
 
 @NgModule({
@@ -38,7 +39,9 @@ import { AuthModule } from '@angular/fire/auth';
     MatButtonModule,
     MatRadioModule,
     FormsModule,
+    ReactiveFormsModule,
     AuthModule,
+    MatSelectModule,
     
   ],
   exports: [

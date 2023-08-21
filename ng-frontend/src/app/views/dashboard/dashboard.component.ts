@@ -12,13 +12,13 @@ import { AuthService } from 'src/app/services/auth.service';
 export class DashboardComponent implements OnInit {
 
   // user!: User;
-  user: User | any = this.authService.user$;
+  user: User | any = this.authService.getFirebaseUser();
   constructor(public authService: AuthService) { 
     this.user = this.user = {
       uid: this.user.uid,
       displayName: "",
       email: "",
-      roles: "",
+      role: "",
       photoURL: "",
       emailVerified: true,
     };
