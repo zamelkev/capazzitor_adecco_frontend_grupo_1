@@ -16,12 +16,8 @@ export class SignInComponent implements OnInit{
     public authService: AuthService
   ) {
     this.loginForm = new FormGroup({
-      role: new FormControl(),
-      displayName: new FormControl(),
       email: new FormControl(),
-      photoURL: new FormControl(),
       password: new FormControl(),
-      emailVerified: new FormControl(),
     });
   }
   ngOnInit() { }

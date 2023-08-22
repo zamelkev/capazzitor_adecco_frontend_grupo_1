@@ -12,7 +12,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { BehaviorSubject, from, ignoreElements, map, Observable, of, switchMap, tap, } from 'rxjs';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, getFirestore, getDocs, getDoc,
+import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, getFirestore, getDocs, getDoc, QueryDocumentSnapshot, DocumentData,
 } from '@angular/fire/firestore';
 import * as firebase from 'firebase/compat';
 import { FormBuilder, FormControl, FormGroup, Validators, } from '@angular/forms';
@@ -28,6 +28,9 @@ export class AuthService {
   user$ = this.user.asObservable();
   error: boolean = false;
   isLoggedIn$: Observable<boolean> = this.user$.pipe(map(Boolean));
+  // Initialize Firebase
+  app = initializeApp(firebaseConfig);
+  db = getFirestore(this.app);
 
   constructor(
     private afAuth: AngularFireAuth, // Inject Firebase auth service
@@ -118,39 +121,37 @@ export class AuthService {
 
   async getUserData(user: User | any) {
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    const userRef = doc(db, "users", user.uid);
+    const userRef = doc(this.db, "users", user.uid);
     const docSnap = await getDoc(userRef);
     
     if (docSnap.exists()) {
-      console.log('Document data:', docSnap.data());
+      // console.log('docSnap: ', docSnap.data());
+      this.userData = await docSnap.data();
+      // const userPromise$ = await docSnap.data();
+      // const userObservable$ = new Observable(observer => userPromise$.then(value => observer.next(value)))
+
+      const userData:User | any = await this.userData;
+      return userData;
     } else {
       // docSnap.data() will be undefined in this case
       console.log('No such document!');
+      return null;
     }
-
-      // const gettedUser = new User( userRef.uid, userRef.email, userRef.displayName, userRef.password, userRef.role, userRef.photoURL, userRef.emailVerified );
-    // return gettedUser;
   }
 
   // Sign in with email/password
   SignIn(user: User | any) {
     let email: string = user.email;
     let password: string = user.password;
-    let userData: User | any;
+    let userData: User;
 
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
-        // this.
         this.afAuth.authState.subscribe((user) => {
-          // this.SetUserData(result, user);
           if (user) {
             userData = this.getUserData(user);
-            console.log(userData);
-            this.user$ = userData;
+            this.userData = userData;
             this.router.navigate(['/dashboard']);
           }
         });

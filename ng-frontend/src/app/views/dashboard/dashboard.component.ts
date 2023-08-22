@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -11,19 +12,23 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class DashboardComponent implements OnInit {
 
-  user: User | any = this.authService.user$;
+  user: any = this.authService.userData;
+  // user: User | any;
   
   constructor(public authService: AuthService) { 
-    console.log(this.user);
     
+    console.log(this.user);
+
     this.user = this.user = {
       uid: this.user.uid,
-      displayName: this.user.uid,
-      email: "",
+      displayName: this.user.displayName,
+      email: this.user.email,
       role: this.user.role,
       photoURL: this.user.photoURL,
-      emailVerified: true,
+      emailVerified: this.user.emailVerified,
     };
+
+    // console.log(this.user);
    }
   ngOnInit(): void {}
 
