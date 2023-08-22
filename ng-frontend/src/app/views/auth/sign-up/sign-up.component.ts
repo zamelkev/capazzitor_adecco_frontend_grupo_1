@@ -49,9 +49,6 @@ export class SignUpComponent implements OnInit {
   }
 
   async onSignupSubmit() {
-    // console.log(this.signupForm.value)
     const response = await this.authService.SignUp(this.signupForm.value);
-    // const response = await this.authService.AddUser(this.signupForm.value);
-    console.log(response);
   }
 }

@@ -7,15 +7,19 @@ export class User {
     photoURL?: string | null;
     emailVerified?: boolean;
 
-    constructor() {}
-}
+    constructor(uid: string, email:string, displayName:string, password: string, role:Role, photoURL: string, emailVerified: boolean) {
+        this.uid = uid;
+        this.email = email;
+        this.displayName = displayName;
+        this.password = password;
+        this.role = role;
+        this.photoURL = photoURL;
+    }
 
-// export class Role { 
-//     // reader?: boolean;
-//     candidate?: boolean = false;
-//     company?: boolean = false;
-//     admin?: boolean = false;
-// }
+    toString() {
+        return `uid: ${this.uid}, email: ${this.email}, displayName: ${this.displayName}, password: ${this.password}, role: ${this.role}, photoURL: ${this.photoURL}`;
+    } 
+}
 
 export class Role { 
     name?: string;
@@ -24,6 +28,10 @@ export class Role {
     constructor (name: string, value: boolean) {
         this.name = name;
         this.value = value;
+    }
+
+    toString() {
+        return `roleName: ${this.name}, roleValue: ${this.value}`;
     }
 }
 
