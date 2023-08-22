@@ -2,44 +2,48 @@
     <div class="displayTableCell">
       <div class="authBlock">
         <h3>Entrar / Login</h3>
-        <div class="formGroup">
-          <input
+        <form [formGroup]="loginForm" (ngSubmit)="onLoginSubmit()">
+          <div class="formGroup">
+            <input
             type="email"
             class="formControl"
+            formControlName="email"
             placeholder="Correo Electrónico"
             #userName
             required
-          />
-        </div>
-        <div class="formGroup">
-          <input
+            />
+          </div>
+          <div class="formGroup">
+            <input
             type="password"
             class="formControl"
+            formControlName="password"
             placeholder="Contraseña"
             #userPassword
             required
-          />
-        </div>
-        <!-- Calling SignIn Api from AuthService -->
-        <div class="formGroup">
-          <input
+            />
+          </div>
+          <input type="submit" value="Iniciar Sesión" class="btn btnPrimary">
+          <!-- <div class="formGroup">
+            <input
             type="button"
             class="btn btnPrimary"
             value="Entrar"
             (click)="authService.SignIn(userName.value, userPassword.value)"
-          />
-        </div>
-        <div class="formGroup">
-          <span class="or"><span class="orInner">O</span></span>
-        </div>
-        <div class="forgotPassword">
-          <span routerLink="/forgot-password">¿Olvidaste tu contraseña?</span>
-        </div>
-        <div class="redirectToLogin">
-          <span
+            />
+          </div> -->
+        </form>
+          <div class="formGroup">
+            <span class="or"><span class="orInner">O</span></span>
+          </div>
+          <div class="forgotPassword">
+            <span routerLink="/forgot-password">¿Olvidaste tu contraseña?</span>
+          </div>
+          <div class="redirectToLogin">
+            <span
             >¿Aún no tienes una cuenta?<span
-              class="redirect"
-              routerLink="/register"
+            class="redirect"
+            routerLink="/register"
             >
               Registrase</span
             ></span
