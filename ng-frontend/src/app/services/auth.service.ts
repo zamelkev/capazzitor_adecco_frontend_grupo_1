@@ -397,8 +397,10 @@ export class AuthService {
     
     if (userSnap.exists()) {
       console.log(`Se ha encontrado la información de usuario`);
-      console.log("User data: ", userSnap.data())
-      return this.userData = userSnap.data;
+      console.log("User data: ", userSnap.data());
+      this.userData = userSnap.data as User;
+      console.log(this.userData);
+      return this.userData;
     } else {
       console.log(`No se ha encontrado ningún usuario para los datos introducidos`);
       return null;
