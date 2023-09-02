@@ -58,7 +58,7 @@ import { MatSelectModule } from '@angular/material/select';
 //App modules
 import { MainComponentsModule } from './main-components/main-components.module';
 import { ViewsModule } from './views/views.module';
-import { authTokeninterceptorProvider } from './services/interceptors/auth-token.interceptor';
+// import { authTokeninterceptorProvider } from './services/interceptors/auth-token.interceptor';
 //import { UsersModule } from './users/users.module';
 
 
@@ -73,11 +73,6 @@ export const firebaseConfig = {
   measurementId: "G-F067FM1D9W"
 };
 
-// Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-
-// Initialize Cloud Firestore and get a reference to the service
-// const db = getFirestore(app);
 
 @NgModule({
   declarations: [AppComponent],
@@ -134,7 +129,7 @@ export const firebaseConfig = {
     },
     { provide: FIREBASE_OPTIONS, useValue: firebaseConfig },
     { provide: AngularFireModule, useValue: firebaseConfig },
-    authTokeninterceptorProvider
+    // authTokeninterceptorProvider
   // providers: [AuthService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   ],
   // providers: [AuthService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],

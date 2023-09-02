@@ -31,19 +31,19 @@ export class SignUpComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  updateUserRole() {
+  updateUserRole():any {
     switch (this.user) {
       case 'admin':
-        this.user.role = { name:'admin', value:true };
+        return this.user.role = { name:"admin", value:true };
         break;
       case 'candidate':
-        this.user.role = { name:'candidate', value:true };
+        return this.user.role = { name:"candidate", value:true };
         break;
       case 'company':
-        this.user.role = { name:'company', value:true };
+        return this.user.role = { name:"company", value:true };
         break;
       default:
-        this.user.role = { name:'', value:false};
+        this.user.role = { undefined:false};
         break;
     }
   }

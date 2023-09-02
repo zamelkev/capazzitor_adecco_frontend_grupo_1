@@ -29,7 +29,7 @@ export class HasRoleGuard implements CanLoad, CanActivate {
     const allowedRoles = route.data?.['allowedRoles'];
 
     return this.authService.user$.pipe(
-      map((user) => Boolean(user && allowedRoles.includes().boolean(user.isAdmin || user.isCandidate || user.isCompany))),
+      map((user) => Boolean(user && allowedRoles.includes().string('admin', 'candidate', 'company'))),
       tap((hasRole) => hasRole === false && alert('Acceso Denegado'))
     );
   }
