@@ -22,6 +22,7 @@ import { setDoc } from 'firebase/firestore';
 import { Candidate } from '../models/candidate.model';
 
 
+
 @Injectable({
   providedIn: 'root',
 })
