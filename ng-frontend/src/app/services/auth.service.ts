@@ -24,8 +24,8 @@ import { firebaseConfig } from '../app.module';
 })
 export class AuthService {
   
-  userData!: Observable<User> | User | any; // Save logged in user data
-  private user = new BehaviorSubject<User | UserWithToken | any>(null);
+  userData!: any; // Save logged in user data
+  private user = new BehaviorSubject<User | null>(null);
   user$ = this.user.asObservable();
   // userData!: Observable<User | any> | User; // Save logged in user data
   // private user = new BehaviorSubject<User | any>(null);
@@ -73,15 +73,15 @@ export class AuthService {
       // });
       
       // Get auth data, then get firestore user document || null
-      this.user$ = this.afAuth.authState.pipe(
-        switchMap(user => {
-            if (user) {
-                return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
-            } else {
-                return of(null);
-            }
-        })
-      );
+      // this.user$ = this.afAuth.authState.pipe(
+      //   switchMap(user => {
+      //       if (user) {
+      //           return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+      //       } else {
+      //           return of(null);
+      //       }
+      //   })
+      // );
 
       /* Saving user data in localstorage when 
         logged in and setting up null when logged out */
@@ -111,64 +111,7 @@ export class AuthService {
   //////////////////////////////////////////////////////////
   ////////////////////// Auth Functions ///////////////////
 
-  AddUser(result: any, user: User | any) {
-    try {
-      const userRef = collection(this.firestore, 'users');
-
-      user.password = '' || null;
-      user.photoURL = user.photoURL || null;
-      user.uid = result.user.uid || null;
-      user.emailVerified = result.user.emailVerified || null;
-
-      return addDoc(userRef, user);
-    } catch (e) {
-      console.error('Error adding user: ', e);
-    }
-    return null;
-  }
-
-  async getUserData(user: User | any) {
-
-    try{
-    // console.log(user.uid);
-    const userRef: AngularFirestoreDocument<any> =
-    this.afs.doc(`users/${user.uid}`);
-    // this.afs.doc(`users/$(user.uid)`);
-    let data: User | any = {
-      // uid: user.uid,
-      // email: user.email,
-    };
-    return data = userRef.get();
-
-    // const uid:string = user.uid;
-    
-    // return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
-    // console.log(uid);
-    // const userRef = doc(this.db, `users/${uid}`);
-    // console.log(userRef);
-      // const docSnap = await getDoc(userRef);
-      // console.log(docSnap);
-      
-      // if (docSnap.exists()) {
-      //   // console.log('docSnap: ', docSnap.data());
-      //   // this.userData = docSnap.data();
-      //   // console.log(this.userData);
-      //   // this.userData = this.userData.asObservable();
-      //   // console.log(this.userData);
-      //   // return this.userData = await docSnap.data() as Observable<User> | User;
-      //   // return this.userData = defer(() => from(docSnap.data() as Observable<any>));
-      //   return this.userData = docSnap.data();
-      // } else {
-      //   // docSnap.data() will be undefined in this case
-      //   console.log('No such document!');
-      //   return null;
-      // }
-    } catch(error) {
-      console.log(error);
-    }
-    return null;
-  }
-
+  
   // Sign in with email/password
   SignIn(user: User | any) {
     let email: string = user.email;
@@ -178,25 +121,26 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
         user.uid = result.user?.uid;
-        console.log(user.uid);
-        user = this.afAuth.currentUser;
+        // console.log(user.uid);
+        // user = this.afAuth.currentUser;
+        user = this.GetUserData(result.user, user);
+        // this.checkAuthorization(this.userData);
         console.log(user)
         this.afAuth.authState.subscribe((user) => {
           if (user) {
             // console.log(user);
-            this.userData = this.getUserData(user);
-            console.log(this.userData);
-            this.checkAuthorization(this.userData);
-            console.log(this.userData);
-            return this.router.navigate(['/dashboard']);
+            // this.userData = this.getUserData(user);
+            // console.log(this.userData);
+            // console.log(this.userData);
+            this.router.navigate(['/dashboard']);
           }
-          return null;
+          this.router.navigate(['/login']);
         });
       })
       .catch((error) => {
         window.alert(error.message);
       });
-  }
+    }
 
   // Sign in with Google
   // googleLogin() {
@@ -205,24 +149,12 @@ export class AuthService {
   // }
 
   // private oAuthLogin(provider) {
-  //   return this.afAuth.auth.signInWithPopup(provider)
-  //     .then((Credential) => {
-  //       this.updateUserData(Credential.user)
+    //   return this.afAuth.auth.signInWithPopup(provider)
+    //     .then((Credential) => {
+      //       this.updateUserData(Credential.user)
   //     })
   // }
 
-  updateUserData(user: User | any) {
-    const userRef: AngularFirestoreDocument<any> =
-      this.afs.doc(`users/$(user.uid)`);
-    const data: User | any = {
-      uid: user.uid,
-      email: user.email,
-      role: {
-        // reader: true,
-      },
-    };
-    return userRef.set(data, { merge: true });
-  }
   private checkAuthorization(user: User/*, allowedRoles: string[]*/) {
     if (!user) return false;
     // for (const role of allowedRoles) {
@@ -234,17 +166,17 @@ export class AuthService {
         return true;
       }
       return false;
-    // }
-    return false;
-  }
-
-  // Sign up with email/password
-  SignUp(user: User | any) {
-    let email: string | any = user.email;
-    let password: string | any = user.password;
-    console.log(user.uid);
-
-    return this.afAuth
+      // }
+      return false;
+    }
+    
+    // Sign up with email/password
+    SignUp(user: User | any) {
+      let email: string | any = user.email;
+      let password: string | any = user.password;
+      console.log(user.uid);
+      
+      return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
         this.SendVerificationMail();
@@ -254,57 +186,46 @@ export class AuthService {
       .catch((error) => {
         window.alert(error.message);
       });
-  }
-  // SignUp(email: string, password: string, company: boolean = false, candidate: boolean = true, admin:boolean = false, displayName:string) {
-
-  //   return this.afAuth
-  //     .createUserWithEmailAndPassword(email, password)
-  //     .then((result) => {
-  //       this.SendVerificationMail();
-  //       this.SetUserData(result.user, displayName, company, candidate, admin);
-  //     })
-  //     .catch((error) => {
-  //       window.alert(error.message);
-  //     });
-  // }
-
-  // Send email verfificaiton when new user sign up
-  SendVerificationMail() {
-    return this.afAuth.currentUser
-      .then((u: any) => u.sendEmailVerification())
-      .then(() => {
-        this.router.navigate(['verify-emailaddress']);
-      });
-  }
-
-  // Reset Forggot password
-  ForgotPassword(passwordResetEmail: string) {
-    return this.afAuth
-      .sendPasswordResetEmail(passwordResetEmail)
-      .then(() => {
-        window.alert(
-          'Mensaje de restauración de contraseña enviado, por favor, comprueba las bandejas de tu correo electrónico.'
-        );
-      })
-      .catch((error) => {
-        window.alert(error);
-      });
-  }
-
-  // Returns true when user is looged in and email is verified
-  get isLoggedIn(): boolean {
-    const user = JSON.parse(localStorage.getItem('user')!);
-    return user !== null && user.emailVerified !== false ? true : false;
-  }
-
-  /* Setting up user data when sign in with username/password, 
-  sign up with username/password and sign in with social auth  
-  provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-  SetUserData(result: any, user: User | any) {
-    const userRef: AngularFirestoreDocument<User> = this.afs.doc(
+    }
+          
+          // Send email verfificaiton when new user sign up
+          SendVerificationMail() {
+            return this.afAuth.currentUser
+            .then((u: any) => u.sendEmailVerification())
+            .then(() => {
+              this.router.navigate(['verify-emailaddress']);
+            });
+          }
+          
+          // Reset Forggot password
+          ForgotPassword(passwordResetEmail: string) {
+            return this.afAuth
+            .sendPasswordResetEmail(passwordResetEmail)
+            .then(() => {
+              window.alert(
+                'Mensaje de restauración de contraseña enviado, por favor, comprueba las bandejas de tu correo electrónico.'
+                );
+              })
+              .catch((error) => {
+                window.alert(error);
+              });
+            }
+            
+            // Returns true when user is looged in and email is verified
+            get isLoggedIn(): boolean {
+              const user = JSON.parse(localStorage.getItem('user')!);
+              return user !== null && user.emailVerified !== false ? true : false;
+            }
+            
+            /* Setting up user data when sign in with username/password, 
+            sign up with username/password and sign in with social auth  
+            provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
+            SetUserData(result: any, user: User | any) {
+              console.log(result.user.uid);
+              const userRef: AngularFirestoreDocument<User> = this.afs.doc(
       `users/${result.user.uid}`
     );
-    let userRole: boolean = user.role || null;
+    let userRole: string = user.role || null;
     let photoURL: string | any = user.photoURL || null;
 
     const userData: any | User = {
@@ -359,9 +280,98 @@ export class AuthService {
   //   return addDoc(userRef, user);
   // }
 
+  AddUser(result: any, user: User | any) {
+    try {
+      const userRef = collection(this.firestore, 'users');
+
+      user.password = '' || null;
+      user.photoURL = user.photoURL || null;
+      user.uid = result.user.uid || null;
+      user.emailVerified = result.user.emailVerified || null;
+
+      return addDoc(userRef, user);
+    } catch (e) {
+      console.error('Error adding user: ', e);
+    }
+    return null;
+  }
+
+  updateUserData(user: User | any) {
+    const userRef: AngularFirestoreDocument<any> =
+    this.afs.doc(`users/$(user.uid)`);
+    const data: User | any = {
+      uid: user.uid,
+      email: user.email,
+      role: {
+        // reader: true,
+      },
+    };
+    return userRef.set(data, { merge: true });
+  }
+
+  // Getting user data from firestore
+  async GetUserData(result: any, user: User | any) {
+    // console.log(result.uid);
+    const userRef = doc( this.firestore, `users/${result.uid}` );
+    const userSnap = await getDoc(userRef);
+    
+    if (userSnap.exists()) {
+      console.log(`Se ha encontrado la información de usuario`);
+      console.log("User data: ", userSnap.data())
+      return this.userData = userSnap.data;
+    } else {
+      console.log(`No se ha encontrado ningún usuario para los datos introducidos`);
+      return null;
+    }
+  }
+
+  // async getUserData(user: User | any) {
+
+  //   try{
+  //   // console.log(user.uid);
+  //   const userRef: AngularFirestoreDocument<any> =
+  //   this.afs.doc(`users/${user.uid}`);
+  //   // this.afs.doc(`users/$(user.uid)`);
+  //   let data: User |any = userRef.get();
+  //   return data
+
+  //   // const uid:string = user.uid;
+    
+  //   // return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+  //   // console.log(uid);
+  //   // const userRef = doc(this.db, `users/${uid}`);
+  //   // console.log(userRef);
+  //     // const docSnap = await getDoc(userRef);
+  //     // console.log(docSnap);
+      
+  //     // if (docSnap.exists()) {
+  //     //   // console.log('docSnap: ', docSnap.data());
+  //     //   // this.userData = docSnap.data();
+  //     //   // console.log(this.userData);
+  //     //   // this.userData = this.userData.asObservable();
+  //     //   // console.log(this.userData);
+  //     //   // return this.userData = await docSnap.data() as Observable<User> | User;
+  //     //   // return this.userData = defer(() => from(docSnap.data() as Observable<any>));
+  //     //   return this.userData = docSnap.data();
+  //     // } else {
+  //     //   // docSnap.data() will be undefined in this case
+  //     //   console.log('No such document!');
+  //     //   return null;
+  //     // }
+  //   } catch(error) {
+  //     console.log(error);
+  //   }
+  //   return null;
+  // }
+
   getUsers(): Observable<User[]> {
     const userRef = collection(this.firestore, 'users');
     return collectionData(userRef, { idField: 'uid' }) as Observable<User[]>;
+  }
+
+  getUser(user: User) {
+    const userDocRef = doc(this.firestore, `users/${user.uid}`);
+    return getDoc(userDocRef);
   }
 
   deleteUser(user: User) {
