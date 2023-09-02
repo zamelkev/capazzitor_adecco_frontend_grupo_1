@@ -10,7 +10,7 @@ import { initializeApp } from "firebase/app";
 // import 'firebase/firestore';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
-import { BehaviorSubject, from, ignoreElements, map, Observable, of, switchMap, tap, } from 'rxjs';
+import { BehaviorSubject, from, defer, ignoreElements, map, Observable, ObservableInput, of, switchMap, tap, } from 'rxjs';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, getFirestore, getDocs, getDoc, QueryDocumentSnapshot, DocumentData,
 } from '@angular/fire/firestore';
@@ -18,14 +18,20 @@ import * as firebase from 'firebase/compat';
 import { FormBuilder, FormControl, FormGroup, Validators, } from '@angular/forms';
 import { firebaseConfig } from '../app.module';
 
+
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   
-  userData!: User | any; // Save logged in user data
+  userData!: Observable<User> | User | any; // Save logged in user data
   private user = new BehaviorSubject<User | UserWithToken | any>(null);
   user$ = this.user.asObservable();
+  // userData!: Observable<User | any> | User; // Save logged in user data
+  // private user = new BehaviorSubject<User | any>(null);
+  // private user:User|Observable<any>|any = null;
+  // user$: User | any | null = this.user;
+  // user$ = this.user.asObservable();
   error: boolean = false;
   isLoggedIn$: Observable<boolean> = this.user$.pipe(map(Boolean));
   // Initialize Firebase
@@ -42,19 +48,44 @@ export class AuthService {
     private http: HttpClient,
     private formBuilder: FormBuilder
   ) {
-
-    this.afAuth.authState
-      .pipe(
-        switchMap((user) => {
-          if (user) {
-            return this.afs.doc<User>('users/${user.uid}').valueChanges();
-          } else {
-            return of(null);
-          }
+    // this.user$ = this.user;
+      // this.isLoggedIn$ = this.user$.pipe(map(Boolean));
+      // this.afAuth.authState
+      //   .pipe(
+      //     switchMap((user) => {
+      //       if (user) {
+      //         return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+      //       } else {
+      //         return of(null);
+      //       }
+      //     })
+      // )
+      // .subscribe((user) => {
+      //   this.user.next(user);
+      //   if (user) {
+      //     this.userData = user;
+      //     localStorage.setItem('user', JSON.stringify(this.userData));
+      //     JSON.parse(localStorage.getItem('user')!);
+      //   } else {
+      //     localStorage.setItem('user', 'null');
+      //     JSON.parse(localStorage.getItem('user')!);
+      //   }
+      // });
+      
+      // Get auth data, then get firestore user document || null
+      this.user$ = this.afAuth.authState.pipe(
+        switchMap(user => {
+            if (user) {
+                return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+            } else {
+                return of(null);
+            }
         })
-      )
-      .subscribe((user) => {
-        this.user.next(user);
+      );
+
+      /* Saving user data in localstorage when 
+        logged in and setting up null when logged out */
+      this.afAuth.authState.subscribe((user) => {
         if (user) {
           this.userData = user;
           localStorage.setItem('user', JSON.stringify(this.userData));
@@ -64,30 +95,7 @@ export class AuthService {
           JSON.parse(localStorage.getItem('user')!);
         }
       });
-
-    /* Saving user data in localstorage when 
-      logged in and setting up null when logged out */
-    // this.afAuth.authState.subscribe((user) => {
-    //   if (user) {
-    //     this.userData = user;
-    //     localStorage.setItem('user', JSON.stringify(this.userData));
-    //     JSON.parse(localStorage.getItem('user')!);
-    //   } else {
-    //     localStorage.setItem('user', 'null');
-    //     JSON.parse(localStorage.getItem('user')!);
-    //   }
-    // });
-    
-    //// Get auth data, then get firestore user document || null
-    // this.user$ = this.afAuth.authState.pipe(
-    //   switchMap(user => {
-    //       if (user) {
-    //           return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
-    //       } else {
-    //           return of(null);
-    //       }
-    //   })
-    // );
+  
   }
 
   // ngOnInit() {
@@ -121,39 +129,68 @@ export class AuthService {
 
   async getUserData(user: User | any) {
 
-    const userRef = doc(this.db, "users", user.uid);
-    const docSnap = await getDoc(userRef);
-    
-    if (docSnap.exists()) {
-      // console.log('docSnap: ', docSnap.data());
-      this.userData = await docSnap.data();
-      // const userPromise$ = await docSnap.data();
-      // const userObservable$ = new Observable(observer => userPromise$.then(value => observer.next(value)))
+    try{
+    // console.log(user.uid);
+    const userRef: AngularFirestoreDocument<any> =
+    this.afs.doc(`users/${user.uid}`);
+    // this.afs.doc(`users/$(user.uid)`);
+    let data: User | any = {
+      // uid: user.uid,
+      // email: user.email,
+    };
+    return data = userRef.get();
 
-      const userData:User | any = await this.userData;
-      return userData;
-    } else {
-      // docSnap.data() will be undefined in this case
-      console.log('No such document!');
-      return null;
+    // const uid:string = user.uid;
+    
+    // return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+    // console.log(uid);
+    // const userRef = doc(this.db, `users/${uid}`);
+    // console.log(userRef);
+      // const docSnap = await getDoc(userRef);
+      // console.log(docSnap);
+      
+      // if (docSnap.exists()) {
+      //   // console.log('docSnap: ', docSnap.data());
+      //   // this.userData = docSnap.data();
+      //   // console.log(this.userData);
+      //   // this.userData = this.userData.asObservable();
+      //   // console.log(this.userData);
+      //   // return this.userData = await docSnap.data() as Observable<User> | User;
+      //   // return this.userData = defer(() => from(docSnap.data() as Observable<any>));
+      //   return this.userData = docSnap.data();
+      // } else {
+      //   // docSnap.data() will be undefined in this case
+      //   console.log('No such document!');
+      //   return null;
+      // }
+    } catch(error) {
+      console.log(error);
     }
+    return null;
   }
 
   // Sign in with email/password
   SignIn(user: User | any) {
     let email: string = user.email;
     let password: string = user.password;
-    let userData: User;
 
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
+        user.uid = result.user?.uid;
+        console.log(user.uid);
+        user = this.afAuth.currentUser;
+        console.log(user)
         this.afAuth.authState.subscribe((user) => {
           if (user) {
-            userData = this.getUserData(user);
-            this.userData = userData;
-            this.router.navigate(['/dashboard']);
+            // console.log(user);
+            this.userData = this.getUserData(user);
+            console.log(this.userData);
+            this.checkAuthorization(this.userData);
+            console.log(this.userData);
+            return this.router.navigate(['/dashboard']);
           }
+          return null;
         });
       })
       .catch((error) => {
@@ -186,18 +223,18 @@ export class AuthService {
     };
     return userRef.set(data, { merge: true });
   }
-  private checkAuthorization(user: User, allowedRoles: string[]) {
+  private checkAuthorization(user: User/*, allowedRoles: string[]*/) {
     if (!user) return false;
-    for (const role of allowedRoles) {
-      if (user.role?.name === 'admin') {
+    // for (const role of allowedRoles) {
+      if (user.role === 'admin') {
         return true;
-      } else if (user.role?.name === 'candidate') {
+      } else if (user.role === 'candidate') {
         return true;
-      } else if (user.role?.name === 'company') {
+      } else if (user.role === 'company') {
         return true;
       }
       return false;
-    }
+    // }
     return false;
   }
 
@@ -212,7 +249,7 @@ export class AuthService {
       .then((result) => {
         this.SendVerificationMail();
         this.SetUserData(result, user);
-        this.AddUser(result, user);
+        // this.AddUser(result, user);
       })
       .catch((error) => {
         window.alert(error.message);
