@@ -22,6 +22,7 @@ import { setDoc } from 'firebase/firestore';
 import { Candidate } from '../models/candidate.model';
 
 
+
 @Injectable({
   providedIn: 'root',
 })
@@ -136,6 +137,7 @@ export class AuthService {
             } else { 
             this.router.navigate(['/login']); 
           }
+          return null;
         });
       })
       .catch((error) => {
