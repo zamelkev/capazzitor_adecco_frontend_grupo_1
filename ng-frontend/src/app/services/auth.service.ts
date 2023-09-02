@@ -360,11 +360,100 @@ export class AuthService {
     return userRef.set(data, { merge: true });
   }
 
+  AddUser(result: any, user: User | any) {
+    try {
+      const userRef = collection(this.firestore, 'users');
+
+      user.password = '' || null;
+      user.photoURL = user.photoURL || null;
+      user.uid = result.user.uid || null;
+      user.emailVerified = result.user.emailVerified || null;
+
+      return addDoc(userRef, user);
+    } catch (e) {
+      console.error('Error adding user: ', e);
+    }
+    return null;
+  }
+
+  updateUserData(user: User | any) {
+    const userRef: AngularFirestoreDocument<any> =
+    this.afs.doc(`users/$(user.uid)`);
+    const data: User | any = {
+      uid: user.uid,
+      email: user.email,
+      role: {
+        // reader: true,
+      },
+    };
+    return userRef.set(data, { merge: true });
+  }
+
+  // Getting user data from firestore
+  async GetUserData(result: any, user: User | any) {
+    // console.log(result.uid);
+    const userRef = doc( this.firestore, `users/${result.uid}` );
+    const userSnap = await getDoc(userRef);
+    
+    if (userSnap.exists()) {
+      console.log(`Se ha encontrado la información de usuario`);
+      console.log("User data: ", userSnap.data())
+      return this.userData = userSnap.data;
+    } else {
+      console.log(`No se ha encontrado ningún usuario para los datos introducidos`);
+      return null;
+    }
+  }
+
+  // async getUserData(user: User | any) {
+
+  //   try{
+  //   // console.log(user.uid);
+  //   const userRef: AngularFirestoreDocument<any> =
+  //   this.afs.doc(`users/${user.uid}`);
+  //   // this.afs.doc(`users/$(user.uid)`);
+  //   let data: User |any = userRef.get();
+  //   return data
+
+  //   // const uid:string = user.uid;
+    
+  //   // return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+  //   // console.log(uid);
+  //   // const userRef = doc(this.db, `users/${uid}`);
+  //   // console.log(userRef);
+  //     // const docSnap = await getDoc(userRef);
+  //     // console.log(docSnap);
+      
+  //     // if (docSnap.exists()) {
+  //     //   // console.log('docSnap: ', docSnap.data());
+  //     //   // this.userData = docSnap.data();
+  //     //   // console.log(this.userData);
+  //     //   // this.userData = this.userData.asObservable();
+  //     //   // console.log(this.userData);
+  //     //   // return this.userData = await docSnap.data() as Observable<User> | User;
+  //     //   // return this.userData = defer(() => from(docSnap.data() as Observable<any>));
+  //     //   return this.userData = docSnap.data();
+  //     // } else {
+  //     //   // docSnap.data() will be undefined in this case
+  //     //   console.log('No such document!');
+  //     //   return null;
+  //     // }
+  //   } catch(error) {
+  //     console.log(error);
+  //   }
+  //   return null;
+  // }
+
   getUsers(): Observable<User[]> {
     const userRef = collection(this.firestore, 'users');
     return collectionData(userRef, { idField: 'uid' }) as Observable<User[]>;
   }
   
+  getUser(user: User) {
+    const userDocRef = doc(this.firestore, `users/${user.uid}`);
+    return getDoc(userDocRef);
+  }
+
   getUser(user: User) {
     const userDocRef = doc(this.firestore, `users/${user.uid}`);
     return getDoc(userDocRef);
