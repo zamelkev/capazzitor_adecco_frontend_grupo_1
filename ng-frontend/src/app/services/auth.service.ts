@@ -119,22 +119,24 @@ export class AuthService {
 
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
-      .then((result) => {
+      .then(async (result) => {
         user.uid = result.user?.uid;
+        const userRef = doc( this.firestore, `users/${user.uid}` );
+        const userSnap = await getDoc(userRef);
+        let userData: User | any = userSnap.data() as User | any;
         // console.log(user.uid);
         // user = this.afAuth.currentUser;
-        let userData = this.GetUserData(result.user, user) as any | User;
-        console.log(userData);
+        // let userData: User | any = this.GetUserData(result.user, user) as User | any;
+        // console.log(userData);
+        user = userData;
+        this.userData = user;
+        // console.log(user);
         // this.checkAuthorization(this.userData);
         this.afAuth.authState.subscribe((user) => {
           if (user) {
-            // console.log(user);
-            // this.userData = this.getUserData(user);
-            // console.log(this.userData);
-            // console.log(this.userData);
             this.router.navigate(['/dashboard']);
           }
-          this.router.navigate(['/login']);
+          // this.router.navigate(['/login']);
         });
       })
       .catch((error) => {
@@ -315,18 +317,19 @@ export class AuthService {
     const userRef = doc( this.firestore, `users/${result.uid}` );
     const userSnap = await getDoc(userRef);
 
-    const userData: User | any = userSnap.data() as User | any;
+    return userSnap.data() as User | any;
+    // const userData: User | any = userSnap.data() as User | any;
     
-    if (userSnap.exists()) {
-      console.log(`Se ha encontrado la información de usuario`);
-      // console.log("User data: ", userSnap.data());
-      // const data = userSnap.data as any | User;
-      console.log(userData);
-      return userData;
-    } else {
-      console.log(`No se ha encontrado ningún usuario para los datos introducidos`);
-      return null;
-    }
+    // if (userSnap.exists()) {
+    //   console.log(`Se ha encontrado la información de usuario`);
+    //   // console.log("User data: ", userSnap.data());
+    //   // const data = userSnap.data as any | User;
+    //   // console.log(userData);
+    //   return userData;
+    // } else {
+    //   console.log(`No se ha encontrado ningún usuario para los datos introducidos`);
+    //   return null;
+    // }
   }
 
   // async getUserData(user: User | any) {
