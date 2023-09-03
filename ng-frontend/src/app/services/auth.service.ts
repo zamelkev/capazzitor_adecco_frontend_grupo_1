@@ -135,8 +135,7 @@ export class AuthService {
         this.afAuth.authState.subscribe((user) => {
           if (user) {
             this.router.navigate(['/dashboard']);
-          }
-          // this.router.navigate(['/login']);
+          } else { this.router.navigate(['/login']); }
         });
       })
       .catch((error) => {
