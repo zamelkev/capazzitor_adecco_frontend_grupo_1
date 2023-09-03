@@ -360,55 +360,6 @@ export class AuthService {
     return userRef.set(data, { merge: true });
   }
 
-  AddUser(result: any, user: User | any) {
-    try {
-      const userRef = collection(this.firestore, 'users');
-
-      user.password = '' || null;
-      user.photoURL = user.photoURL || null;
-      user.uid = result.user.uid || null;
-      user.emailVerified = result.user.emailVerified || null;
-
-      return addDoc(userRef, user);
-    } catch (e) {
-      console.error('Error adding user: ', e);
-    }
-    return null;
-  }
-
-  updateUserData(user: User | any) {
-    const userRef: AngularFirestoreDocument<any> =
-    this.afs.doc(`users/$(user.uid)`);
-    const data: User | any = {
-      uid: user.uid,
-      email: user.email,
-      role: {
-        // reader: true,
-      },
-    };
-    return userRef.set(data, { merge: true });
-  }
-
-  // Getting user data from firestore
-  async GetUserData(result: any, user: User | any) {
-    // console.log(result.uid);
-    const userRef = doc( this.firestore, `users/${result.uid}` );
-    const userSnap = await getDoc(userRef);
-
-    const userData: User | any = userSnap.data() as User | any;
-    
-    if (userSnap.exists()) {
-      console.log(`Se ha encontrado la información de usuario`);
-      // console.log("User data: ", userSnap.data());
-      // const data = userSnap.data as any | User;
-      console.log(userData);
-      return userData;
-    } else {
-      console.log(`No se ha encontrado ningún usuario para los datos introducidos`);
-      return null;
-    }
-  }
-
   // async getUserData(user: User | any) {
 
   //   try{
@@ -453,11 +404,6 @@ export class AuthService {
     return collectionData(userRef, { idField: 'uid' }) as Observable<User[]>;
   }
   
-  getUser(user: User) {
-    const userDocRef = doc(this.firestore, `users/${user.uid}`);
-    return getDoc(userDocRef);
-  }
-
   getUser(user: User) {
     const userDocRef = doc(this.firestore, `users/${user.uid}`);
     return getDoc(userDocRef);
