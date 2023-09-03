@@ -124,14 +124,10 @@ export class AuthService {
         const userRef = doc( this.firestore, `users/${user.uid}` );
         const userSnap = await getDoc(userRef);
         let userData: User | any = userSnap.data() as User | any;
-        // console.log(user.uid);
-        // user = this.afAuth.currentUser;
-        // let userData: User | any = this.GetUserData(result.user, user) as User | any;
-        // console.log(userData);
+
         user = userData;
         this.userData = user;
-        // console.log(user);
-        // this.checkAuthorization(this.userData);
+        this.checkAuthorization(user);
         this.afAuth.authState.subscribe((user) => {
           if (user) {
             this.router.navigate(['/dashboard']);
