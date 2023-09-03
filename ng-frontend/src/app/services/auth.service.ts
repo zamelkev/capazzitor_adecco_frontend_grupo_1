@@ -394,13 +394,15 @@ export class AuthService {
     // console.log(result.uid);
     const userRef = doc( this.firestore, `users/${result.uid}` );
     const userSnap = await getDoc(userRef);
+
+    const userData: User | any = userSnap.data() as User | any;
     
     if (userSnap.exists()) {
       console.log(`Se ha encontrado la información de usuario`);
-      console.log("User data: ", userSnap.data());
-      this.userData = userSnap.data as User;
-      console.log(this.userData);
-      return this.userData;
+      // console.log("User data: ", userSnap.data());
+      // const data = userSnap.data as any | User;
+      console.log(userData);
+      return userData;
     } else {
       console.log(`No se ha encontrado ningún usuario para los datos introducidos`);
       return null;
