@@ -48,20 +48,17 @@
       <main role="main" class="col-md-9 ml-sm-auto col-lg-8 px-4">
         <div class="inner-adjust">
           <!-- Show user data when logged in -->
-          <div class="row" *ngIf="user as user">
-            <div class="col-md-12">
-              <span [ngSwitch]="user.role">
-                <span *ngSwitchCase="user.role === 'Admin'">
-                  <app-admin-dashboard></app-admin-dashboard>
-                </span>
-                <span *ngSwitchCase="user.role === 'Candidate'">
-                  <app-candidate-dashboard></app-candidate-dashboard>
-                </span>
-                <span *ngSwitchCase="user.role === 'Company'">
-                  <app-company-dashboard></app-company-dashboard>
-                </span>
-                <span *ngSwitchDefault>(No se encontró ningún rol de usuario)</span>
-              </span>
+          <div class="row">
+            <div class="col-md-12" *ngIf="user as user">
+              <div *ngIf="user.role === 'admin'">
+                <app-admin-dashboard></app-admin-dashboard>
+              </div>
+              <div *ngIf="user.role === 'candidate'">
+                <app-candidate-dashboard></app-candidate-dashboard>
+              </div>
+              <div *ngIf="user.role === 'company'">
+                <app-company-dashboard></app-company-dashboard>
+              </div>
             </div>
           </div>
         </div>

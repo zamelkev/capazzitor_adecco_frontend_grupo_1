@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
 
   user: User | any = this.authService.userData;
   constructor(public authService: AuthService) {
-    // console.log(this.user);
+    // console.log(this.user.role);
     // this.user = this.user = {
     //           uid: 1,
     //           displayName: "",
