@@ -43,19 +43,19 @@ export interface UserWithToken extends User {
 }
 
 // Firestore data converter
-// const userConverter = {
-//     toFirestore: (user: User) => {
-//         return {
-//             uid: user.uid,
-//             email: user.email,
-//             password: user.password,
-//             displayName: user.displayName,
-//             photoURL: user.photoURL,
-//             role: user.role,
-//             };
-//     },
-//     fromFirestore: (snapshot: { data: (arg0: any) => any; }, options: any) => {
-//         const data = snapshot.data(options);
-//         return new User(data.uid, data.email, data.displayName, data.password, data.role, data.photoURL, data.emailVerified);
-//     }
-// };
+export const userConverter = {
+    toFirestore: (user: User) => {
+        return {
+            uid: user.uid,
+            email: user.email,
+            password: user.password,
+            displayName: user.displayName,
+            photoURL: user.photoURL,
+            role: user.role,
+            };
+    },
+    fromFirestore: (snapshot: { data: (arg0: any) => any; }, options: any) => {
+        const data = snapshot.data(options);
+        return new User(data.uid, data.email, data.displayName, data.password, data.role, data.photoURL, data.emailVerified);
+    }
+};
