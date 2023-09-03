@@ -137,7 +137,7 @@ export class AuthService {
             } else { 
             this.router.navigate(['/login']); 
           }
-          this.router.navigate(['/login']);
+          // this.router.navigate(['/login']);
         });
       })
       .catch((error) => {
@@ -380,18 +380,19 @@ export class AuthService {
     const userRef = doc( this.firestore, `users/${result.uid}` );
     const userSnap = await getDoc(userRef);
 
-    const userData: User | any = userSnap.data() as User | any;
+    return userSnap.data() as User | any;
+    // const userData: User | any = userSnap.data() as User | any;
     
-    if (userSnap.exists()) {
-      console.log(`Se ha encontrado la información de usuario`);
-      // console.log("User data: ", userSnap.data());
-      // const data = userSnap.data as any | User;
-      console.log(userData);
-      return userData;
-    } else {
-      console.log(`No se ha encontrado ningún usuario para los datos introducidos`);
-      return null;
-    }
+    // if (userSnap.exists()) {
+    //   console.log(`Se ha encontrado la información de usuario`);
+    //   // console.log("User data: ", userSnap.data());
+    //   // const data = userSnap.data as any | User;
+    //   // console.log(userData);
+    //   return userData;
+    // } else {
+    //   console.log(`No se ha encontrado ningún usuario para los datos introducidos`);
+    //   return null;
+    // }
   }
 
   // async getUserData(user: User | any) {
