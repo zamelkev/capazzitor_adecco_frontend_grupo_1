@@ -5,3 +5,11 @@
   display: flex;
   flex-direction: row;
 }
+.roleSelector {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.roleSelector select {
+  border-radius: 0.5rem;
+}
