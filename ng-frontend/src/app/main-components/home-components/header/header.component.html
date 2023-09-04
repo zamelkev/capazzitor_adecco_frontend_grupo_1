@@ -1,7 +1,7 @@
 <div class="headerContainer">
   <div class="background">
     <mat-toolbar class="mat-elevation-z8">
-      <button mat-icon-button [matMenuTriggerFor]="menu">
+      <button mat-icon-button class="menu-button" [matMenuTriggerFor]="menu">
         <mat-icon>menu</mat-icon>
       </button>
       <mat-menu #menu="matMenu" [overlapTrigger]="false">
@@ -19,25 +19,30 @@
           </button>
       </mat-menu>
       <button class="account_button" mat-icon-button aria-label="Configuración de la cuenta de usuario" [matMenuTriggerFor]="userMenu">
-        <mat-icon>account_circle</mat-icon>
+        <mat-icon  *ngIf="!user">account_circle</mat-icon>
+        <span *ngIf="user as user">
+          {{user.displayName ? user.displayName : 'Inicia Sesión'}}
+        </span>
+        <img *ngIf="user as user" class="align-self-start mr-5 img-thumbnail rounded-circle img-size" src="{{(user.photoURL) ? user.photoURL : '../../../../../assets/img/dummy-user.png'}}" alt="{{user.displayName}}">
+        <mat-icon>expand_more</mat-icon>
       </button>
       <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
-        <button mat-menu-item routerLink="/login">
+        <button mat-menu-item *ngIf="!user" routerLink="/login">
           <span>Iniciar sesión</span>
         </button>
-        <button mat-menu-item routerLink="/register">
+        <button mat-menu-item *ngIf="!user" routerLink="/register">
           <span>Registrarse</span>
         </button>
-        <button mat-menu-item routerLink="/dashboard">
+        <button mat-menu-item *ngIf="user as user" routerLink="/dashboard">
           <span>Configuración cuenta</span>
         </button>
         <button mat-menu-item routerLink="/use-guides" disabled="">
           <span>Guías de uso</span>
         </button>
-        <button mat-menu-item routerLink="/forgot-password">
+        <button mat-menu-item *ngIf="user as user" routerLink="/forgot-password">
           <span>Recuperar contraseña</span>
         </button>
-        <button mat-menu-item disabled="">
+        <button mat-menu-item *ngIf="user as user" (click)="authService.SignOut()">
           <span>Salir</span>
         </button>
       </mat-menu>

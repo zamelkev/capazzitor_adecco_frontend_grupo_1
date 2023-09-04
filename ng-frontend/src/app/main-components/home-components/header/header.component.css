@@ -18,15 +18,25 @@ mat-toolbar {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding: 0 1.5rem;
   height: 3rem;
   background-color: rgba(255,255,255,0.75)
 }
-/* .account_button {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+.menu-button {
+  /* padding-left: 1rem; */
+  left: 0em;
 }
- */
+.account_button {
+  display: flex;
+  flex-direction: row;
+  /* padding-right: 1rem; */
+  right: 0em;
+  width: fit-content;
+}
+.account_button img {
+  max-height: 2.25rem;
+}
+
  /* mat-toolbar{
   position: absolute;
   z-index: 1,5rem;

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 
 
@@ -7,16 +8,14 @@ import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css'],
+  styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
 
-  // constructor () {
-  //   this.SignOut();
-  // }
+  user: User | any = this.authService.userData;
 
-  // SignOut() {
-  //     localStorage.removeItem('user');
-  //     // this.router.navigate(['login']);
-  // }
+  constructor(public authService: AuthService) {
+    
+  }
 }
+
