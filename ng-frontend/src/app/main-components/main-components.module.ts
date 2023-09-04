@@ -51,6 +51,7 @@ import { CompanyListComponent } from './company/company-list/company-list.compon
 import { UserListComponent } from './user/user-list/user-list.component';
 import { UserFormComponent } from './user/user-form/user-form.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
+import { UserProfileComponent } from './dashboard/user-profile/user-profile.component';
 
 
 
@@ -90,7 +91,8 @@ import { UserDetailComponent } from './user/user-detail/user-detail.component';
     CompanyListComponent,
     UserListComponent,
     UserFormComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    UserProfileComponent
   ],
   imports: [
     CommonModule,

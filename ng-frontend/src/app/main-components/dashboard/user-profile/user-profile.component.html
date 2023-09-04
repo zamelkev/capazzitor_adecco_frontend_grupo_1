@@ -1,0 +1,23 @@
+<app-header></app-header>
+<div class="container">
+    <mat-card class="profile-card">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Hola: <strong>{{(user.displayName) ? user.displayName : 'Usuario'}}</strong></mat-card-title>
+            <mat-card-title><h6>User ID: <strong>{{user.uid}}</strong></h6></mat-card-title>
+        </mat-card-header>
+        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+        <img mat-card-image *ngIf="user as user"
+        src="{{(user.photoURL) ? user.photoURL : '../../../../../assets/img/dummy-user.png'}}"
+        alt="{{user.displayName}}">
+        <mat-card-content>
+            <p>Email: <strong>{{user.email}}</strong></p>
+            <p><i>Email</i> Verificado: <strong>{{user.emailVerified}}</strong></p>
+            <p>User Role: <strong>{{user.role}}</strong></p>
+        </mat-card-content>
+        <!-- <mat-card-actions>
+            <button mat-button>LIKE</button>
+            <button mat-button>SHARE</button>
+        </mat-card-actions> -->
+    </mat-card>
+</div>
