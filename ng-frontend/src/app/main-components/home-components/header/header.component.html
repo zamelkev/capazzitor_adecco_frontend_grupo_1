@@ -5,9 +5,6 @@
         <mat-icon>menu</mat-icon>
       </button>
       <mat-menu #menu="matMenu" [overlapTrigger]="false">
-        <!-- <button mat-menu-item routerLink="/home">
-          <span>Inicio</span>
-        </button> -->
         <button mat-menu-item routerLink="/offer-list" disabled="">
             <span>Ofertas</span>
           </button>
@@ -48,8 +45,8 @@
       </mat-menu>
     </mat-toolbar> 
   </div>
-  <div class="logotype">
-    <img src="../../../assets/img/Logos/3x/capazzitor_logo@3x.png" routerLink="/home" alt="Imagen de logotipo">
+  <div class="logotype" routerLink="/home">
+    <img src="../../../assets/img/Logos/3x/capazzitor_logo@3x.png" alt="Capazzitor: Portal de empleo para personas con diversidad (Imagen de nuestro logotipo)">
     <h6>Portal de empleo para personas <span>con diversidad</span></h6>
   </div>
 </div>
