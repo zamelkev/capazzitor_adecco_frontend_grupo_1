@@ -25,7 +25,7 @@ import { firebaseConfig } from '../app.module';
 export class AuthService {
   
   userData!: any; // Save logged in user data
-  private user = new BehaviorSubject<User | null>(null);
+  private user = new BehaviorSubject<User | null>(null /*|| JSON.parse(localStorage.getItem('user')!)*/);
   user$ = this.user.asObservable();
   // userData!: Observable<User | any> | User; // Save logged in user data
   // private user = new BehaviorSubject<User | any>(null);
@@ -124,14 +124,21 @@ export class AuthService {
         const userRef = doc( this.firestore, `users/${user.uid}` );
         const userSnap = await getDoc(userRef);
         let userData: User | any = userSnap.data() as User | any;
-
+        // console.log(userData);
         user = userData;
-        this.userData = user;
+        this.userData = userData;
         this.checkAuthorization(user);
         this.afAuth.authState.subscribe((user) => {
           if (user) {
-            this.router.navigate(['/dashboard']);
-          } else { this.router.navigate(['/login']); }
+              // localStorage.setItem('user', JSON.stringify(userData));
+              // console.log('Data from local storage: ');
+              // JSON.parse(localStorage.getItem('user')!);
+              this.router.navigate(['/dashboard']);
+            } else { 
+            // localStorage.setItem('user', 'null');
+            // JSON.parse(localStorage.getItem('user')!);
+            this.router.navigate(['/login']); 
+          }
         });
       })
       .catch((error) => {
@@ -246,6 +253,7 @@ export class AuthService {
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
+      this.userData = {};
       this.router.navigate(['login']);
     });
   }
