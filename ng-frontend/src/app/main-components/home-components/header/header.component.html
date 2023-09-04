@@ -31,7 +31,10 @@
           <span>Registrarse</span>
         </button>
         <button mat-menu-item *ngIf="user as user" routerLink="/dashboard">
-          <span>Configuración cuenta</span>
+          <span>Panel de Control</span>
+        </button>
+        <button mat-menu-item *ngIf="user as user" routerLink="/user-profile">
+          <span>Perfil de Usuario</span>
         </button>
         <button mat-menu-item routerLink="/use-guides" disabled="">
           <span>Guías de uso</span>
