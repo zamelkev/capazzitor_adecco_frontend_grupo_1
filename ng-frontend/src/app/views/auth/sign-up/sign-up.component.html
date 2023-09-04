@@ -5,12 +5,12 @@
       <h3>Registrarse / Register</h3><br>
       <form [formGroup]="signupForm" (ngSubmit)="onSignupSubmit()">
         <div class="formGroup">
-        <div>
-          <label for="role">Selecciona un Rol de Usuario:</label>
+        <div class="roleSelector">
+          <label for="role"><strong>Selecciona un Rol de Usuario:</strong></label>
           <select formControlName="role" id="role" (change)="updateUserRole()">
             <option value="candidate">Candidat@</option>
             <option value="company">Empresa</option>
-            <option value="admin">Admin</option>
+            <!-- <option value="admin">Admin</option> -->
           </select>
         </div>
         
