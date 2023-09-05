@@ -1,21 +1,38 @@
 table {
     width: 100%;
 }
-
 .container {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
 }
-
 mat-panel-title {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-
-mat-panel-title button {
+mat-expansion-panel button {
   border-radius: 0.5em;
   background-color: red;
   font-weight:500;
   color: aliceblue;
+}
+.responsiveButtons {
+  display: none;
+}
+.restoreButton {
+  background-color: blue !important;
+}
+
+@media (max-width:993px) {  
+  mat-panel-title button {
+    display: none;
+  }
+  .responsiveButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+  .restoreButton {
+    margin-left: 1rem;
+  }
 }
