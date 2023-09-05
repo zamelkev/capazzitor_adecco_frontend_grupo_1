@@ -35,9 +35,9 @@ export class UserListComponent implements OnInit{
     })
   }
 
-  // async onClickDelete(user: User) {
-  //   const response = await this.authService.deleteUser(user);
-  //   console.log(response);
-  // }
+  async onClickDelete(user: User) {
+    const response = await this.authService.deleteUser(user);
+    console.log(response);
+  }
 
 }

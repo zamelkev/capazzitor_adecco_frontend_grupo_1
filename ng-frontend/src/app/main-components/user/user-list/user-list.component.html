@@ -3,21 +3,19 @@
   <br>
   <div *ngFor="let user of users">
     <mat-accordion>
-      <mat-expansion-panel (opened)="panelOpenState = true"
-      (closed)="panelOpenState = false">
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          <strong>{{user.displayName}}</strong> <strong>{{user.email}}</strong>
-        </mat-panel-title>
-        <mat-panel-description>
-        </mat-panel-description>
-      </mat-expansion-panel-header>
-      Nombre de Usuario:    <strong>{{user.displayName}}</strong> <br>
-      ID:                   <strong>{{user.uid}}</strong><br>
-      rol:                  <strong>{{user.role}}</strong><br>
-      URL (Foto de Perfil): <strong>{{user.photoURL}}</strong><br>
-      emailVerified:        <strong>{{user.emailVerified}}</strong>
-    </mat-expansion-panel>
-  </mat-accordion>
-</div>
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <strong>{{user.displayName}}</strong> <strong>{{user.email}}</strong>
+            <button (click)="onClickDelete(user)">Borrar usuari@</button>
+          </mat-panel-title>
+          </mat-expansion-panel-header>
+            Nombre de Usuario: <strong>{{user.displayName}}</strong><br>
+            ID: <strong>{{user.uid}}</strong><br>
+            rol: <strong>{{user.role}}</strong><br>
+            URL (Foto de Perfil): <strong>{{user.photoURL}}</strong><br>
+            emailVerified: <strong>{{user.emailVerified}}</strong>
+          </mat-expansion-panel>
+    </mat-accordion>
+  </div>
 </div>

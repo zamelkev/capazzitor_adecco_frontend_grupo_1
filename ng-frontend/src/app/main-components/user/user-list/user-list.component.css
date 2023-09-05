@@ -12,3 +12,10 @@ mat-panel-title {
   flex-direction: row;
   justify-content: space-between;
 }
+
+mat-panel-title button {
+  border-radius: 0.5em;
+  background-color: red;
+  font-weight:500;
+  color: aliceblue;
+}
