@@ -8,18 +8,9 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent {
+  
   user: User | any = this.authService.user$;
-  constructor(public authService: AuthService) {  }
 
-  // user!: User;
-  // constructor(public authService: AuthService) {
-  //   this.user = this.user = {
-  //             uid: 1,
-  //             displayName: "",
-  //             email: "",
-  //             role: "admin",
-  //             photoURL: "",
-  //             emailVerified: true,
-  //         };
-  // }
+  constructor(public authService: AuthService) {}
+
 }
