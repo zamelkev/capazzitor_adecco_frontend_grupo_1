@@ -202,7 +202,8 @@ export class AuthService {
           }
           
           // Reset Forggot password
-          ForgotPassword(passwordResetEmail: string) {
+          ForgotPassword(user: User /*passwordResetEmail: string*/) {
+            let passwordResetEmail: any = user.email;
             return this.afAuth
             .sendPasswordResetEmail(passwordResetEmail)
             .then(() => {
