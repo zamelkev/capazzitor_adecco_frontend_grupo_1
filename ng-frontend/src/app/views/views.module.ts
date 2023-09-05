@@ -18,6 +18,8 @@ import { VerifyEmailComponent } from './auth/verify-email/verify-email.component
 import { UseGuidesComponent } from './use-guides/use-guides.component';
 import { AuthModule } from '@angular/fire/auth';
 import { MatSelectModule } from '@angular/material/select';
+import { MeetUsComponent } from './meet-us/meet-us.component';
+import { EventsComponent } from './events/events.component';
 
 
 @NgModule({
@@ -30,7 +32,9 @@ import { MatSelectModule } from '@angular/material/select';
     SignInComponent,
     SignUpComponent,
     VerifyEmailComponent,
-    UseGuidesComponent
+    UseGuidesComponent,
+    MeetUsComponent,
+    EventsComponent
   ],
   imports: [
     CommonModule,
