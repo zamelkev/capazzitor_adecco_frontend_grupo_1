@@ -11,6 +11,6 @@ describe('MeetUsComponent', () => {
       declarations: [MeetUsComponent]
     });
     fixture = TestBed.createComponent(MeetUsComponent);
+  });
 
-  }
-}
+});
