@@ -10,6 +10,8 @@ import { User } from '../../../models/user.model';
 export class CandidateDashboardComponent implements OnInit {
   
   user: User | any = this.authService.user$;
+  panelOpenState = false;
+  
   constructor(public authService: AuthService) {  }
 
   // user!: User;

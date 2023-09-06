@@ -9,6 +9,8 @@ import { User } from '../../../models/user.model';
 })
 export class CompanyDashboardComponent {
   usuario!: User;
+  panelOpenState = false;
+  
   constructor(public authService: AuthService) {}
   ngOnInit(): void {}
 }
