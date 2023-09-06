@@ -313,10 +313,9 @@ export class AuthService {
     user.password = '' || null;
     user.photoURL = user.photoURL || null;
     user.uid = result.user.uid || null;
-    console.log(result.user.uid);
-    console.log(user.uid);
     user.nombreSocial = user.displayName;
     user.email = result.user.email;
+    user.emailVerified = result.user.emailVerified;
 
     return addDoc(companyRef, user);
     } catch (e) {
