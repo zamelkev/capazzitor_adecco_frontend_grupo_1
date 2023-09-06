@@ -31,6 +31,7 @@ export class AuthService {
   userData!: any; // Save logged in user data
   private user = new BehaviorSubject<User | null>(null /*|| JSON.parse(localStorage.getItem('user')!)*/);
   user$ = this.user.asObservable();
+  loginResult!: any;
   // userData!: Observable<User | any> | User; // Save logged in user data
   // private user = new BehaviorSubject<User | any>(null);
   // private user:User|Observable<any>|any = null;
