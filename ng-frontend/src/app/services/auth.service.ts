@@ -12,11 +12,13 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
 import { BehaviorSubject, from, defer, ignoreElements, map, Observable, ObservableInput, of, switchMap, tap, } from 'rxjs';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
-import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, getFirestore, getDocs, getDoc, QueryDocumentSnapshot, DocumentData,
+import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, getFirestore, getDocs, getDoc, QueryDocumentSnapshot, DocumentData, query, orderBy, where,
 } from '@angular/fire/firestore';
 import * as firebase from 'firebase/compat';
 import { FormBuilder, FormControl, FormGroup, Validators, } from '@angular/forms';
 import { firebaseConfig } from '../app.module';
+import { Company } from '../models/company.model';
+import { setDoc } from 'firebase/firestore';
 
 
 @Injectable({
@@ -27,6 +29,7 @@ export class AuthService {
   userData!: any; // Save logged in user data
   private user = new BehaviorSubject<User | null>(null /*|| JSON.parse(localStorage.getItem('user')!)*/);
   user$ = this.user.asObservable();
+  loginResult!: any;
   // userData!: Observable<User | any> | User; // Save logged in user data
   // private user = new BehaviorSubject<User | any>(null);
   // private user:User|Observable<any>|any = null;
@@ -124,6 +127,7 @@ export class AuthService {
         const userRef = doc( this.firestore, `users/${user.uid}` );
         const userSnap = await getDoc(userRef);
         let userData: User | any = userSnap.data() as User | any;
+        this.loginResult = result;
         // console.log(userData);
         user = userData;
         this.userData = userData;
@@ -280,12 +284,6 @@ export class AuthService {
   /////////////////////////////////////////////////////////
   ////////////////// User CRUD ///////////////////////////
 
-  // addUser(email: string, password: string, displayName: string, role: boolean) {
-  //   const userRef = collection(this.firestore, 'users');
-  //   const user = {email: email, displayName: displayName, role: role}
-  //   return addDoc(userRef, user);
-  // }
-
   AddUser(result: any, user: User | any) {
     try {
       const userRef = collection(this.firestore, 'users');
@@ -302,17 +300,14 @@ export class AuthService {
     return null;
   }
 
-  updateUserData(user: User | any) {
-    const userRef: AngularFirestoreDocument<any> =
-    this.afs.doc(`users/$(user.uid)`);
-    const data: User | any = {
-      uid: user.uid,
-      email: user.email,
-      role: {
-        // reader: true,
-      },
-    };
-    return userRef.set(data, { merge: true });
+  AddCompanyData(company: Company | any, user: User | any) {
+    const companyRef = collection(this.firestore, 'companies');
+    // const companyRef = doc(this.firestore, "companies", user.uid);
+      company.cid = company.uid = user.uid || null;
+      company.correo = user.email || null;
+      company.nombreSocial = user.displayName || null;
+    return addDoc(companyRef, company);
+    // return setDoc(companyRef, company, user.uid);
   }
 
   // Getting user data from firestore
@@ -322,63 +317,27 @@ export class AuthService {
     const userSnap = await getDoc(userRef);
 
     return userSnap.data() as User | any;
-    // const userData: User | any = userSnap.data() as User | any;
-    
-    // if (userSnap.exists()) {
-    //   console.log(`Se ha encontrado la información de usuario`);
-    //   // console.log("User data: ", userSnap.data());
-    //   // const data = userSnap.data as any | User;
-    //   // console.log(userData);
-    //   return userData;
-    // } else {
-    //   console.log(`No se ha encontrado ningún usuario para los datos introducidos`);
-    //   return null;
-    // }
   }
 
-  // async getUserData(user: User | any) {
+  async GetCompanyData(user: User | any) {
+    // console.log(result.uid);
+    const userRef = doc( this.firestore, `companies/${user.uid}` );
+    const userSnap = await getDoc(userRef);
 
-  //   try{
-  //   // console.log(user.uid);
-  //   const userRef: AngularFirestoreDocument<any> =
-  //   this.afs.doc(`users/${user.uid}`);
-  //   // this.afs.doc(`users/$(user.uid)`);
-  //   let data: User |any = userRef.get();
-  //   return data
-
-  //   // const uid:string = user.uid;
-    
-  //   // return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
-  //   // console.log(uid);
-  //   // const userRef = doc(this.db, `users/${uid}`);
-  //   // console.log(userRef);
-  //     // const docSnap = await getDoc(userRef);
-  //     // console.log(docSnap);
-      
-  //     // if (docSnap.exists()) {
-  //     //   // console.log('docSnap: ', docSnap.data());
-  //     //   // this.userData = docSnap.data();
-  //     //   // console.log(this.userData);
-  //     //   // this.userData = this.userData.asObservable();
-  //     //   // console.log(this.userData);
-  //     //   // return this.userData = await docSnap.data() as Observable<User> | User;
-  //     //   // return this.userData = defer(() => from(docSnap.data() as Observable<any>));
-  //     //   return this.userData = docSnap.data();
-  //     // } else {
-  //     //   // docSnap.data() will be undefined in this case
-  //     //   console.log('No such document!');
-  //     //   return null;
-  //     // }
-  //   } catch(error) {
-  //     console.log(error);
-  //   }
-  //   return null;
-  // }
+    return userSnap.data() as User | any;
+  }
 
   getUsers(): Observable<User[]> {
     const userRef = collection(this.firestore, 'users');
     return collectionData(userRef, { idField: 'uid' }) as Observable<User[]>;
   }
+
+  getCompanies(): Observable<Company[] | User[]> {
+    const userRef = collection(this.firestore, 'users');
+    const sortedUserRef = query(userRef, where("role", "==", "company"));
+    return collectionData(userRef, { idField: 'uid' }) as Observable<User[]>;
+  }
+
 
   getUser(user: User) {
     const userDocRef = doc(this.firestore, `users/${user.uid}`);
