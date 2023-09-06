@@ -4,16 +4,16 @@ import { Telephone } from "./telephone.model";
 import { User } from "./user.model";
 
 export interface Company extends User {
-    id: number;
-    nombreSocial: string;
-    nombreFiscal: string;
-    cif: string;
-    telefono: number;
-    correo: string;
-    direcciones: string;
-    sector: string;
-    estado: string;
-    ofertas: number;
-    numeroEmpleados: number;
-    proyeccion: string;
+    cid: number | string;
+    nombreSocial: string | undefined;
+    nombreFiscal: string | undefined;
+    cif: string | undefined;
+    telefono: number | undefined;
+    correo: string | undefined;
+    direcciones: string | undefined;
+    sector: string | undefined;
+    estado: string | undefined;
+    ofertas: number | undefined;
+    numeroEmpleados: number | undefined;
+    proyeccion: string | undefined;
 }

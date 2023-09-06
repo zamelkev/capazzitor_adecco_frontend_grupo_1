@@ -1,6 +1,7 @@
 <div class="container">
-  <h2>Detalles Empresa:</h2>
+  <h2>Listado de Empresas:</h2>
   <br>
+  <div *ngFor="let company of companies">
     <mat-accordion>
       <mat-expansion-panel (opened)="panelOpenState = true"
       (closed)="panelOpenState = false">
@@ -23,4 +24,5 @@
       Nº Ofertas: <strong>{{company.ofertas}}</strong>
     </mat-expansion-panel>
   </mat-accordion>
+</div>
 </div>

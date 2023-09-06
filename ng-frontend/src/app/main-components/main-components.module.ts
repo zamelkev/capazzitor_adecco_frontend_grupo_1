@@ -48,6 +48,7 @@ import { CandidateListComponent } from './cadidate/candidate-list/candidate-list
 import { CompanyDetailComponent } from './company/company-detail/company-detail.component';
 import { CompanyFormComponent } from './company/company-form/company-form.component';
 import { CompanyListComponent } from './company/company-list/company-list.component';
+import { CompanyListAdminComponent } from './company/company-list-admin/company-list-admin.component';
 import { UserListComponent } from './user/user-list/user-list.component';
 import { UserFormComponent } from './user/user-form/user-form.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
@@ -89,6 +90,7 @@ import { UserProfileComponent } from './dashboard/user-profile/user-profile.comp
     CompanyDetailComponent,
     CompanyFormComponent,
     CompanyListComponent,
+    CompanyListAdminComponent,
     UserListComponent,
     UserFormComponent,
     UserDetailComponent,
@@ -138,7 +140,8 @@ import { UserProfileComponent } from './dashboard/user-profile/user-profile.comp
     BottomSheetComponent,
     CompanyDetailComponent,
     CompanyFormComponent,
-    CompanyListComponent
+    CompanyListComponent,
+    CompanyListAdminComponent
   ],
   providers: [
     {

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CompanyService } from 'src/app/services/company.service';
-import { Company } from 'src/app/models/company.model';
+import { User } from 'src/app/models/user.model';
+import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-company-form',
   templateUrl: './company-form.component.html',
@@ -10,23 +10,25 @@ import { Company } from 'src/app/models/company.model';
 })
 export class CompanyFormComponent {
 
-  editForm = this.createFormGroup(); // formulario
+  editCompanyForm = this.createFormGroup(); // formulario
+  user: User | any = this.authService.userData;
+  loginResult: any = this.authService.loginResult;
   error: boolean = false;
   id: string | undefined;
 
   constructor(
-    private companyService: CompanyService,
+    private authService: AuthService,
     private router: Router,
     private activatedRoute: ActivatedRoute
   ) { }
 
   createFormGroup() {
     return new FormGroup({
-      id: new FormControl({ value: null, disabled: true }),
-      nombreSocial: new FormControl('nombreSocial', {
-        // nonNullable: true,
-        validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
-      }),
+      // id: new FormControl({ value: null, disabled: true }),
+      // nombreSocial: new FormControl('nombreSocial', {
+      //   // nonNullable: true,
+      //   validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
+      // }),
       nombreFiscal: new FormControl('nombreFiscal', {
         // nonNullable: true,
         validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
@@ -39,10 +41,10 @@ export class CompanyFormComponent {
         // nonNullable: true,
         validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
       }),
-      correo: new FormControl('correo', {
-        // nonNullable: true,
-        validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
-      }),
+      // correo: new FormControl('correo', {
+      //   // nonNullable: true,
+      //   validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
+      // }),
       direcciones: new FormControl('direcciones', {
         // nonNullable: true,
         validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
@@ -55,10 +57,10 @@ export class CompanyFormComponent {
         // nonNullable: true,
         validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
       }),
-      ofertas: new FormControl('ofertas', {
-        // nonNullable: true,
-        validators: [Validators.required]
-      }),
+      // ofertas: new FormControl('ofertas', {
+      //   // nonNullable: true,
+      //   validators: [Validators.required]
+      // }),
       numeroEmpleados: new FormControl('numeroEmpleados', {
         // nonNullable: true,
         validators: [Validators.required]
@@ -81,27 +83,6 @@ export class CompanyFormComponent {
     
   }
 
-  save() {
-    if (!this.editForm.valid) return
-    let categories = {
-      name: this.editForm.get("fullName")?.value,
-      slug: this.editForm.get("slug")?.value,
-      imgUrl: this.editForm.get("imgUrl")?.value
-    } as any;
-
-    let id = this.editForm.get("id")?.value;
-
-    
-    if (id) { // actualización
-      
-
-    } else { // creación
-      
-    }
-  }
-
-
-
   private showError(err: any): void {
     console.log(err);
     this.error = true;
@@ -109,6 +90,11 @@ export class CompanyFormComponent {
 
   public onDelete(): void {
     
+  }
+
+  async onCompanyFormSubmit() {
+    const response = await this.authService.AddCompanyData(this.editCompanyForm.value, this.loginResult);
+    console.log(response);
   }
 
 

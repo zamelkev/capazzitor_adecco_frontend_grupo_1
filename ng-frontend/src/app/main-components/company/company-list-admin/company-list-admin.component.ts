@@ -4,21 +4,19 @@ import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
-  selector: 'app-company-list',
-  templateUrl: './company-list.component.html',
-  styleUrls: ['./company-list.component.css'],
+  selector: 'app-company-list-admin',
+  templateUrl: './company-list-admin.component.html',
+  styleUrls: ['./company-list-admin.component.css'],
 })
 
-export class CompanyListComponent implements OnInit {
+export class CompanyListAdminComponent implements OnInit {
 
-  user: User | any = this.authService.userData;
-
-  company: Company | any /*| Observable<User[]>*/ /*| NgIterable<any[]>*/ | null | undefined = [];
+  companies: Company[] | User[] | any[] /*| Observable<User[]>*/ /*| NgIterable<any[]>*/ | null | undefined = [];
 
   panelOpenState = false;
 
   constructor(private authService: AuthService) {
-    this.company = [
+    this.companies = [
       {
       uid: 1234,
       email: 'prueba@prueba.es',
@@ -43,7 +41,9 @@ export class CompanyListComponent implements OnInit {
     ];
   }
   ngOnInit(): void {
-    this.company = this.authService?.GetCompanyData(this.user.uid);
+    this.authService?.getCompanies().subscribe( companies => {
+      this.companies = companies;
+    })
   }
 
 }
