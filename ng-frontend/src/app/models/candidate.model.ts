@@ -4,7 +4,6 @@ import { Telephone } from "./telephone.model";
 import { User } from "./user.model";
 
 export interface Candidate extends User {
-    idCandidato?: number;
     nombre?: string;
     apellidos?: string;
     dni?:string;

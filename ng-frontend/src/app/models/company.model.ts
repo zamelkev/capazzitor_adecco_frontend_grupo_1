@@ -4,7 +4,6 @@ import { Telephone } from "./telephone.model";
 import { User } from "./user.model";
 
 export interface Company extends User {
-    cid: number | string;
     nombreSocial: string | undefined;
     nombreFiscal: string | undefined;
     cif: string | undefined;
