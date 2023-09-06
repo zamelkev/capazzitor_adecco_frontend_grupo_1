@@ -19,6 +19,7 @@ import { FormBuilder, FormControl, FormGroup, Validators, } from '@angular/forms
 import { firebaseConfig } from '../app.module';
 import { Company } from '../models/company.model';
 import { setDoc } from 'firebase/firestore';
+import { Candidate } from '../models/candidate.model';
 
 
 @Injectable({
@@ -29,7 +30,6 @@ export class AuthService {
   userData!: any; // Save logged in user data
   private user = new BehaviorSubject<User | null>(null /*|| JSON.parse(localStorage.getItem('user')!)*/);
   user$ = this.user.asObservable();
-  loginResult!: any;
   // userData!: Observable<User | any> | User; // Save logged in user data
   // private user = new BehaviorSubject<User | any>(null);
   // private user:User|Observable<any>|any = null;
@@ -127,7 +127,6 @@ export class AuthService {
         const userRef = doc( this.firestore, `users/${user.uid}` );
         const userSnap = await getDoc(userRef);
         let userData: User | any = userSnap.data() as User | any;
-        this.loginResult = result;
         // console.log(userData);
         user = userData;
         this.userData = userData;
@@ -189,49 +188,56 @@ export class AuthService {
       .then((result) => {
         this.SendVerificationMail();
         this.SetUserData(result, user);
-        // this.AddUser(result, user);
+        console.log(user.role);
+        if (user.role === 'company') {
+        this.InitCompanyData(result, user);
+        } else if (user.role === 'candidate') {
+        this.InitCandidateData(result, user);
+        } else {
+          console.log("User's role reading has failed")
+        }
       })
       .catch((error) => {
         window.alert(error.message);
       });
     }
           
-          // Send email verfificaiton when new user sign up
-          SendVerificationMail() {
-            return this.afAuth.currentUser
-            .then((u: any) => u.sendEmailVerification())
-            .then(() => {
-              this.router.navigate(['verify-emailaddress']);
-            });
-          }
+    // Send email verfificaiton when new user sign up
+    SendVerificationMail() {
+      return this.afAuth.currentUser
+      .then((u: any) => u.sendEmailVerification())
+      .then(() => {
+        this.router.navigate(['verify-emailaddress']);
+      });
+    }
           
-          // Reset Forggot password
-          ForgotPassword(user: User /*passwordResetEmail: string*/) {
-            let passwordResetEmail: any = user.email;
-            return this.afAuth
-            .sendPasswordResetEmail(passwordResetEmail)
-            .then(() => {
-              window.alert(
-                'Mensaje de restauración de contraseña enviado, por favor, comprueba las bandejas de tu correo electrónico.'
-                );
-              })
-              .catch((error) => {
-                window.alert(error);
-              });
-            }
-            
-            // Returns true when user is looged in and email is verified
-            get isLoggedIn(): boolean {
-              const user = JSON.parse(localStorage.getItem('user')!);
-              return user !== null && user.emailVerified !== false ? true : false;
-            }
-            
-            /* Setting up user data when sign in with username/password, 
-            sign up with username/password and sign in with social auth  
-            provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-            SetUserData(result: any, user: User | any) {
-              console.log(result.user.uid);
-              const userRef: AngularFirestoreDocument<User> = this.afs.doc(
+    // Reset Forggot password
+    ForgotPassword(user: User /*passwordResetEmail: string*/) {
+      let passwordResetEmail: any = user.email;
+      return this.afAuth
+      .sendPasswordResetEmail(passwordResetEmail)
+      .then(() => {
+        window.alert(
+          'Mensaje de restauración de contraseña enviado, por favor, comprueba las bandejas de tu correo electrónico.'
+          );
+        })
+        .catch((error) => {
+          window.alert(error);
+        });
+      }
+      
+      // Returns true when user is looged in and email is verified
+      get isLoggedIn(): boolean {
+        const user = JSON.parse(localStorage.getItem('user')!);
+        return user !== null && user.emailVerified !== false ? true : false;
+      }
+      
+      /* Setting up user data when sign in with username/password, 
+      sign up with username/password and sign in with social auth  
+      provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
+      SetUserData(result: any, user: User | any) {
+        console.log(result.user.uid);
+        const userRef: AngularFirestoreDocument<User> = this.afs.doc(
       `users/${result.user.uid}`
     );
     let userRole: string = user.role || null;
@@ -300,14 +306,40 @@ export class AuthService {
     return null;
   }
 
-  AddCompanyData(company: Company | any, user: User | any) {
+  InitCompanyData(result: any, user: User | Company | any) {
+    try {
     const companyRef = collection(this.firestore, 'companies');
-    // const companyRef = doc(this.firestore, "companies", user.uid);
-      company.cid = company.uid = user.uid || null;
-      company.correo = user.email || null;
-      company.nombreSocial = user.displayName || null;
-    return addDoc(companyRef, company);
-    // return setDoc(companyRef, company, user.uid);
+        
+    user.password = '' || null;
+    user.photoURL = user.photoURL || null;
+    user.uid = result.user.uid || null;
+    console.log(result.user.uid);
+    console.log(user.uid);
+    user.nombreSocial = user.displayName;
+    user.email = result.user.email;
+
+    return addDoc(companyRef, user);
+    } catch (e) {
+      console.error('Error adding company data init: ', e);
+    }
+    return null;
+  }
+
+  InitCandidateData(result: any, user: User | Candidate | any) {
+    try {
+    const companyRef = collection(this.firestore, 'candidates');
+    
+    user.password = '' || null;
+    user.photoURL = user.photoURL || null;
+    user.uid = result.user.uid || null;
+    user.nombre = user.displayName;
+    user.email = result.user.email;
+
+    return addDoc(companyRef, user);
+    } catch (e) {
+      console.error('Error adding candidate data init: ', e);
+    }
+    return null;
   }
 
   // Getting user data from firestore
@@ -319,26 +351,19 @@ export class AuthService {
     return userSnap.data() as User | any;
   }
 
-  async GetCompanyData(user: User | any) {
-    // console.log(result.uid);
-    const userRef = doc( this.firestore, `companies/${user.uid}` );
-    const userSnap = await getDoc(userRef);
+  // async GetCompanyData(user: User | any) {
+  //   // console.log(result.uid);
+  //   const userRef = doc( this.firestore, `companies/${user.uid}` );
+  //   const userSnap = await getDoc(userRef);
 
-    return userSnap.data() as User | any;
-  }
+  //   return userSnap.data() as User | any;
+  // }
 
   getUsers(): Observable<User[]> {
     const userRef = collection(this.firestore, 'users');
     return collectionData(userRef, { idField: 'uid' }) as Observable<User[]>;
   }
-
-  getCompanies(): Observable<Company[] | User[]> {
-    const userRef = collection(this.firestore, 'users');
-    const sortedUserRef = query(userRef, where("role", "==", "company"));
-    return collectionData(userRef, { idField: 'uid' }) as Observable<User[]>;
-  }
-
-
+  
   getUser(user: User) {
     const userDocRef = doc(this.firestore, `users/${user.uid}`);
     return getDoc(userDocRef);
@@ -348,4 +373,29 @@ export class AuthService {
     const userDocRef = doc(this.firestore, `users/${user.uid}`);
     return deleteDoc(userDocRef);
   }
+
+  getCompanies(): Observable<Company[] | User[]> {
+    const userRef = collection(this.firestore, 'companies');
+    const sortedUserRef = query(userRef, where("role", "==", "company"));
+    return collectionData(userRef, { idField: 'uid' }) as Observable<any[]>;
+  }
+
+  getCompany(user: User | any): Observable<Company[] | User[]> {
+    const userRef = collection(this.firestore, 'companies');
+    const sortedUserRef = query(userRef, where("email", "==", user.email));
+    return collectionData(userRef, { idField: 'uid' }) as Observable<any[]>;
+  }
+
+  getCandidates(): Observable<Company[] | User[]> {
+    const userRef = collection(this.firestore, 'candidates');
+    const sortedUserRef = query(userRef, where("role", "==", "company"));
+    return collectionData(userRef, { idField: 'uid' }) as Observable<any[]>;
+  }
+
+  getCandidate(user: User | any): Observable<Company[] | User[]> {
+    const userRef = collection(this.firestore, 'candidates');
+    const sortedUserRef = query(userRef, where("email", "==", user.email));
+    return collectionData(userRef, { idField: 'uid' }) as Observable<any[]>;
+  }
+
 }
