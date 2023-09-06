@@ -12,7 +12,6 @@ export class CompanyFormComponent {
 
   editCompanyForm = this.createFormGroup(); // formulario
   user: User | any = this.authService.userData;
-  loginResult: any = this.authService.loginResult;
   error: boolean = false;
   id: string | undefined;
 
@@ -93,8 +92,8 @@ export class CompanyFormComponent {
   }
 
   async onCompanyFormSubmit() {
-    const response = await this.authService.AddCompanyData(this.editCompanyForm.value, this.loginResult);
-    console.log(response);
+    // const response = await this.authService.AddCompanyData(this.editCompanyForm.value, this.loginResult);
+    // console.log(response);
   }
 
 
