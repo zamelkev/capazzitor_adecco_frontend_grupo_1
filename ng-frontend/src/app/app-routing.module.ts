@@ -13,6 +13,7 @@ import { CompanyDashboardComponent } from './main-components/dashboard/company-d
 import { HasRoleGuard } from './services/guards/has-role.guard';
 import { IsLoggedInGuard } from './services/guards/is-logged-in.guard';
 import { UserProfileComponent } from './main-components/dashboard/user-profile/user-profile.component';
+import { MeetUsComponent } from './main-components/home-components/meet-us/meet-us.component';
 
 
 const routes: Routes = [
@@ -41,7 +42,8 @@ const routes: Routes = [
       //   user.isCompany === true]
     },
     component: CompanyDashboardComponent },
-  { path: 'user-profile', component: UserProfileComponent, canLoad: [ HasRoleGuard ] }
+  { path: 'user-profile', component: UserProfileComponent, canLoad: [ HasRoleGuard ] },
+  { path: 'meet-us', component: MeetUsComponent}
   // { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
 
