@@ -1,0 +1,12 @@
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+.buttons button {
+    margin: 0rem 1rem 0rem 0rem;
+}
+
+mat-form-field {
+    margin: 0rem 1rem 0rem 0rem;
+}
