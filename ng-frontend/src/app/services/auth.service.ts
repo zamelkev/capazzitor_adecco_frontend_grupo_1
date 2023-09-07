@@ -382,8 +382,9 @@ export class AuthService {
       const companyDocRef = doc(this.firestore, `companies/${user.uid}`);
 
       const userCompanyData: Company | any = {
-        nombreFiscal: company.nombreFiscal,
+        uid: user.uid,
         nombreSocial: user.displayName,
+        nombreFiscal: company.nombreFiscal,
         cif: company.cif,
         correo: user.email,
         telefono: company.telefono,
@@ -418,9 +419,14 @@ export class AuthService {
 
   getCompany(user: User | any): Observable<Company[] | User[]> {
     const userRef = collection(this.firestore, 'companies');
-    const sortedUserRef = query(userRef, where("email", "==", user.email));
+    const sortedUserRef = query(userRef, where("correo", "==", user.email));
     return collectionData(sortedUserRef, { idField: 'uid' }) as Observable<any[]>;
   }
+
+  // getCompany(user: User | any) {
+  //   const companyDocRef = doc(this.firestore, `companies/${user.uid}`);
+  //   return getDoc(companyDocRef);
+  // }
 
   getCandidates(): Observable<Company[] | User[]> {
     const userRef = collection(this.firestore, 'candidates');
