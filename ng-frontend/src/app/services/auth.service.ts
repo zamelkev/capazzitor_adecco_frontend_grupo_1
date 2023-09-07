@@ -127,19 +127,13 @@ export class AuthService {
         const userRef = doc( this.firestore, `users/${user.uid}` );
         const userSnap = await getDoc(userRef);
         let userData: User | any = userSnap.data() as User | any;
-        // console.log(userData);
         user = userData;
         this.userData = userData;
         this.checkAuthorization(user);
         this.afAuth.authState.subscribe((user) => {
           if (user) {
-              // localStorage.setItem('user', JSON.stringify(userData));
-              // console.log('Data from local storage: ');
-              // JSON.parse(localStorage.getItem('user')!);
               this.router.navigate(['/dashboard']);
             } else { 
-            // localStorage.setItem('user', 'null');
-            // JSON.parse(localStorage.getItem('user')!);
             this.router.navigate(['/login']); 
           }
         });
@@ -331,8 +325,8 @@ export class AuthService {
     user.password = '' || null;
     user.photoURL = user.photoURL || null;
     user.uid = result.user.uid || null;
-    user.nombre = user.displayName;
-    user.email = result.user.email;
+    user.nombreYapellidos = user.displayName;
+    user.correo = result.user.email;
 
     return addDoc(companyRef, user);
     } catch (e) {
@@ -369,6 +363,12 @@ export class AuthService {
     const sortedUserRef = query(userRef, where("role", "==", "company"));
     return collectionData(userRef, { idField: 'uid' }) as Observable<any[]>;
   }
+  
+  getCompany(user: User | any): Observable<Company[] | User[]> {
+    const userRef = collection(this.firestore, 'companies');
+    const sortedUserRef = query(userRef, where("correo", "==", user.email));
+    return collectionData(sortedUserRef, { idField: 'uid' }) as Observable<any[]>;
+  }
 
   addCompanyData(user: User | any, company: Company | any) {
     try {
@@ -403,41 +403,61 @@ export class AuthService {
       }
       return null;
     }
-
-    updateUserData(user: User | any) {
-      const userRef: AngularFirestoreDocument<any> =
-      this.afs.doc(`users/$(user.uid)`);
-      const data: User | any = {
-        uid: user.uid,
-        email: user.email,
-        role: {
-          // reader: true,
-        },
-      };
-      return userRef.set(data, { merge: true });
+  
+    getCandidates(): Observable<Company[] | User[]> {
+      const userRef = collection(this.firestore, 'candidates');
+      const sortedUserRef = query(userRef, where("role", "==", "company"));
+      return collectionData(userRef, { idField: 'uid' }) as Observable<any[]>;
+    }
+    
+    getCandidate(user: User | any): Observable<Company[] | User[]> {
+      const userRef = collection(this.firestore, 'candidates');
+      const sortedUserRef = query(userRef, where("email", "==", user.email));
+      return collectionData(userRef, { idField: 'uid' }) as Observable<any[]>;
     }
 
-  getCompany(user: User | any): Observable<Company[] | User[]> {
-    const userRef = collection(this.firestore, 'companies');
-    const sortedUserRef = query(userRef, where("correo", "==", user.email));
-    return collectionData(sortedUserRef, { idField: 'uid' }) as Observable<any[]>;
-  }
-
-  // getCompany(user: User | any) {
-  //   const companyDocRef = doc(this.firestore, `companies/${user.uid}`);
-  //   return getDoc(companyDocRef);
-  // }
-
-  getCandidates(): Observable<Company[] | User[]> {
-    const userRef = collection(this.firestore, 'candidates');
-    const sortedUserRef = query(userRef, where("role", "==", "company"));
-    return collectionData(userRef, { idField: 'uid' }) as Observable<any[]>;
-  }
-
-  getCandidate(user: User | any): Observable<Company[] | User[]> {
-    const userRef = collection(this.firestore, 'candidates');
-    const sortedUserRef = query(userRef, where("email", "==", user.email));
-    return collectionData(userRef, { idField: 'uid' }) as Observable<any[]>;
-  }
-
+    addCandidateData(user: User | any, candidate: Candidate | any) {
+      try {
+        console.log(user.uid);
+        const candidateRef = collection(this.firestore, 'candidates');
+        const sortedCandidateRef:Candidate | any = query(candidateRef, where("email", "==", user.email));
+        console.log('Sorted Candidate Ref:');
+        const objectiveCandidateData:Candidate | any = collectionData(sortedCandidateRef);
+        console.log(objectiveCandidateData);
+        console.log(objectiveCandidateData.uid);
+        const candidateDocRef = doc(this.firestore, `candidates/${user.uid}`);
+  
+        const userCandidateData: Candidate | any = {
+          uid: user.uid,
+          nombreYapellidos: candidate.nombreYapellidos,
+          dni:candidate.dni,
+          telefono: candidate.telefono,
+          correo: user.email,
+          direccion: candidate.direccion,
+          formacion: candidate.formacion,
+          ofertas: null,
+          
+        };
+        console.log('Candidate data has probably been updated correctly');
+        console.log(userCandidateData);
+        return setDoc (candidateDocRef, userCandidateData, { merge: true });
+  
+        } catch (e) {
+          console.error('Error adding candidate data: ', e);
+        }
+        return null;
+      }
+    
+    // updateUserData(user: User | any) {
+    //   const userRef: AngularFirestoreDocument<any> =
+    //   this.afs.doc(`users/$(user.uid)`);
+    //   const data: User | any = {
+    //     uid: user.uid,
+    //     email: user.email,
+    //     role: {
+    //       // reader: true,
+    //     },
+    //   };
+    //   return userRef.set(data, { merge: true });
+    // }
 }
