@@ -92,8 +92,8 @@ export class CompanyFormComponent {
   }
 
   async onCompanyFormSubmit() {
-    // const response = await this.authService.AddCompanyData(this.editCompanyForm.value, this.loginResult);
-    // console.log(response);
+    const response = await this.authService.addCompanyData(this.user, this.editCompanyForm.value);
+    console.log(response);
   }
 
 

@@ -1,5 +1,7 @@
+import { Candidate } from "./candidate.model";
 import { Direction } from "./direction.model";
 import { Email } from "./email.model";
+import { Offer } from "./offer.model";
 import { Telephone } from "./telephone.model";
 import { User } from "./user.model";
 
@@ -12,7 +14,7 @@ export interface Company extends User {
     direcciones: string | undefined;
     sector: string | undefined;
     estado: string | undefined;
-    ofertas: number | undefined;
-    numeroEmpleados: number | undefined;
+    ofertas: number | Offer[] | undefined;
+    numeroEmpleados: number | Candidate[] | undefined;
     proyeccion: string | undefined;
 }
