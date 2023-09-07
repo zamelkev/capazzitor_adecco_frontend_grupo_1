@@ -343,7 +343,6 @@ export class AuthService {
 
   // Getting user data from firestore
   async GetUserData(result: any, user: User | any) {
-    // console.log(result.uid);
     const userRef = doc( this.firestore, `users/${result.uid}` );
     const userSnap = await getDoc(userRef);
 
@@ -391,16 +390,13 @@ export class AuthService {
         direcciones: company.direcciones,
         sector: company.sector,
         estado: company.estado,
-        ofertas: company.ofertas,
+        // ofertas: company.ofertas,
         numeroEmpleados: company.numeroEmpleados,
         proyeccion: company.proyeccion,
       };
-      // const userCompanyData: Company | any = collectionData(sortedCompanyRef, { idField: 'uid' });
-
       console.log('Company data has probably been updated correctly');
       return setDoc (companyDocRef, userCompanyData, { merge: true });
 
-      // return addDoc(sortedCompanyRef, userCompanyData);
       } catch (e) {
         console.error('Error adding company data: ', e);
       }
