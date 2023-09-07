@@ -370,6 +370,11 @@ export class AuthService {
     return collectionData(sortedUserRef, { idField: 'uid' }) as Observable<any[]>;
   }
 
+  deleteCompany(user: User) {
+    const userDocRef = doc(this.firestore, `companies/${user.uid}`);
+    return deleteDoc(userDocRef);
+  }
+
   addCompanyData(user: User | any, company: Company | any) {
     try {
       console.log(user.uid);
@@ -414,6 +419,11 @@ export class AuthService {
       const userRef = collection(this.firestore, 'candidates');
       const sortedUserRef = query(userRef, where("email", "==", user.email));
       return collectionData(userRef, { idField: 'uid' }) as Observable<any[]>;
+    }
+
+    deleteCandidate(user: User) {
+      const userDocRef = doc(this.firestore, `candidates/${user.uid}`);
+      return deleteDoc(userDocRef);
     }
 
     addCandidateData(user: User | any, candidate: Candidate | any) {

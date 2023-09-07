@@ -37,6 +37,11 @@ export class UserListComponent implements OnInit{
 
   async onClickDelete(user: User) {
     const response = await this.authService.deleteUser(user);
+    if (user.role === "candidate") {
+      const response1 = await this.authService.deleteCandidate(user);
+    } else if (user.role === "company") {
+      const response2 = await this.authService.deleteCompany(user);
+    }
   }
 
   async onClickRestore(user: User) {
