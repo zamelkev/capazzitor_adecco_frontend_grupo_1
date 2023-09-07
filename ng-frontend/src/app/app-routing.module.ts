@@ -13,6 +13,7 @@ import { CompanyDashboardComponent } from './main-components/dashboard/company-d
 import { HasRoleGuard } from './services/guards/has-role.guard';
 import { UserProfileComponent } from './main-components/dashboard/user-profile/user-profile.component';
 import { OfferListComponent } from './main-components/offer/offer-list/offer-list.component';
+import { MeetUsComponent } from './main-components/home-components/meet-us/meet-us.component';
 
 import { OffersComponent } from './views/offers/offers.component';
 
@@ -50,6 +51,7 @@ const routes: Routes = [
   { path: 'company-dashboard', component: CompanyDashboardComponent },
   { path: 'offers', component: OffersComponent },
 
+  { path: 'meet-us', component: MeetUsComponent}
   // { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
 
