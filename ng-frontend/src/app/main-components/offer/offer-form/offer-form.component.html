@@ -1,1 +1,113 @@
-<p>offer-form works!</p>
+<mat-card class="example-card" *ngIf="error">
+    Se ha producido un error, Inténtalo de nuevo más tarde.
+  </mat-card>
+
+
+  <form class="example-form" [formGroup]="editOfferForm" (ngSubmit)="onOfferFormSubmit()">
+    <div class="form-inputs">      
+      
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Título / Nombre</mat-label>
+        <input matInput formControlName="name">
+        
+        <mat-error *ngIf="editOfferForm.get('name')!.invalid && (editOfferForm.get('name')!.dirty || editOfferForm.get('name')!.touched)">
+          <span *ngIf="editOfferForm.get('name')!.getError('required')">Título / Nombre obligatorio</span>
+        </mat-error> 
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Tipo de Contrato</mat-label>
+        <input matInput formControlName="contractType">
+        
+        <mat-error *ngIf="editOfferForm.get('contractType')!.invalid && (editOfferForm.get('contractType')!.dirty || editOfferForm.get('contractType')!.touched)">
+          <span *ngIf="editOfferForm.get('contractType')!.getError('required')">Identificación obligatoria</span>
+        </mat-error> 
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Días Laborales (Oferta)</mat-label>
+        <input matInput formControlName="workingDay">
+        
+        <mat-error *ngIf="editOfferForm.get('workingDay')!.invalid && (editOfferForm.get('workingDay')!.dirty || editOfferForm.get('workingDay')!.touched)">
+          <span *ngIf="editOfferForm.get('workingDay')!.getError('required')">Identificación obligatoria</span>
+        </mat-error> 
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Descripción Corta</mat-label>
+        <input matInput formControlName="shortDescription">
+        
+        <mat-error *ngIf="editOfferForm.get('shortDescription')!.invalid && (editOfferForm.get('shortDescription')!.dirty || editOfferForm.get('description')!.touched)">
+          <span *ngIf="editOfferForm.get('shortDescription')!.getError('required')">Identificación obligatoria</span>
+        </mat-error> 
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Descripción</mat-label>
+        <input matInput formControlName="description">
+        
+        <mat-error *ngIf="editOfferForm.get('description')!.invalid && (editOfferForm.get('description')!.dirty || editOfferForm.get('description')!.touched)">
+          <span *ngIf="editOfferForm.get('description')!.getError('required')">Identificación obligatoria</span>
+        </mat-error> 
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Detalles</mat-label>
+        <input matInput formControlName="offerDetails">
+        
+        <mat-error *ngIf="editOfferForm.get('offerDetails')!.invalid && (editOfferForm.get('offerDetails')!.dirty || editOfferForm.get('offerDetails')!.touched)">
+          <span *ngIf="editOfferForm.get('offerDetails')!.getError('required')">Identificación obligatoria</span>
+        </mat-error> 
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Localización</mat-label>
+        <input matInput formControlName="location">
+        
+        <mat-error *ngIf="editOfferForm.get('location')!.invalid && (editOfferForm.get('location')!.dirty || editOfferForm.get('lacation')!.touched)">
+          <span *ngIf="editOfferForm.get('location')!.getError('required')">Identificación obligatoria</span>
+        </mat-error> 
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Prioridad</mat-label>
+        <input matInput formControlName="priority">
+        
+        <mat-error *ngIf="editOfferForm.get('priority')!.invalid && (editOfferForm.get('priority')!.dirty || editOfferForm.get('priority')!.touched)">
+          <span *ngIf="editOfferForm.get('priority')!.getError('required')">Identificación obligatoria</span>
+        </mat-error> 
+      </mat-form-field>
+      
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nº Teléfono</mat-label>
+        <input matInput formControlName="phone">
+        
+        <mat-error *ngIf="editOfferForm.get('phone')!.invalid && (editOfferForm.get('phone')!.dirty || editOfferForm.get('phone')!.touched)">
+          <span *ngIf="editOfferForm.get('phone')!.getError('required')">Identificación obligatoria</span>
+        </mat-error> 
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Correo Electrónico</mat-label>
+        <input matInput formControlName="email">
+        
+        <mat-error *ngIf="editOfferForm.get('email')!.invalid && (editOfferForm.get('email')!.dirty || editOfferForm.get('email')!.touched)">
+          <span *ngIf="editOfferForm.get('email')!.getError('required')">Identificación obligatoria</span>
+        </mat-error> 
+      </mat-form-field>
+
+      <!-- <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Candidat@s Suscrit@s</mat-label>
+        <input matInput formControlName="subscribedCandidates">
+        
+        <mat-error *ngIf="editOfferForm.get('subscribedCandidates')!.invalid && (editOfferForm.get('subscribedCandidates')!.dirty || editOfferForm.get('subscribedCandidates')!.touched)">
+          <span *ngIf="editOfferForm.get('subscribedCandidates')!.getError('required')">Identificación obligatoria</span>
+        </mat-error> 
+      </mat-form-field> -->
+          </div>
+      <div class="buttons">
+        <button mat-raised-button color="primary" type="submit">Guardar Oferta</button>
+        <button mat-raised-button color="warn" routerLink="/back_office">Cancelar</button>
+        <!-- <button *ngIf="id" mat-raised-button color="warn" (click)="onDelete()">Borrar</button> -->
+    </div>
+  </form>

@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
@@ -13,6 +13,8 @@ import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 
 // Auth service
 import { AuthService } from './services/auth.service';
+// Offer service
+import { OfferService } from './services/offer.service';
 
 // Main
 import { RouterModule } from '@angular/router';
@@ -58,6 +60,7 @@ import { MatSelectModule } from '@angular/material/select';
 //App modules
 import { MainComponentsModule } from './main-components/main-components.module';
 import { ViewsModule } from './views/views.module';
+import { Firestore } from 'firebase/firestore';
 // import { authTokeninterceptorProvider } from './services/interceptors/auth-token.interceptor';
 //import { UsersModule } from './users/users.module';
 
@@ -123,13 +126,14 @@ export const firebaseConfig = {
   ],
   providers: [
     AuthService,
+    OfferService,
+    AngularFirestore,
     {
       provide: MAT_BOTTOM_SHEET_DEFAULT_OPTIONS,
       useValue: { panelClass: 'mybottomsheet', hasBackdrop: false },
     },
     { provide: FIREBASE_OPTIONS, useValue: firebaseConfig },
     { provide: AngularFireModule, useValue: firebaseConfig },
-    // authTokeninterceptorProvider
   // providers: [AuthService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   ],
   // providers: [AuthService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],

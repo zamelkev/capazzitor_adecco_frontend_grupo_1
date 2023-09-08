@@ -41,7 +41,7 @@ export class OfferDetailComponent implements OnInit {
       priority: '',
       phone: '',
       email: '',
-      susbscribedCandidates: 5,
+      subscribedCandidates: 5,
     };
   }
 
