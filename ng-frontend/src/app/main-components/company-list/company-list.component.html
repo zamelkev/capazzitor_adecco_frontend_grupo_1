@@ -1,0 +1,28 @@
+<div class="container">
+  <h2>Listado de Empresas:</h2>
+  <br>
+  <div *ngFor="let empresa of empresas">
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+      (closed)="panelOpenState = false">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Empresa: <strong>{{empresa.nombreSocial}}</strong>
+          Sector: <strong>{{empresa.sector}}</strong>
+        </mat-panel-title>
+        <mat-panel-description>
+          CIF: <strong>{{empresa.cif}}</strong>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      Identificación Fiscal: <strong>{{empresa.nombreFiscal}}</strong> <br>
+      Teléfono: <strong>{{empresa.telefono}}</strong> <br>
+      Correo: <strong>{{empresa.correo}}</strong> <br>
+      Direcciones: <strong>{{empresa.direcciones}}</strong> <br>
+      Estado de la empresa: <strong>{{empresa.estado}}</strong> <br>
+      Proyección de la empresa: <strong>{{empresa.proyeccion}}</strong> <br>
+      Nº de empleados: <strong>{{empresa.numeroEmpleados}}</strong> <br>
+      Nº Ofertas: <strong>{{empresa.ofertas}}</strong>
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+</div>
