@@ -16,7 +16,6 @@ export class OfferItemListAdminComponent implements OnInit {
   panelOpenState = true;
 
   constructor(private authService: AuthService, private offerService: OfferService) {
-
     this.offers = this.offers = [
       {
         id: 1,
