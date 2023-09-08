@@ -23,7 +23,7 @@ import { HeaderComponent } from './home-components/header/header.component';
 import { FooterComponent } from './home-components/footer/footer.component';
 import { SearcherComponent } from './home-components/searcher/searcher.component';
 import { SocialNetworksComponent } from './social-networks/social-networks.component';
-import { OfferListComponent } from './home-components/offer-list/offer-list.component';
+import { OfferListComponent } from './offer/offer-list/offer-list.component';
 import { OfferFormComponent } from './offer/offer-form/offer-form.component';
 import { OfferDetailComponent } from './offer/offer-detail/offer-detail.component';
 import { SuggestionsComponent } from './home-components/suggestions/suggestions.component';
@@ -41,6 +41,7 @@ import { CandidateDashboardComponent } from './dashboard/candidate-dashboard/can
 import { CompanyDashboardComponent } from './dashboard/company-dashboard/company-dashboard.component';
 import { BedsideComponent } from './home-components/bedside/bedside.component';
 import { OfferItemComponent } from './offer/offer-item/offer-item.component';
+import { OfferItemListAdminComponent } from './offer/offer-item-list-admin/offer-item-list-admin.component';
 import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
 import { CandidateDetailComponent } from './cadidate/candidate-detail/candidate-detail.component';
 import { CandidateFormComponent } from './cadidate/candidate-form/candidate-form.component';
@@ -83,6 +84,7 @@ import { UserProfileComponent } from './dashboard/user-profile/user-profile.comp
     CompanyDashboardComponent,
     BedsideComponent,
     OfferItemComponent,
+    OfferItemListAdminComponent,
     BottomSheetComponent,
     CandidateDetailComponent,
     CandidateFormComponent,
@@ -137,6 +139,7 @@ import { UserProfileComponent } from './dashboard/user-profile/user-profile.comp
     CompanyDashboardComponent,
     BedsideComponent,
     OfferItemComponent,
+    OfferItemListAdminComponent,
     BottomSheetComponent,
     CompanyDetailComponent,
     CompanyFormComponent,
