@@ -52,8 +52,8 @@ export class OfferService {
 
   GetOffersByCompany(user: User | Company | any): Observable<Offer[] | User[]> {
     const userRef = collection(this.firestore, 'offers');
-    const sortedUserRef = query(userRef, where("uid", "==", user.uid));
-    return collectionData(sortedUserRef, { idField: 'uid' }) as Observable<any[]>;
+    // const sortedUserRef = query(userRef, where("uid", "==", user.uid));
+    return collectionData(userRef, { idField: 'uid' }) as Observable<any[]>;
   }
 
   DeleteOffer(user: User) {

@@ -23,13 +23,11 @@ mat-toolbar {
   background-color: rgba(255,255,255,0.75)
 }
 .menu-button {
-  /* padding-left: 1rem; */
   left: 0em;
 }
 .account_button {
   display: flex;
   flex-direction: row;
-  /* padding-right: 1rem; */
   right: 0em;
   width: fit-content;
 }
@@ -37,12 +35,11 @@ mat-toolbar {
   max-height: 2.25rem;
 }
 
- /* mat-toolbar{
+mat-toolbar{
   position: absolute;
   z-index: 1,5rem;
-  
 }
- */ 
+ 
  .background {
   display: flex;
   flex-direction: column;
