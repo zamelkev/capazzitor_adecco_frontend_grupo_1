@@ -10,19 +10,28 @@ import { VerifyEmailComponent } from './views/verify-email/verify-email.componen
 import { UseGuidesComponent } from './views/use-guides/use-guides.component';
 import { ViewsModule } from './views/views.module';
 import { CompanyDashboardComponent } from './main-components/company-dashboard/company-dashboard.component';
+import { OffersComponent } from './views/offers/offers.component';
 
 const routes: Routes = [
   { path: '', /*canLoad: [IsLoggedInGuard],*/ component: HomeComponent },
   { path: 'home', component: HomeComponent },
-    
-  { path: 'dashboard', /*canActivate: [IsLoggedInGuard],*/ component: DashboardComponent },
-  
+
+  {
+    path: 'dashboard',
+    /*canActivate: [IsLoggedInGuard],*/ component: DashboardComponent,
+  },
+
   { path: 'login', component: SignInComponent },
   { path: 'register', component: SignUpComponent },
-  { path: 'forgot-password', /*canLoad: [IsLoggedInGuard],*/ component: ForgotPasswordComponent },
+  {
+    path: 'forgot-password',
+    /*canLoad: [IsLoggedInGuard],*/ component: ForgotPasswordComponent,
+  },
   { path: 'verify-emailaddress', component: VerifyEmailComponent },
   { path: 'use-guides', component: UseGuidesComponent },
   { path: 'company-dashboard', component: CompanyDashboardComponent },
+  { path: 'offers', component: OffersComponent },
+
   // { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
 

@@ -34,7 +34,6 @@ import { HttpClientModule } from '@angular/common/http';
 // import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
 //Angular material modules
-import {MatBottomSheetModule} from '@angular/material/bottom-sheet'; 
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -46,14 +45,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MAT_BOTTOM_SHEET_DEFAULT_OPTIONS } from '@angular/material/bottom-sheet';
-/* import {
-  MatBottomSheet,
-  MatBottomSheetConfig,
-  MatBottomSheetModule,
-  MatBottomSheetRef,
-} from '@angular/material/bottom-sheet';
- */
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet'; 
+
 //App modules
 import { MainComponentsModule } from './main-components/main-components.module';
 import { ViewsModule } from './views/views.module';
@@ -94,11 +87,7 @@ export const firebaseConfig = {
     MatDividerModule,
     MatExpansionModule,
     MatBottomSheetModule,
-    /*     MatBottomSheet,
-    MatBottomSheetConfig,
-    MatBottomSheetModule,
-    MatBottomSheetRef,
- */ // environment,
+    // environment,
     // AngularFireModule.initializeApp(environment.firebase),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule,
@@ -118,10 +107,6 @@ export const firebaseConfig = {
   ],
   providers: [
     AuthService,
-    {
-      provide: MAT_BOTTOM_SHEET_DEFAULT_OPTIONS,
-      useValue: { panelClass: 'mybottomsheet', hasBackdrop: false },
-    },
     { provide: FIREBASE_OPTIONS, useValue: firebaseConfig },
   // providers: [AuthService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   ],
