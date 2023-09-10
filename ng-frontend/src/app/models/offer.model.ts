@@ -3,57 +3,51 @@ import { Company } from "./company.model";
 import { Email } from "./email.model";
 
 export class Offer {
-  title?: string;
-  id?: number;
-  state?: number;
-  category?: {
-    id?: number;
-    value?: string;
-  };
-  subcategories?: [
-    {
-      id?: number;
-      value?: string;
-    }
-  ];
-  creationDate?: string;
-  updateDate?: string;
-  city?: {
-    id?: number;
-    value?: string;
-  };
-  autCommunity?: {
-    id?: number;
-    value?: string;
-  };
-  country?: {
-    id?: number;
-    value?: string;
-  };
-  company?: string;
-  contractType?: string;
-  workingDay?: string;
-  salary?: {
-    currency?: string;
-    value?: number;
-    grossNet?: string;
-    period?: string;
-  };
-  description?: string;
-  experienceMin?: [
-    {
-      years?: string;
-      value?: number;
-    },
-    {
-      months?: string;
-      value?: number;
-    }
-  ];
-  studiesMin?: {
-    id?: number;
-    value?: string;
-  };
-  priority?: string;
-  applicants?: number;
+    
+        title?: string;
+        id?: number;
+        state?: number;
+        category?: string;
+        // {
+        //   id?: number;
+        // value?: string;
+        // };
+        subcategories?: string;
+        // [
+        //   {
+        //     id?: number;
+        //     value?: string;
+        //   }
+        // ];
+        creationDate?: string;
+        updateDate?: string;
+        city?: string; 
+        // {
+        //   id?: number;
+        //   value?: string;
+        // };
+        country?: string;
+        // {
+        //   id?: number;
+        //   value?: string;
+        // };
+        salaryRank?: string;
+        company?: string;
+        companyUid?: number;
+        email?: string;
+        contractType?: string;
+        workingDay?: string;
+        description?: string;
+        experienceMin?: string;
+        // {
+        //   id: number;
+        //   value: string;
+        // };
+        studiesMin?: string;
+        // {
+        //   id?: number;
+        //   value: string;
+        // };
+        priority?: string;
+        applicants?: number | Candidate[] | any[];
 }
