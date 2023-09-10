@@ -14,6 +14,7 @@ import { Company } from '../models/company.model';
 import { Offer } from '../models/offer.model';
 import { User } from '../models/user.model';
 import { AuthService } from './auth.service';
+import { stringify } from 'querystring';
 
 @Injectable({
   providedIn: 'root'
@@ -46,13 +47,13 @@ export class OfferService {
 
   GetOffersByCandidate(user: User | Candidate | any): Observable<Offer[]> {
     const userRef = collection(this.firestore, 'offers');
-    const sortedUserRef = query(userRef, where("suscribedCandidate", "==", user.uid));
-    return collectionData(sortedUserRef, { idField: 'uid' }) as Observable<any[]>;
+    // const sortedUserRef = query(userRef, where("suscribedCandidate", "==", user.uid));
+    return collectionData(userRef, { idField: 'uid' }) as Observable<any[]>;
   }
 
   GetOffersByCompany(user: User | Company | any): Observable<Offer[] | User[]> {
     const userRef = collection(this.firestore, 'offers');
-    // const sortedUserRef = query(userRef, where("uid", "==", user.uid));
+    // const sortedUserRef = query(userRef, where("companyUid", "==", user.uid));
     return collectionData(userRef, { idField: 'uid' }) as Observable<any[]>;
   }
 
@@ -67,19 +68,26 @@ export class OfferService {
       const offerRef = collection(this.firestore, 'offers');
       let addedOffer;
 
-      const offerData: Offer | any = {
-        name: offer.name,
-        company: user,
+      const offerData: Offer | User | any = {
+        title: offer.title,
+        // // id: offer.id,
+        // state: offer.state,
+        // category: offer.category,
+        // subcategory: offer.subcategory,
+        // creationDate: offer.creationDate,
+        // updateDate: offer.updateDate,
+        city: offer.city,
+        // country: offer.country,
+        company: user.displayName,
+        companyUid: user.uid,
+        email: user.email,
         contractType: offer.contractType,
         workingDay: offer.workingDay,
-        shortDescription: offer.shortDescription,
         description: offer.description,
-        offerDetails: offer.offerDetails,
-        location: offer.location,
+        // experienceMin: offer.experienceMin,
+        // studiesMin: offer.studiesMin,
         priority: offer.priority,
-        phone: offer.phone,
-        email: offer.email,
-        // subscribedCandidates: offer.subscribedCandidates = [user],
+        applicants: offer.applicants = [user],
       };
       console.log('Offer data has probably been updated correctly');
       // return setDoc (offerRef, offerData, { merge: true });
