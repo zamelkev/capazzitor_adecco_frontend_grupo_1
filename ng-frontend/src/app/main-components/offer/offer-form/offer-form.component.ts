@@ -31,7 +31,7 @@ export class OfferFormComponent {
       //   // nonNullable: true,
       //   validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
       // }),
-      name: new FormControl('name', {
+      title: new FormControl('title', {
         // nonNullable: true,
         validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
       }),
@@ -43,39 +43,18 @@ export class OfferFormComponent {
         // nonNullable: true,
         validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
       }),
-      shortDescription: new FormControl('shortDescription', {
-        // nonNullable: true,
-        validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
-      }),
       description: new FormControl('description', {
         // nonNullable: true,
         validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
       }),
-      offerDetails: new FormControl('offerDetails', {
-        // nonNullable: true,
-        validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
-      }),
-      location: new FormControl('location', {
+      city: new FormControl('city', {
         // nonNullable: true,
         validators: [Validators.required]
       }),
       priority: new FormControl('priority', {
         // nonNullable: true,
         validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
-      }),
-      phone: new FormControl('phone', {
-        // nonNullable: true,
-        validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
-      }),
-      email: new FormControl('email', {
-        // nonNullable: true,
-        validators: [Validators.email, Validators.minLength(2), Validators.maxLength(100)]
-      }),
-      subscribedCandidates: new FormControl('subscribedCandidates', {
-        // nonNullable: true,
-        // validators: []
-      }),
-     
+      }),     
     })
   }
 

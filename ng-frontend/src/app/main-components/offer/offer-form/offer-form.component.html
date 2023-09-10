@@ -8,10 +8,10 @@
       
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Título / Nombre</mat-label>
-        <input matInput formControlName="name">
+        <input matInput formControlName="title">
         
-        <mat-error *ngIf="editOfferForm.get('name')!.invalid && (editOfferForm.get('name')!.dirty || editOfferForm.get('name')!.touched)">
-          <span *ngIf="editOfferForm.get('name')!.getError('required')">Título / Nombre obligatorio</span>
+        <mat-error *ngIf="editOfferForm.get('title')!.invalid && (editOfferForm.get('title')!.dirty || editOfferForm.get('title')!.touched)">
+          <span *ngIf="editOfferForm.get('title')!.getError('required')">Título / Nombre obligatorio</span>
         </mat-error> 
       </mat-form-field>
 
@@ -34,15 +34,6 @@
       </mat-form-field>
 
       <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Descripción Corta</mat-label>
-        <input matInput formControlName="shortDescription">
-        
-        <mat-error *ngIf="editOfferForm.get('shortDescription')!.invalid && (editOfferForm.get('shortDescription')!.dirty || editOfferForm.get('description')!.touched)">
-          <span *ngIf="editOfferForm.get('shortDescription')!.getError('required')">Identificación obligatoria</span>
-        </mat-error> 
-      </mat-form-field>
-
-      <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Descripción</mat-label>
         <input matInput formControlName="description">
         
@@ -52,20 +43,11 @@
       </mat-form-field>
 
       <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Detalles</mat-label>
-        <input matInput formControlName="offerDetails">
+        <mat-label>Ciudad</mat-label>
+        <input matInput formControlName="city">
         
-        <mat-error *ngIf="editOfferForm.get('offerDetails')!.invalid && (editOfferForm.get('offerDetails')!.dirty || editOfferForm.get('offerDetails')!.touched)">
-          <span *ngIf="editOfferForm.get('offerDetails')!.getError('required')">Identificación obligatoria</span>
-        </mat-error> 
-      </mat-form-field>
-
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Localización</mat-label>
-        <input matInput formControlName="location">
-        
-        <mat-error *ngIf="editOfferForm.get('location')!.invalid && (editOfferForm.get('location')!.dirty || editOfferForm.get('lacation')!.touched)">
-          <span *ngIf="editOfferForm.get('location')!.getError('required')">Identificación obligatoria</span>
+        <mat-error *ngIf="editOfferForm.get('city')!.invalid && (editOfferForm.get('city')!.dirty || editOfferForm.get('lacation')!.touched)">
+          <span *ngIf="editOfferForm.get('city')!.getError('required')">Identificación obligatoria</span>
         </mat-error> 
       </mat-form-field>
 
@@ -77,24 +59,15 @@
           <span *ngIf="editOfferForm.get('priority')!.getError('required')">Identificación obligatoria</span>
         </mat-error> 
       </mat-form-field>
-      
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Nº Teléfono</mat-label>
-        <input matInput formControlName="phone">
-        
-        <mat-error *ngIf="editOfferForm.get('phone')!.invalid && (editOfferForm.get('phone')!.dirty || editOfferForm.get('phone')!.touched)">
-          <span *ngIf="editOfferForm.get('phone')!.getError('required')">Identificación obligatoria</span>
-        </mat-error> 
-      </mat-form-field>
 
-      <mat-form-field class="example-full-width" appearance="fill">
+      <!-- <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Correo Electrónico</mat-label>
         <input matInput formControlName="email">
         
         <mat-error *ngIf="editOfferForm.get('email')!.invalid && (editOfferForm.get('email')!.dirty || editOfferForm.get('email')!.touched)">
           <span *ngIf="editOfferForm.get('email')!.getError('required')">Identificación obligatoria</span>
         </mat-error> 
-      </mat-form-field>
+      </mat-form-field> -->
 
       <!-- <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Candidat@s Suscrit@s</mat-label>
