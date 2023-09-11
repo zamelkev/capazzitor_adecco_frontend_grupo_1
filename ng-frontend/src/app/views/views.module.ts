@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MainComponentsModule } from '../main-components/main-components.module';
 
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { MatExpansionModule } from '@angular/material/expansion';
 import { HomeComponent } from './home/home.component';
 // import { CandidateServicesComponent } from './candidate-services/candidate-services.component';
 // import { CompanyServicesComponent } from './company-services/company-services.component';
@@ -30,7 +32,7 @@ import { MatSelectModule } from '@angular/material/select';
     SignInComponent,
     SignUpComponent,
     VerifyEmailComponent,
-    UseGuidesComponent
+    UseGuidesComponent,
   ],
   imports: [
     CommonModule,
@@ -41,7 +43,8 @@ import { MatSelectModule } from '@angular/material/select';
     FormsModule,
     ReactiveFormsModule,
     AuthModule,
-    MatSelectModule
+    MatSelectModule,
+    MatExpansionModule
     
   ],
   exports: [

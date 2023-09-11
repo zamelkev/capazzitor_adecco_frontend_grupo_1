@@ -8,6 +8,16 @@
   background-color: rgba(243,220,195,1);
   padding: 5rem;
 }
+mat-expansion-panel {
+  background-color: #f8f9fa;
+  margin-bottom: 0.75rem;
+}
+.meetUsContainer p{
+  font-size: 20px;
+  font-weight: 500;
+  text-align: justify;
+  text-justify: inter-word;
+}
 .meetUsContainer h3 {
   display: flex;
   font-weight: bold;
@@ -43,5 +53,7 @@
   text-decoration: none;
   color: rgb(89, 0, 255);
 }
+
+
 
 
