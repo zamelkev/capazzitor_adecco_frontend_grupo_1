@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MainComponentsModule } from '../main-components/main-components.module';
 
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatBottomSheetModule} from '@angular/material/bottom-sheet'; 
 
 
+import { MatExpansionModule } from '@angular/material/expansion';
 import { HomeComponent } from './home/home.component';
 // import { CandidateServicesComponent } from './candidate-services/candidate-services.component';
 // import { CompanyServicesComponent } from './company-services/company-services.component';
@@ -46,8 +48,9 @@ import { OffersComponent } from './offers/offers.component';
     ReactiveFormsModule,
     AuthModule,
     MatSelectModule,
-
     MatBottomSheetModule,
+    MatExpansionModule
+    
   ],
   exports: [
     HomeComponent,

@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./meet-us.component.css']
 })
 export class MeetUsComponent {
-
+  panelOpenState = false;
 }

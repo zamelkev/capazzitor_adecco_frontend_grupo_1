@@ -1,1 +1,71 @@
-<p>use-guides works!</p>
+<div class="useGuideContainer" *ngfor="let useguide of useguides">
+    <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-panel-title> {{useguide.title}}</mat-panel-title>
+            <mat-panel-description>
+                {{useguide.opcion1}} <br>
+                &nbsp;&nbsp;{{useguide.explicacion1}}
+                &nbsp;&nbsp;{{useguide.paso1}} <br>
+                &nbsp;&nbsp;{{useguide.paso2}} <br>
+                &nbsp;&nbsp;{{useguide.paso3}}
+            </mat-panel-description>
+            <mat-panel-description>
+                {{useguide.opcion2}} <br>
+                &nbsp;&nbsp;{{useguide.explicacion2}} <br>
+                &nbsp;&nbsp;{{useguide.paso4}} <br>
+                &nbsp;&nbsp;{{useguide.paso5}}
+            </mat-panel-description>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>
+
+   <!--<h3>Guías de Uso</h3>
+    <br>
+    <h4>
+        Cómo crear una cuenta o Iniciar sesión:
+    </h4>
+    <h4>
+        Crear una cuenta nueva: <br>
+    </h4>
+    <p> 
+        &nbsp;&nbsp; - Primero, seleccione el rol que desee (Candidato/Empresa).
+        &nbsp;&nbsp; - Después, introduzca su dirección de correo y la URL de una imágen para su perfil.
+        &nbsp;&nbsp; - Por último, escriba una contraseña para su cuenta.
+    </p>
+    <br>
+    <h4>
+        Iniciar sesión: <br>
+    </h4>
+    <p>
+        en caso de tener una cuenta ya creada, haz lo siguiente:
+        &nbsp;&nbsp; - Introduzca el correo de su cuenta.
+        &nbsp;&nbsp; - Introduzca su contraseña.
+    </p>
+    <br>
+    <h4>
+        Recuperación de la contraseña:
+    </h4>
+    <p>
+        Si has olvidado la contraseña, introduce su correo electrónico para <br>
+        solicitar la restauración de la contraseña. <br>
+        Es necesario verficar el correo una vez recibido la notificación.
+    </p>
+    <h4>
+        Funciones principales del perfil:
+    </h4>
+    <p>
+        Una vez iniciada la sesión, tienes múltiples opciones desde tu perfil:
+        &nbsp;&nbsp; - Acceso al panel de control.
+        &nbsp;&nbsp; - Acceso a tu perfil.
+        &nbsp;&nbsp; - Opción de recuperación de la contraseña.
+        &nbsp;&nbsp; - Cerrar la sesión.
+    </p>
+    <h4>
+        Uso de la plataforma:
+    </h4>
+    <p>
+        Capazzitor cuenta con un filtro de búsqueda para todo tipo de trabajo:
+        &nbsp;&nbsp; - Selecciona un tipo de empleo que desees.
+        &nbsp;&nbsp; - Filtra la búsqueda por categorías.
+        &nbsp;&nbsp; - Pulsa "Buscar" para los resultados
+    </p>-->
