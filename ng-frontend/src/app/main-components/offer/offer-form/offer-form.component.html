@@ -11,43 +11,16 @@
         <input matInput formControlName="title">
         
         <mat-error *ngIf="editOfferForm.get('title')!.invalid && (editOfferForm.get('title')!.dirty || editOfferForm.get('title')!.touched)">
-          <span *ngIf="editOfferForm.get('title')!.getError('required')">Título / Nombre obligatorio</span>
+          <span *ngIf="editOfferForm.get('title')!.getError('required')">Información necesaria y/o incorrecta</span>
         </mat-error> 
       </mat-form-field>
-
+      
       <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Tipo de Contrato</mat-label>
-        <input matInput formControlName="contractType">
+        <mat-label>Estado</mat-label>
+        <input matInput formControlName="state">
         
-        <mat-error *ngIf="editOfferForm.get('contractType')!.invalid && (editOfferForm.get('contractType')!.dirty || editOfferForm.get('contractType')!.touched)">
-          <span *ngIf="editOfferForm.get('contractType')!.getError('required')">Identificación obligatoria</span>
-        </mat-error> 
-      </mat-form-field>
-
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Días Laborales (Oferta)</mat-label>
-        <input matInput formControlName="workingDay">
-        
-        <mat-error *ngIf="editOfferForm.get('workingDay')!.invalid && (editOfferForm.get('workingDay')!.dirty || editOfferForm.get('workingDay')!.touched)">
-          <span *ngIf="editOfferForm.get('workingDay')!.getError('required')">Identificación obligatoria</span>
-        </mat-error> 
-      </mat-form-field>
-
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Descripción</mat-label>
-        <input matInput formControlName="description">
-        
-        <mat-error *ngIf="editOfferForm.get('description')!.invalid && (editOfferForm.get('description')!.dirty || editOfferForm.get('description')!.touched)">
-          <span *ngIf="editOfferForm.get('description')!.getError('required')">Identificación obligatoria</span>
-        </mat-error> 
-      </mat-form-field>
-
-      <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Ciudad</mat-label>
-        <input matInput formControlName="city">
-        
-        <mat-error *ngIf="editOfferForm.get('city')!.invalid && (editOfferForm.get('city')!.dirty || editOfferForm.get('lacation')!.touched)">
-          <span *ngIf="editOfferForm.get('city')!.getError('required')">Identificación obligatoria</span>
+        <mat-error *ngIf="editOfferForm.get('state')!.invalid && (editOfferForm.get('state')!.dirty || editOfferForm.get('state')!.touched)">
+          <span *ngIf="editOfferForm.get('state')!.getError('required')">Información necesaria y/o incorrecta</span>
         </mat-error> 
       </mat-form-field>
 
@@ -56,27 +29,109 @@
         <input matInput formControlName="priority">
         
         <mat-error *ngIf="editOfferForm.get('priority')!.invalid && (editOfferForm.get('priority')!.dirty || editOfferForm.get('priority')!.touched)">
-          <span *ngIf="editOfferForm.get('priority')!.getError('required')">Identificación obligatoria</span>
+          <span *ngIf="editOfferForm.get('priority')!.getError('required')">Información necesaria y/o incorrecta</span>
         </mat-error> 
       </mat-form-field>
 
-      <!-- <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Correo Electrónico</mat-label>
-        <input matInput formControlName="email">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Categoria</mat-label>
+        <input matInput formControlName="category">
         
-        <mat-error *ngIf="editOfferForm.get('email')!.invalid && (editOfferForm.get('email')!.dirty || editOfferForm.get('email')!.touched)">
-          <span *ngIf="editOfferForm.get('email')!.getError('required')">Identificación obligatoria</span>
+        <mat-error *ngIf="editOfferForm.get('category')!.invalid && (editOfferForm.get('category')!.dirty || editOfferForm.get('category')!.touched)">
+          <span *ngIf="editOfferForm.get('category')!.getError('required')">Información necesaria y/o incorrecta</span>
         </mat-error> 
-      </mat-form-field> -->
+      </mat-form-field>
 
-      <!-- <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Candidat@s Suscrit@s</mat-label>
-        <input matInput formControlName="subscribedCandidates">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Subcategorías</mat-label>
+        <input matInput formControlName="subcategories">
         
-        <mat-error *ngIf="editOfferForm.get('subscribedCandidates')!.invalid && (editOfferForm.get('subscribedCandidates')!.dirty || editOfferForm.get('subscribedCandidates')!.touched)">
-          <span *ngIf="editOfferForm.get('subscribedCandidates')!.getError('required')">Identificación obligatoria</span>
+        <mat-error *ngIf="editOfferForm.get('subcategories')!.invalid && (editOfferForm.get('subcategories')!.dirty || editOfferForm.get('subcategories')!.touched)">
+          <span *ngIf="editOfferForm.get('subcategories')!.getError('required')">Información necesaria y/o incorrecta</span>
         </mat-error> 
-      </mat-form-field> -->
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Fecha de Creación</mat-label>
+        <input matInput formControlName="creationDate">
+        
+        <mat-error *ngIf="editOfferForm.get('creationDate')!.invalid && (editOfferForm.get('creationDate')!.dirty || editOfferForm.get('creationDate')!.touched)">
+          <span *ngIf="editOfferForm.get('creationDate')!.getError('required')">Información necesaria y/o incorrecta</span>
+        </mat-error> 
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Fecha de Atualización</mat-label>
+        <input matInput formControlName="updateDate">
+        
+        <mat-error *ngIf="editOfferForm.get('updateDate')!.invalid && (editOfferForm.get('updateDate')!.dirty || editOfferForm.get('updateDate')!.touched)">
+          <span *ngIf="editOfferForm.get('updateDate')!.getError('required')">Información necesaria y/o incorrecta</span>
+        </mat-error> 
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Tipo de Contrato</mat-label>
+        <input matInput formControlName="contractType">
+        
+        <mat-error *ngIf="editOfferForm.get('contractType')!.invalid && (editOfferForm.get('contractType')!.dirty || editOfferForm.get('contractType')!.touched)">
+          <span *ngIf="editOfferForm.get('contractType')!.getError('required')">Información necesaria y/o incorrecta</span>
+        </mat-error> 
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Duración de la Jornada</mat-label>
+        <input matInput formControlName="workingDay">
+        
+        <mat-error *ngIf="editOfferForm.get('workingDay')!.invalid && (editOfferForm.get('workingDay')!.dirty || editOfferForm.get('workingDay')!.touched)">
+          <span *ngIf="editOfferForm.get('workingDay')!.getError('required')">Información necesaria y/o incorrecta</span>
+        </mat-error> 
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Descripción</mat-label>
+        <input matInput formControlName="description">
+        
+        <mat-error *ngIf="editOfferForm.get('description')!.invalid && (editOfferForm.get('description')!.dirty || editOfferForm.get('description')!.touched)">
+          <span *ngIf="editOfferForm.get('description')!.getError('required')">Información necesaria y/o incorrecta</span>
+        </mat-error> 
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Experiencia Mínima</mat-label>
+        <input matInput formControlName="experienceMin">
+        
+        <mat-error *ngIf="editOfferForm.get('experienceMin')!.invalid && (editOfferForm.get('experienceMin')!.dirty || editOfferForm.get('experienceMin')!.touched)">
+          <span *ngIf="editOfferForm.get('experienceMin')!.getError('required')">Información necesaria y/o incorrecta</span>
+        </mat-error> 
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nivel de Estudios Mínimos</mat-label>
+        <input matInput formControlName="studiesMin">
+        
+        <mat-error *ngIf="editOfferForm.get('studiesMin')!.invalid && (editOfferForm.get('studiesMin')!.dirty || editOfferForm.get('studiesMin')!.touched)">
+          <span *ngIf="editOfferForm.get('studiesMin')!.getError('required')">Información necesaria y/o incorrecta</span>
+        </mat-error> 
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Ciudad</mat-label>
+        <input matInput formControlName="city">
+        
+        <mat-error *ngIf="editOfferForm.get('city')!.invalid && (editOfferForm.get('city')!.dirty || editOfferForm.get('lacation')!.touched)">
+          <span *ngIf="editOfferForm.get('city')!.getError('required')">Información necesaria y/o incorrecta</span>
+        </mat-error> 
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>País</mat-label>
+        <input matInput formControlName="country">
+        
+        <mat-error *ngIf="editOfferForm.get('country')!.invalid && (editOfferForm.get('country')!.dirty || editOfferForm.get('country')!.touched)">
+          <span *ngIf="editOfferForm.get('country')!.getError('required')">Información necesaria y/o incorrecta</span>
+        </mat-error> 
+      </mat-form-field>
+
           </div>
       <div class="buttons">
         <button mat-raised-button color="primary" type="submit">Guardar Oferta</button>
