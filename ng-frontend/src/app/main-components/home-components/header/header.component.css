@@ -61,7 +61,7 @@ mat-toolbar{
   position: relative;
   background-color: rgba(255,255,255,0.7);
   width: 20vw;
-  top: 2.2rem;
+  top: 6rem;
   border-radius:  0.5rem;
   margin-top: -6rem;
   overflow: visible;
@@ -72,7 +72,7 @@ mat-toolbar{
   min-width: 150px;
 }
 h6 {
-  margin-top: -1rem;
+  margin-top: 0.25rem;
   font-family:  Oswald light;
   color: rgba(0,0,0,1);
 }
