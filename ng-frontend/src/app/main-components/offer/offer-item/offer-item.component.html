@@ -3,12 +3,20 @@
       <mat-expansion-panel (opened)="panelOpenState = true"
                           (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
-          <mat-panel-title>
-            {{offer.title}}
-          </mat-panel-title>
-          <mat-panel-description>
-          {{offer.company}} / <!-- {{offer.city.value}} -->
-          </mat-panel-description>
+          <div class="innerColumn">
+            <div class="titleRow">
+              <mat-icon>date_range</mat-icon>
+              <mat-panel-title>
+                {{offer.title}}
+              </mat-panel-title>
+            </div>
+            <mat-panel-description>
+              {{offer.company}} / {{offer?.city?.value}} / {{offer?.autCommunity?.value}}
+            </mat-panel-description>
+            <mat-panel-description>
+              {{offer.contractType}} / {{offer?.salary?.currency}} - {{offer?.salary?.value}} {{offer?.salary?.grossNet}} {{offer?.salary?.period}} / {{offer?.workingDay}}
+            </mat-panel-description>
+          </div>
         </mat-expansion-panel-header>
         <mat-card class="offerItemContainer">
           <mat-card-header>
