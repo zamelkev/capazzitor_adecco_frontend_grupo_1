@@ -12,7 +12,7 @@
         </mat-expansion-panel-header>
         <mat-card class="offerItemContainer">
           <mat-card-header>
-            <div mat-card-avatar class="firmLogo">{{offer.companyPhoto ? offer.companyPhoto:'../../../../assets/img/Logos/3x/capazzitor_logo@3x.png'}}</div>
+            <div mat-card-avatar class="firmLogo"><img width="100%" height="auto" src="{{offer.companyPhoto ? offer.companyPhoto:'../../../../assets/img/Logos/3x/capazzitor_logo@3x.png'}}" alt="Company Logotype"></div>
             <mat-card-title>{{offer.title}}</mat-card-title>
             <mat-card-subtitle>Detalles: {{offer.company}} - {{offer.city}} - {{offer.salaryRank}}
             </mat-card-subtitle>
@@ -23,11 +23,12 @@
             Categoría: {{offer.subcategoty}} ({{offer.category}})
             <br>
             <strong>Acerca de la oferta de trabajo:</strong>
-            {{offer.workingDay}} - {{offer.salary}} <br><br>
+            {{offer.workingDay}} - {{offer.salaryRank}} <br><br>
             <strong>Requisitos:</strong><br>
             Experiencia mínima: {{offer.experienceMin}} <br>
-            Estudios mínimos: {{offer.studiesMin}}
-            {{offer.description}}
+            Estudios mínimos: {{offer.studiesMin}} <br>
+            <strong>+ Info: </strong><br>
+            <p>{{offer.description}}</p>
           </mat-card-content>
         </mat-card>
       </mat-expansion-panel>
