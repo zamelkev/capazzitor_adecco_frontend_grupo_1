@@ -47,7 +47,7 @@ const routes: Routes = [
     },
     component: CompanyDashboardComponent },
   { path: 'user-profile', component: UserProfileComponent, canLoad: [ HasRoleGuard ] },
-  { path: 'offer-list', component: OfferListComponent }
+  { path: 'offer-list', component: OfferListComponent },
   { path: 'company-dashboard', component: CompanyDashboardComponent },
   { path: 'offers', component: OffersComponent },
 

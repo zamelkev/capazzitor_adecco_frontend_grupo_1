@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   
 export class OfferListComponent implements OnInit {
   isVisible: boolean = true;
-  offers: any[] = [];
+ //offers: any[] = [];
 
   constructor() {
     this.isVisible = this.isVisible = true;

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-//import { MatListModule } from '@angular/material/list';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { OfferDetailComponent } from '../../main-components/offer/offer-detail/offer-detail.component';
 @Component({

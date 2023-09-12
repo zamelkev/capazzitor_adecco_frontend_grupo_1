@@ -54,6 +54,7 @@ import { UserListComponent } from './user/user-list/user-list.component';
 import { UserFormComponent } from './user/user-form/user-form.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserProfileComponent } from './dashboard/user-profile/user-profile.component';
+import { OffersComponent } from '../views/offers/offers.component';
 
 
 
@@ -96,7 +97,7 @@ import { UserProfileComponent } from './dashboard/user-profile/user-profile.comp
     UserListComponent,
     UserFormComponent,
     UserDetailComponent,
-    UserProfileComponent
+    UserProfileComponent,
   ],
   imports: [
     CommonModule,
@@ -147,10 +148,6 @@ import { UserProfileComponent } from './dashboard/user-profile/user-profile.comp
     CompanyListAdminComponent
   ],
   providers: [
-    {
-      provide: MAT_BOTTOM_SHEET_DEFAULT_OPTIONS,
-      useValue: { panelClass: 'mybottomsheet', hasBackdrop: false },
-    },
     CandidateDetailComponent,
     CandidateFormComponent,
     CandidateListComponent,

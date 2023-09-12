@@ -6,7 +6,7 @@ import { MainComponentsModule } from '../main-components/main-components.module'
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatBottomSheetModule } from '@angular/material/bottom-sheet'; 
+import { MatBottomSheetModule} from '@angular/material/bottom-sheet'; 
 
 
 import { HomeComponent } from './home/home.component';
@@ -46,7 +46,7 @@ import { OffersComponent } from './offers/offers.component';
     ReactiveFormsModule,
     AuthModule,
     MatSelectModule,
-    
+
     MatBottomSheetModule,
   ],
   exports: [
@@ -59,6 +59,7 @@ import { OffersComponent } from './offers/offers.component';
     SignUpComponent,
     VerifyEmailComponent,
     UseGuidesComponent,
+    OffersComponent,
   ],
 })
 export class ViewsModule {}
