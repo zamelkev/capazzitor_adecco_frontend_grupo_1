@@ -25,8 +25,10 @@ mat-expansion-panel {
 .firmLogo {
   /* background-image: url('../../../../assets/img/Logos/3x/capazzitor_logo@3x.png'); */
   background-size: cover;
+  align-content: center;
+  vertical-align: auto;
   background-color: rgba(255,255,255,1);
-  background-position: center;
+  /* background-position: center; */
 }
 mat-card-header {
   display: flex;
@@ -41,5 +43,9 @@ mat-card-header > button {
 }
 
 mat-card-content {
-  max-width: 50vw;
+  width:100%
+}
+
+mat-card-content p {
+  text-align: justify;
 }

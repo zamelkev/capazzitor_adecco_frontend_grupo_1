@@ -97,6 +97,15 @@
       </mat-form-field>
 
       <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Rango Salarial</mat-label>
+        <input matInput formControlName="salaryRank">
+        
+        <mat-error *ngIf="editOfferForm.get('salaryRank')!.invalid && (editOfferForm.get('salaryRank')!.dirty || editOfferForm.get('description')!.touched)">
+          <span *ngIf="editOfferForm.get('salaryRank')!.getError('required')">Información necesaria y/o incorrecta</span>
+        </mat-error> 
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Experiencia Mínima</mat-label>
         <input matInput formControlName="experienceMin">
         
