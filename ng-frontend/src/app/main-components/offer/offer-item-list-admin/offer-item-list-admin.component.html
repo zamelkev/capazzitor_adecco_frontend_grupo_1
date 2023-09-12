@@ -4,23 +4,23 @@
                           (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
           <mat-panel-title>
-            {{offer.title}}
+            <strong>{{offer.title}}</strong>
           </mat-panel-title>
           <mat-panel-description>
-            {{offer.company}}: {{offer.workingDay}} - {{offer.salaryRank}} (Prioridad: {{offer.priority}})
+            {{offer.company}}: {{offer.workingDay}} - {{offer.salaryRank}} (Prioridad: {{offer.priority}}) 
+            <button>Borrar usuari@</button>
           </mat-panel-description>
         </mat-expansion-panel-header>
         <mat-card class="offerItemContainer">
           <mat-card-header>
-            <!-- <div mat-card-avatar class="firmLogo"><img width="100%" height="auto" src="{{offer.companyPhoto ? offer.companyPhoto:'../../../../assets/img/Logos/3x/capazzitor_logo@3x.png'}}" alt="Company Logotype"></div> -->
             <img class="firmLogo" width="180vw" src="{{offer.companyPhoto ? offer.companyPhoto:'../../../../assets/img/Logos/3x/capazzitor_logo@3x.png'}}" alt="Company Logotype">
-            <mat-card-title>{{offer.title}}</mat-card-title>
-            <mat-card-subtitle>Detalles: {{offer.company}} - {{offer.city}} - {{offer.salaryRank}}
+            <mat-card-title><strong>{{offer.title}}</strong></mat-card-title>
+            <mat-card-subtitle>Detalles: Compañia: {{offer.company}} | Ciudad: {{offer.city}} | Rango Salarial: {{offer.salaryRank}}
             </mat-card-subtitle>
           </mat-card-header>
            <mat-card-content>
-            Compañia: {{offer.company}}
-            Localización: {{offer.city}}, {{offer.country}} 
+            Compañia: {{offer.company}} <br>
+            Localización: {{offer.city}}, {{offer.country}} <br>
             Categoría: {{offer.subcategoty}} ({{offer.category}})
             <br>
             <strong>Acerca de la oferta de trabajo:</strong>

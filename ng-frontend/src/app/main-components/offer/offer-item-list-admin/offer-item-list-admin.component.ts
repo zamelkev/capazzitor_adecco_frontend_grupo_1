@@ -42,5 +42,9 @@ export class OfferItemListAdminComponent implements OnInit {
     })
   };
 
+  // onClickDelete() {
+  //   this.offerService.DeleteOffer()
+  // }
+
 
 }
