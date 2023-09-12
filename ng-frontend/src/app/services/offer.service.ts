@@ -57,10 +57,10 @@ export class OfferService {
     return collectionData(userRef, { idField: 'uid' }) as Observable<any[]>;
   }
 
-  DeleteOffer(user: User) {
-    const userDocRef = doc(this.firestore, `offers/${user.uid}`);
-    return deleteDoc(userDocRef);
-  }
+  // DeleteOffer(offer: Offer) {
+  //   const userDocRef = doc(this.firestore, `offers/${user.uid}`);
+  //   return deleteDoc(userDocRef);
+  // }
 
   async addOfferData(user: User | any, offer: Offer | any) {
     try {
