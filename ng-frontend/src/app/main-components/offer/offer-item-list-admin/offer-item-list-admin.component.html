@@ -4,20 +4,29 @@
                           (closed)="panelOpenState = false">
         <mat-expansion-panel-header>
           <mat-panel-title>
-            {{offer.name}}
+            {{offer.title}}
           </mat-panel-title>
           <mat-panel-description>
-            {{offer.workingDay}} - {{offer.salaryRank}}
+            {{offer.company}}: {{offer.workingDay}} - {{offer.salaryRank}} (Prioridad: {{offer.priority}})
           </mat-panel-description>
         </mat-expansion-panel-header>
         <mat-card class="offerItemContainer">
           <mat-card-header>
-            <div mat-card-avatar class="firmLogo"></div>
+            <div mat-card-avatar class="firmLogo">{{offer.companyPhoto ? offer.companyPhoto:'../../../../assets/img/Logos/3x/capazzitor_logo@3x.png'}}</div>
             <mat-card-title>{{offer.title}}</mat-card-title>
-            <mat-card-subtitle>{{offer.city}} - {{offer.salaryRank}}</mat-card-subtitle>
+            <mat-card-subtitle>Detalles: {{offer.company}} - {{offer.city}} - {{offer.salaryRank}}
+            </mat-card-subtitle>
           </mat-card-header>
            <mat-card-content>
-            {{offer.company}}
+            Compañia: {{offer.company}}
+            Localización: {{offer.city}}, {{offer.country}} 
+            Categoría: {{offer.subcategoty}} ({{offer.category}})
+            <br>
+            <strong>Acerca de la oferta de trabajo:</strong>
+            {{offer.workingDay}} - {{offer.salary}} <br><br>
+            <strong>Requisitos:</strong><br>
+            Experiencia mínima: {{offer.experienceMin}} <br>
+            Estudios mínimos: {{offer.studiesMin}}
             {{offer.description}}
           </mat-card-content>
         </mat-card>

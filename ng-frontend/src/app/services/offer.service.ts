@@ -1,7 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { initializeApp } from 'firebase/app';
-import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, getFirestore, getDocs, getDoc, QueryDocumentSnapshot, DocumentData, query, orderBy, where,
+import { Firestore, collection, addDoc, collectionData, doc, deleteDoc, getFirestore, getDocs, getDoc, QueryDocumentSnapshot, DocumentData, query, orderBy, where, getCountFromServer,
 } from '@angular/fire/firestore';
 import {
   AngularFirestore,
@@ -66,26 +66,30 @@ export class OfferService {
     try {
       console.log(user.uid);
       const offerRef = collection(this.firestore, 'offers');
+      const offersSnapshot: any = await getCountFromServer(offerRef);
+      let offerId = offersSnapshot+1;
+      offerId = `${offer.company}_${offerId}`
+
       let addedOffer;
 
       const offerData: Offer | User | any = {
         title: offer.title,
-        // // id: offer.id,
-        // state: offer.state,
-        // category: offer.category,
-        // subcategory: offer.subcategory,
-        // creationDate: offer.creationDate,
-        // updateDate: offer.updateDate,
+        id: offerId,
+        state: offer.state,
+        category: offer.category,
+        subcategories: offer.subcategories,
+        creationDate: offer.creationDate,
+        updateDate: offer.updateDate,
         city: offer.city,
-        // country: offer.country,
+        country: offer.country,
         company: user.displayName,
         companyUid: user.uid,
         email: user.email,
         contractType: offer.contractType,
         workingDay: offer.workingDay,
         description: offer.description,
-        // experienceMin: offer.experienceMin,
-        // studiesMin: offer.studiesMin,
+        experienceMin: offer.experienceMin,
+        studiesMin: offer.studiesMin,
         priority: offer.priority,
         applicants: offer.applicants = [user],
       };

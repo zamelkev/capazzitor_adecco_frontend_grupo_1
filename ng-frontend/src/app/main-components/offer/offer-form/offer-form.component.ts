@@ -35,6 +35,26 @@ export class OfferFormComponent {
         // nonNullable: true,
         validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
       }),
+      state: new FormControl('state', {
+        // nonNullable: true,
+        validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
+      }),
+      category: new FormControl('category', {
+        // nonNullable: true,
+        validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
+      }),
+      subcategories: new FormControl('subcategories', {
+        // nonNullable: true,
+        validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
+      }),
+      creationDate: new FormControl('creationDate', {
+        // nonNullable: true,
+        validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
+      }),
+      updateDate: new FormControl('updateDate', {
+        // nonNullable: true,
+        validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
+      }),
       contractType: new FormControl('contractType', {
         // nonNullable: true,
         validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
@@ -45,16 +65,32 @@ export class OfferFormComponent {
       }),
       description: new FormControl('description', {
         // nonNullable: true,
+        validators: [Validators.required, Validators.minLength(2), Validators.maxLength(2500)]
+      }),
+      experienceMin: new FormControl('experienceMin', {
+        // nonNullable: true,
         validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
       }),
-      city: new FormControl('city', {
+      studiesMin: new FormControl('studiesMin', {
         // nonNullable: true,
-        validators: [Validators.required]
+        validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
       }),
       priority: new FormControl('priority', {
         // nonNullable: true,
         validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
+      }),
+      salaryRank: new FormControl('salaryRank', {
+        // nonNullable: true,
+        validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
       }),     
+      city: new FormControl('city', {
+        // nonNullable: true,
+        validators: [Validators.required]
+      }),
+      country: new FormControl('country', {
+        // nonNullable: true,
+        validators: [Validators.required, Validators.minLength(2), Validators.maxLength(100)]
+      }),
     })
   }
 

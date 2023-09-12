@@ -34,6 +34,7 @@ export class Offer {
         salaryRank?: string;
         company?: string;
         companyUid?: number;
+        companyPhoto?: string; 
         email?: string;
         contractType?: string;
         workingDay?: string;
