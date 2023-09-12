@@ -1,4 +1,5 @@
-  <div class="offerDetailWrapper">
+<button (click)="closeBottomSheet()">Close</button>
+<div class="offerDetailWrapper">
     <mat-card class="suggestContainer">
   <mat-card-header>
     <div mat-card-avatar class="firmLogo"></div>
@@ -6,7 +7,18 @@
     <mat-card-subtitle>{{offerItem.company}} - </mat-card-subtitle>
   </mat-card-header>
  <mat-card-content>
-    <p>{{offerItem.description}}</p>
+    <p>Creado en: {{data.creationDate}}</p>
+    <p>Actualizado en:{{data.updateDate}}</p>
+    <p>{{data.company}}</p>
+    <p>{{data.city.value}}</p>
+    <p>{{data.autCommunity.value}}</p>
+    <p>{{data.contractType}}</p>
+    <p>{{data.salary.currency}}</p>
+    <p>{{data.salary.value}}</p>
+    <p>{{data.salary.grossNet}}</p>
+    <p>{{data.salary.period}}</p>
+    <p>{{data.workingDay}}</p>
+    <p>{{data.description}}</p>
   </mat-card-content>
 </mat-card>
 </div>

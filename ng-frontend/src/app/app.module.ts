@@ -36,7 +36,6 @@ import { HttpClientModule } from '@angular/common/http';
 // import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
 //Angular material modules
-import { MatBottomSheetModule } from '@angular/material/bottom-sheet'; 
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -48,7 +47,6 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MAT_BOTTOM_SHEET_DEFAULT_OPTIONS } from '@angular/material/bottom-sheet';
 import { MatSelectModule } from '@angular/material/select';
 /* import {
   MatBottomSheet,
@@ -57,6 +55,8 @@ import { MatSelectModule } from '@angular/material/select';
   MatBottomSheetRef,
 } from '@angular/material/bottom-sheet';
  */
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet'; 
+
 //App modules
 import { MainComponentsModule } from './main-components/main-components.module';
 import { ViewsModule } from './views/views.module';
@@ -102,11 +102,6 @@ export const firebaseConfig = {
     MatExpansionModule,
     MatBottomSheetModule,
     MatSelectModule,
-    /*     MatBottomSheet,
-    MatBottomSheetConfig,
-    MatBottomSheetModule,
-    MatBottomSheetRef,
- */ // environment,
     // AngularFireModule.initializeApp(environment.firebase),
     AngularFireModule,
     AngularFireAuthModule,
@@ -128,10 +123,6 @@ export const firebaseConfig = {
     AuthService,
     OfferService,
     AngularFirestore,
-    {
-      provide: MAT_BOTTOM_SHEET_DEFAULT_OPTIONS,
-      useValue: { panelClass: 'mybottomsheet', hasBackdrop: false },
-    },
     { provide: FIREBASE_OPTIONS, useValue: firebaseConfig },
     { provide: AngularFireModule, useValue: firebaseConfig },
   // providers: [AuthService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],

@@ -15,6 +15,7 @@ import { IsLoggedInGuard } from './services/guards/is-logged-in.guard';
 import { UserProfileComponent } from './main-components/dashboard/user-profile/user-profile.component';
 import { OfferListComponent } from './main-components/offer/offer-list/offer-list.component';
 
+import { OffersComponent } from './views/offers/offers.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -31,7 +32,10 @@ const routes: Routes = [
   },
   { path: 'login', component: SignInComponent },
   { path: 'register', component: SignUpComponent },
-  { path: 'forgot-password', /*canLoad: [IsLoggedInGuard],*/ component: ForgotPasswordComponent },
+  {
+    path: 'forgot-password',
+    /*canLoad: [IsLoggedInGuard],*/ component: ForgotPasswordComponent,
+  },
   { path: 'verify-emailaddress', component: VerifyEmailComponent },
   { path: 'use-guides', component: UseGuidesComponent },
   { path: 'company-dashboard', canLoad: [/*IsLoggedInGuard,*/ HasRoleGuard], /*canActivate: [HasRoleGuard],*/
@@ -44,6 +48,9 @@ const routes: Routes = [
     component: CompanyDashboardComponent },
   { path: 'user-profile', component: UserProfileComponent, canLoad: [ HasRoleGuard ] },
   { path: 'offer-list', component: OfferListComponent }
+  { path: 'company-dashboard', component: CompanyDashboardComponent },
+  { path: 'offers', component: OffersComponent },
+
   // { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
 

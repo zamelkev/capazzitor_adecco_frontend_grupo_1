@@ -6,6 +6,8 @@ import { MainComponentsModule } from '../main-components/main-components.module'
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet'; 
+
 
 import { HomeComponent } from './home/home.component';
 // import { CandidateServicesComponent } from './candidate-services/candidate-services.component';
@@ -18,6 +20,7 @@ import { VerifyEmailComponent } from './auth/verify-email/verify-email.component
 import { UseGuidesComponent } from './use-guides/use-guides.component';
 import { AuthModule } from '@angular/fire/auth';
 import { MatSelectModule } from '@angular/material/select';
+import { OffersComponent } from './offers/offers.component';
 
 
 @NgModule({
@@ -30,7 +33,8 @@ import { MatSelectModule } from '@angular/material/select';
     SignInComponent,
     SignUpComponent,
     VerifyEmailComponent,
-    UseGuidesComponent
+    UseGuidesComponent,
+    OffersComponent,
   ],
   imports: [
     CommonModule,
@@ -43,6 +47,7 @@ import { MatSelectModule } from '@angular/material/select';
     AuthModule,
     MatSelectModule,
     
+    MatBottomSheetModule,
   ],
   exports: [
     HomeComponent,
@@ -53,7 +58,7 @@ import { MatSelectModule } from '@angular/material/select';
     SignInComponent,
     SignUpComponent,
     VerifyEmailComponent,
-    UseGuidesComponent
-  ]
+    UseGuidesComponent,
+  ],
 })
-export class ViewsModule { }
+export class ViewsModule {}
