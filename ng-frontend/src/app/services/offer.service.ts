@@ -80,6 +80,7 @@ export class OfferService {
         subcategories: offer.subcategories,
         creationDate: offer.creationDate,
         updateDate: offer.updateDate,
+        salaryRank: offer.salaryRank,
         city: offer.city,
         country: offer.country,
         company: user.displayName,
