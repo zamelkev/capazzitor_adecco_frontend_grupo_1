@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
-//import { OfferDetailComponent } from '../../main-components/offer/offer-detail/offer-detail.component';
 import { OfferFiltersComponent } from '../offer/offer-filters/offer-filters.component';
 @Component({
   selector: 'app-bottom-sheet',

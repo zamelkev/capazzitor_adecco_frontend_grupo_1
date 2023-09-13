@@ -52,8 +52,34 @@ mat-card-header {
   align-items: center;
 
 }
-
 mat-card-header > button {
   max-height: 3rem;
 }
-
+.chip {
+  padding: 0.25rem 0.5rem;
+  color: rgba(255,255,255,1);
+  background-color: transparent;
+  border-radius: 0.25rem;
+  border: 1px solid  #FF4081;
+  margin: 0 0.25rem;
+}
+mat-divider {
+  background-color: #FF4081;
+}
+.innerRow {
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: flex-start ;
+}
+.actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1rem;
+}
+.actions > button {
+  border: 1px solid #FF4081;
+  margin: 0 0.5rem;
+}

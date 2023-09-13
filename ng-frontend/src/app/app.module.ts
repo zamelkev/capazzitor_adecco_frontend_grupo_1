@@ -48,7 +48,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSelectModule } from '@angular/material/select';
-import {MatBottomSheetModule} from '@angular/material/bottom-sheet'; 
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MatChipsModule } from '@angular/material/chips';
 
 //App modules
 import { MainComponentsModule } from './main-components/main-components.module';
@@ -95,6 +96,7 @@ export const firebaseConfig = {
     MatExpansionModule,
     MatBottomSheetModule,
     MatSelectModule,
+    MatChipsModule,
     // AngularFireModule.initializeApp(environment.firebase),
     AngularFireModule,
     AngularFireAuthModule,

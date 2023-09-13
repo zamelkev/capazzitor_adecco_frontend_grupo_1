@@ -15,8 +15,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatBottomSheetModule } from '@angular/material/bottom-sheet'; 
-import { MAT_BOTTOM_SHEET_DEFAULT_OPTIONS } from '@angular/material/bottom-sheet';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MatChipsModule } from '@angular/material/chips';
 
 //App components
 import { HeaderComponent } from './home-components/header/header.component';
@@ -118,6 +118,7 @@ import { OfferFiltersComponent } from './offer/offer-filters/offer-filters.compo
     MatDividerModule,
     MatExpansionModule,
     MatBottomSheetModule,
+    MatChipsModule,
   ],
   exports: [
     AutocompleteComponent,
@@ -147,7 +148,7 @@ import { OfferFiltersComponent } from './offer/offer-filters/offer-filters.compo
     CompanyDetailComponent,
     CompanyFormComponent,
     CompanyListComponent,
-    CompanyListAdminComponent
+    CompanyListAdminComponent,
   ],
   providers: [
     CandidateDetailComponent,
@@ -158,7 +159,7 @@ import { OfferFiltersComponent } from './offer/offer-filters/offer-filters.compo
     CompanyListComponent,
     UserListComponent,
     UserFormComponent,
-    UserDetailComponent
+    UserDetailComponent,
   ],
 })
 export class MainComponentsModule {}
