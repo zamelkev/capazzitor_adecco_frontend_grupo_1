@@ -1,5 +1,7 @@
 .auxContainer {
   background-color: rgba(243,220,195,1);
+  padding-top: 8rem;
+  margin-top: -6rem;
 }
 
 .useGuideContainer {
