@@ -31,6 +31,7 @@ export class Offer {
         //   id?: number;
         //   value?: string;
         // };
+        autCommunity?: string;
         salaryRank?: string;
         company?: string;
         companyUid?: number;

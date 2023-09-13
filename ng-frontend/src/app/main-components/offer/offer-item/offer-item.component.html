@@ -11,10 +11,10 @@
               </mat-panel-title>
             </div>
             <mat-panel-description>
-              {{offer.company}} / {{offer?.city?.value}} / {{offer?.autCommunity?.value}}
+              {{offer.company}} / {{offer?.city}} / {{offer.autCommunity}}
             </mat-panel-description>
             <mat-panel-description>
-              {{offer.contractType}} / {{offer?.salary?.currency}} - {{offer?.salary?.value}} {{offer?.salary?.grossNet}} {{offer?.salary?.period}} / {{offer?.workingDay}}
+              {{offer.contractType}} / {{offer.salaryRank}} / {{offer?.workingDay}}
             </mat-panel-description>
           </div>
         </mat-expansion-panel-header>
