@@ -14,17 +14,26 @@
               {{offer.company}} / {{offer?.city}} / {{offer.autCommunity}}
             </mat-panel-description>
             <mat-panel-description>
-              {{offer.contractType}} / {{offer.salaryRank}} / {{offer?.workingDay}}
+              <mat-chip class="chip">{{offer.contractType}}</mat-chip>
+              <mat-chip class="chip">{{offer.salaryRank}}</mat-chip>
+              <mat-chip class="chip">{{offer?.workingDay}}</mat-chip>
             </mat-panel-description>
           </div>
         </mat-expansion-panel-header>
         <mat-card class="offerItemContainer">
           <mat-card-header>
-            <mat-card-title>{{offer.company}}</mat-card-title>
             <mat-card-subtitle>{{offer.description}}</mat-card-subtitle>
-            <button mat-flat-button color="accent" aria-label="Detalles oferta">
-              <mat-icon>read_more</mat-icon>
-            </button>
+            <div class="innerRow">
+              <mat-divider></mat-divider>
+              <div class="actions">
+                <button mat-stroked-button aria-label="Detalles oferta">
+                 Ver oferta
+                </button>
+                <button mat-flat-button color="accent" aria-label="Subscribe">
+                 Inscribirse
+                </button>
+              </div>
+            </div>
           </mat-card-header>
            <mat-card-content>
 

@@ -15,8 +15,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatBottomSheetModule } from '@angular/material/bottom-sheet'; 
-import { MAT_BOTTOM_SHEET_DEFAULT_OPTIONS } from '@angular/material/bottom-sheet';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MatChipsModule } from '@angular/material/chips';
 
 //App components
 import { HeaderComponent } from './home-components/header/header.component';
@@ -55,6 +55,7 @@ import { UserFormComponent } from './user/user-form/user-form.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserProfileComponent } from './dashboard/user-profile/user-profile.component';
 import { OffersComponent } from '../views/offers/offers.component';
+import { OfferFiltersComponent } from './offer/offer-filters/offer-filters.component';
 
 
 
@@ -98,6 +99,7 @@ import { OffersComponent } from '../views/offers/offers.component';
     UserFormComponent,
     UserDetailComponent,
     UserProfileComponent,
+    OfferFiltersComponent,
   ],
   imports: [
     CommonModule,
@@ -116,6 +118,7 @@ import { OffersComponent } from '../views/offers/offers.component';
     MatDividerModule,
     MatExpansionModule,
     MatBottomSheetModule,
+    MatChipsModule,
   ],
   exports: [
     AutocompleteComponent,
@@ -145,7 +148,7 @@ import { OffersComponent } from '../views/offers/offers.component';
     CompanyDetailComponent,
     CompanyFormComponent,
     CompanyListComponent,
-    CompanyListAdminComponent
+    CompanyListAdminComponent,
   ],
   providers: [
     CandidateDetailComponent,
@@ -156,7 +159,7 @@ import { OffersComponent } from '../views/offers/offers.component';
     CompanyListComponent,
     UserListComponent,
     UserFormComponent,
-    UserDetailComponent
+    UserDetailComponent,
   ],
 })
 export class MainComponentsModule {}

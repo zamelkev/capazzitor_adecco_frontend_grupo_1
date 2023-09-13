@@ -18,19 +18,42 @@ export class OfferItemComponent implements OnInit {
   constructor(private authService: AuthService, private offerService: OfferService) {
     //this.offerItem = this.offerItem;
     this.offers = this.offers = [
-  
       {
         title: 'Administrativo contable',
         id: 21875,
-        city:'Elche',
-        autCommunity:'Comunidad Valenciana ',
+        city: 'Elche',
+        autCommunity: 'Comunidad Valenciana ',
         company: 'QUICKTYPERS SL',
         contractType: 'Contrato indefinido',
         workingDay: 'Fulltime',
         salaryRank: '15K',
-        description: 'Empresa internacional del sector educativo y de marketing, con sede en Elche (Alicante), busca incorporar de manera inmediata un/a ADMINISTRATIVO/A CONTABLE. Buscamos un perfil administrativo, preferiblemente con experiencia en facturación. Es necesario tener una buena disposición para trabajar en equipo de manera presencial en nuestra oficina de Elche.',
+        description:
+          'Empresa internacional del sector educativo y de marketing, con sede en Elche (Alicante), busca incorporar de manera inmediata un/a ADMINISTRATIVO/A CONTABLE. Buscamos un perfil administrativo, preferiblemente con experiencia en facturación. Es necesario tener una buena disposición para trabajar en equipo de manera presencial en nuestra oficina de Elche.',
       },
-      {},
+      {
+        title: 'Administrativo contable',
+        id: 21875,
+        city: 'Elche',
+        autCommunity: 'Comunidad Valenciana ',
+        company: 'QUICKTYPERS SL',
+        contractType: 'Contrato indefinido',
+        workingDay: 'Fulltime',
+        salaryRank: '15K',
+        description:
+          'Empresa internacional del sector educativo y de marketing, con sede en Elche (Alicante), busca incorporar de manera inmediata un/a ADMINISTRATIVO/A CONTABLE. Buscamos un perfil administrativo, preferiblemente con experiencia en facturación. Es necesario tener una buena disposición para trabajar en equipo de manera presencial en nuestra oficina de Elche.',
+      },
+      {
+        title: 'Administrativo contable',
+        id: 21875,
+        city: 'Elche',
+        autCommunity: 'Comunidad Valenciana ',
+        company: 'QUICKTYPERS SL',
+        contractType: 'Contrato indefinido',
+        workingDay: 'Fulltime',
+        salaryRank: '15K',
+        description:
+          'Empresa internacional del sector educativo y de marketing, con sede en Elche (Alicante), busca incorporar de manera inmediata un/a ADMINISTRATIVO/A CONTABLE. Buscamos un perfil administrativo, preferiblemente con experiencia en facturación. Es necesario tener una buena disposición para trabajar en equipo de manera presencial en nuestra oficina de Elche.',
+      },
     ];
  
   }
