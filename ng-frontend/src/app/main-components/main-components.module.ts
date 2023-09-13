@@ -54,6 +54,7 @@ import { UserListComponent } from './user/user-list/user-list.component';
 import { UserFormComponent } from './user/user-form/user-form.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserProfileComponent } from './dashboard/user-profile/user-profile.component';
+import { MeetUsHomeComponent } from './home-components/meet-us-home/meet-us-home.component';
 import { OffersComponent } from '../views/offers/offers.component';
 
 
@@ -75,6 +76,7 @@ import { OffersComponent } from '../views/offers/offers.component';
     ListComponent,
     SuggestCardComponent,
     MeetUsComponent,
+    MeetUsHomeComponent,
     OurServicesComponent,
     TeamComponent,
     EventsComponent,
@@ -130,6 +132,7 @@ import { OffersComponent } from '../views/offers/offers.component';
     ListComponent,
     SuggestCardComponent,
     MeetUsComponent,
+    MeetUsHomeComponent,
     OurServicesComponent,
     TeamComponent,
     EventsComponent,
