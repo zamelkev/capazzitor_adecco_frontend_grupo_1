@@ -14,7 +14,19 @@ mat-accordion {
 
 mat-expansion-panel {
   width:100%;
-} 
+}
+
+mat-panel-description {
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+mat-panel-description button {
+  border-radius: 5rem;
+  padding: 0.5rem;
+  background-color: red;
+  color: white;
+}
 
  .offerItemContainer {
   background-color: rgba(238, 159, 75, 0.5);

@@ -57,18 +57,19 @@ export class OfferService {
     return collectionData(userRef, { idField: 'uid' }) as Observable<any[]>;
   }
 
-  // DeleteOffer(offer: Offer) {
-  //   const userDocRef = doc(this.firestore, `offers/${user.uid}`);
-  //   return deleteDoc(userDocRef);
-  // }
+  DeleteOffer(offerId: number) {
+    const userDocRef = doc(this.firestore, `offers/${offerId}`);
+    return deleteDoc(userDocRef);
+  }
 
   async addOfferData(user: User | any, offer: Offer | any) {
     try {
       console.log(user.uid);
       const offerRef = collection(this.firestore, 'offers');
-      const offersSnapshot: any = await getCountFromServer(offerRef);
-      let offerId = offersSnapshot+1;
-      offerId = `${offer.company}_${offerId}`
+      const offersSnapshot = await getCountFromServer(offerRef);
+      let offersCount= offersSnapshot.data().count;
+      let offerIdAux = offersCount ++;
+      let offerId = `${offer.company}_${offerIdAux}`;
 
       let addedOffer;
 
@@ -97,6 +98,7 @@ export class OfferService {
       console.log('Offer data has probably been updated correctly');
       // return setDoc (offerRef, offerData, { merge: true });
       addedOffer = await addDoc (offerRef, offerData);
+      console.log(addedOffer);
 
       } catch (e) {
         console.error('Error adding offer data: ', e);
