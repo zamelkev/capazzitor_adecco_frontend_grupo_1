@@ -7,48 +7,6 @@ import { MAT_BOTTOM_SHEET_DATA, MatBottomSheetRef } from '@angular/material/bott
   templateUrl: './offer-detail.component.html',
   styleUrls: ['./offer-detail.component.css'],
 })
-/*
-export class Offer {
-  title?: string;
-  id?: number;
-  state?: number;
-  category?: {
-    id?: number;
-    value?: string;
-  };
-  subcategories?: [
-    {
-      id?: number;
-      value?: string;
-    }
-  ];
-  creationDate?: string;
-  updateDate?: string;
-  city?: {
-    id?: number;
-    value?: string;
-  };
-  country?: {
-    id?: number;
-    value?: string;
-  };
-  company?: string;
-  contractType?: string;
-  workingDay?: string;
-  description?: string;
-  experienceMin?: {
-    id: number;
-    value: string;
-  };
-  studiesMin?: {
-    id?: number;
-    value: string;
-  };
-  priority?: string;
-  applicants?: number;
-} 
-
- */
 export class OfferDetailComponent implements OnInit {
   offerItem: Offer = {};
 

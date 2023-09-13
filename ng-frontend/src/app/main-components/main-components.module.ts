@@ -55,6 +55,7 @@ import { UserFormComponent } from './user/user-form/user-form.component';
 import { UserDetailComponent } from './user/user-detail/user-detail.component';
 import { UserProfileComponent } from './dashboard/user-profile/user-profile.component';
 import { OffersComponent } from '../views/offers/offers.component';
+import { OfferFiltersComponent } from './offer/offer-filters/offer-filters.component';
 
 
 
@@ -98,6 +99,7 @@ import { OffersComponent } from '../views/offers/offers.component';
     UserFormComponent,
     UserDetailComponent,
     UserProfileComponent,
+    OfferFiltersComponent,
   ],
   imports: [
     CommonModule,

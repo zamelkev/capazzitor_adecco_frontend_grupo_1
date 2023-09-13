@@ -1,0 +1,17 @@
+<div class="filtersContainer">
+  <div class="headingContainer">
+    <h5>Filtrar por:</h5>
+    <button mat-icon-button (click)="closeBottomSheet()">
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </div>
+  <div class="offerFiltersWrapper">
+    <button mat-stroked-button>{{data?.contractType?.title}}</button>
+    <button mat-stroked-button>{{data?.localization?.title}}</button>
+    <button mat-stroked-button>{{data?.creationDate?.title}}</button>
+    <button mat-stroked-button>{{data?.category?.title}}</button>
+    <button mat-stroked-button>{{data?.studiesLevel?.title}}</button>
+    <button mat-stroked-button>{{data?.estimatedSalary?.title}}</button>
+  </div>
+</div>
+

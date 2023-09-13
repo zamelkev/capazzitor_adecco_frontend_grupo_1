@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
-import { OfferDetailComponent } from '../../main-components/offer/offer-detail/offer-detail.component';
+//import { OfferDetailComponent } from '../../main-components/offer/offer-detail/offer-detail.component';
+import { OfferFiltersComponent } from '../offer/offer-filters/offer-filters.component';
 @Component({
   selector: 'app-bottom-sheet',
   templateUrl: './bottom-sheet.component.html',
@@ -10,66 +11,42 @@ export class BottomSheetComponent {
   
   constructor(private matBottomSheet: MatBottomSheet) {}
 
-  openBottomSheet() {
-    this.matBottomSheet.open(OfferDetailComponent,
-      {
-        data: {
-          "title": "Administrativo contable",
-          "id": 21875,
-          "state": 1,
-          "category": {
-            "id": 1,
-            "value": "Administración",
-          },
-          "subcategories": [
-            {
-              "id": 1,
-              "value": "Contabilidad",
-            }
-          ],
-          "creationDate": "25/11/2022",
-          "updateDate": "02/12/2022",
-          "city": {
-            "id": 20,
-            "value": "Elche",
-          },
-          "autCommunity": {
-            "id": 10,
-            "value": "Comunidad Valenciana ",
-          },
-          "country": {
-            "id": 1,
-            "value": "España",
-          },
-          "company": "QUICKTYPERS SL",
-          "contractType": "Contrato indefinido",
-          "workingDay": "Fulltime",
-          "salary": {
-            "currency": "€",
-            "value": 18000,
-            "grossNet": "Brutos / ",
-            "period": "año"
-          },
-          "description": "Empresa internacional del sector educativo y de marketing, con sede en Elche (Alicante), busca incorporar de manera inmediata un/a ADMINISTRATIVO/A CONTABLE. Buscamos un perfil administrativo, preferiblemente con experiencia en facturación. Es necesario tener una buena disposición para trabajar en equipo de manera presencial en nuestra oficina de Elche.",
-          "experienceMin": [
-            {
-              "years": "años",
-              "value": 1,
-            },
-            {
-              "months": "meses",
-              "value": 6,
-            }
-          ],
-          "studiesMin": {
-            "id": 1,
-            "value": "Universitarios",
-          },
-          "priority": "Incorporación inmediata",
-          "applicants": 7,
-        }
+  openFiltersSheet() {
+    this.matBottomSheet.open(OfferFiltersComponent, {
+      data: {
+      "contractType": {
+        "title": "Tipo de contrato",
+        "values": [
+          "Jornada completa",
+          "Indefinido",
+          "Temporal",
+          "Media jornada",
+          "Beca / Prácticas",
+          "Autónomo"
+        ],
+      },
+      "localization": {
+        "title": "Localización",
+        "values": [],
+      },
+      "creationDate": {
+        "title": "Fecha de publicación",
+        "values": [],
+      },
+      "category": {
+        "title": "Sector",
+        "values": [],
+      },
+      "studiesLevel": {
+        "title": "Nivel formativo",
+        "values": [],
+      },
+      "estimatedSalary": {
+        "title": "Salario estimado",
+        "values": [],
+      },
       }
-    );
+    });
   }
 }
 
