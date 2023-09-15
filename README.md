@@ -19,11 +19,11 @@ Portal web de búsqueda de empleo para personas con discapacidad
 
 - [**Prototipado de la interfaz con Figma:**](https://www.figma.com/file/O3N7YgQiMZY5iRcFDXIZOR/home-Portal)
 
-- [**Elaboración del documento funcional**]([Desarrollo del **Documento Funcional**](https://github.com/zamelkev/angular_grupo_1/blob/main/Project-Documentation/DOCUMENTO_FUNCIONAL_portal_empleo_discapacidad.md))
+- [**Elaboración del documento funcional**](https://github.com/zamelkev/angular_grupo_1/blob/main/Project-Documentation/DOCUMENTO_FUNCIONAL_portal_empleo_discapacidad.md)
     - [**Sitemap:**](https://github.com/zamelkev/angular_grupo_1/blob/main/Project-Documentation/Project-Sitemap.jpg)
     - [**Mapa relacional de entidades/DDBB**](https://github.com/zamelkev/angular_grupo_1/blob/main/Project-Documentation/DB-Tables-Relationship.jpg)
 
-- [**Presentación de Final de Curso (con Google Slides)**](https://docs.google.com/presentation/d/1ibKmxMS0sOdhrblvsIfkups-fLdlx51scMS92-nUxsE/)
+- [**Presentación de Final de Curso (con Google Slides)**](https://docs.google.com/presentation/d/1M3Obd7zfx7eUyw7aNmA2YLW9Rhde3032ZDDZelhjL0U/)
 
 # REQUERIMIENTOS TÉCNICOS.
 
