@@ -11,7 +11,7 @@ export class IsLoggedInGuard implements CanLoad {
 
   canLoad(): Observable<boolean | UrlTree> {
     return this.authService.isLoggedIn$.pipe(
-      map((isLoggedIn) => isLoggedIn || this.router.createUrlTree(['/login']))
+      map((isLoggedIn) => isLoggedIn || this.router.createUrlTree(['../../login']))
     );
   }
 }

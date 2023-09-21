@@ -15,44 +15,48 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatBottomSheetModule } from '@angular/material/bottom-sheet'; 
-import { MAT_BOTTOM_SHEET_DEFAULT_OPTIONS } from '@angular/material/bottom-sheet';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MatChipsModule } from '@angular/material/chips';
 
 //App components
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { SearcherComponent } from './searcher/searcher.component';
+import { HeaderComponent } from './home-components/header/header.component';
+import { FooterComponent } from './home-components/footer/footer.component';
+import { SearcherComponent } from './home-components/searcher/searcher.component';
 import { SocialNetworksComponent } from './social-networks/social-networks.component';
-import { RightMenuComponent } from './right-menu/right-menu.component';
-import { LeftMenuComponent } from './left-menu/left-menu.component';
-import { OfferListComponent } from './offer-list/offer-list.component';
-import { OfferFormComponent } from './offer-form/offer-form.component';
-import { OfferDetailComponent } from '../main-components/offer-detail/offer-detail.component';
-import { SuggestionsComponent } from './suggestions/suggestions.component';
+import { OfferListComponent } from './offer/offer-list/offer-list.component';
+import { OfferFormComponent } from './offer/offer-form/offer-form.component';
+import { OfferDetailComponent } from './offer/offer-detail/offer-detail.component';
+import { SuggestionsComponent } from './home-components/suggestions/suggestions.component';
 import { AutocompleteComponent } from './autocomplete/autocomplete.component';
 import { ListComponent } from './list/list.component';
 import { SuggestCardComponent } from './suggest-card/suggest-card.component';
-import { MeetUsComponent } from './meet-us/meet-us.component';
+import { MeetUsComponent } from './home-components/meet-us/meet-us.component';
 import { OurServicesComponent } from './our-services/our-services.component';
 import { TeamComponent } from './team/team.component';
-import { EventsComponent } from './events/events.component';
+import { EventsComponent } from './home-components/events/events.component';
 import { NewsComponent } from './news/news.component';
 import { NowadaysComponent } from './nowadays/nowadays.component';
-import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
-import { CandidateDashboardComponent } from './candidate-dashboard/candidate-dashboard.component';
-import { CompanyDashboardComponent } from './company-dashboard/company-dashboard.component';
-import { BedsideComponent } from './bedside/bedside.component';
-import { OfferItemComponent } from './offer-item/offer-item.component';
+import { AdminDashboardComponent } from './dashboard/admin-dashboard/admin-dashboard.component';
+import { CandidateDashboardComponent } from './dashboard/candidate-dashboard/candidate-dashboard.component';
+import { CompanyDashboardComponent } from './dashboard/company-dashboard/company-dashboard.component';
+import { BedsideComponent } from './home-components/bedside/bedside.component';
+import { OfferItemComponent } from './offer/offer-item/offer-item.component';
+import { OfferItemListAdminComponent } from './offer/offer-item-list-admin/offer-item-list-admin.component';
 import { BottomSheetComponent } from './bottom-sheet/bottom-sheet.component';
-import { CandidateDetailComponent } from './candidate-detail/candidate-detail.component';
-import { CandidateFormComponent } from './candidate-form/candidate-form.component';
-import { CandidateListComponent } from './candidate-list/candidate-list.component';
-import { CompanyDetailComponent } from './company-detail/company-detail.component';
-import { CompanyFormComponent } from './company-form/company-form.component';
-import { CompanyListComponent } from './company-list/company-list.component';
-import { UserListComponent } from './user-list/user-list.component';
-import { UserFormComponent } from './user-form/user-form.component';
-import { UserDetailComponent } from './user-detail/user-detail.component';
+import { CandidateDetailComponent } from './cadidate/candidate-detail/candidate-detail.component';
+import { CandidateFormComponent } from './cadidate/candidate-form/candidate-form.component';
+import { CandidateListComponent } from './cadidate/candidate-list/candidate-list.component';
+import { CompanyDetailComponent } from './company/company-detail/company-detail.component';
+import { CompanyFormComponent } from './company/company-form/company-form.component';
+import { CompanyListComponent } from './company/company-list/company-list.component';
+import { CompanyListAdminComponent } from './company/company-list-admin/company-list-admin.component';
+import { UserListComponent } from './user/user-list/user-list.component';
+import { UserFormComponent } from './user/user-form/user-form.component';
+import { UserDetailComponent } from './user/user-detail/user-detail.component';
+import { UserProfileComponent } from './dashboard/user-profile/user-profile.component';
+import { MeetUsHomeComponent } from './home-components/meet-us-home/meet-us-home.component';
+import { OffersComponent } from '../views/offers/offers.component';
+import { OfferFiltersComponent } from './offer/offer-filters/offer-filters.component';
 
 
 
@@ -66,8 +70,6 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     FooterComponent,
     SearcherComponent,
     SocialNetworksComponent,
-    RightMenuComponent,
-    LeftMenuComponent,
     OfferListComponent,
     OfferFormComponent,
     OfferDetailComponent,
@@ -75,6 +77,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     ListComponent,
     SuggestCardComponent,
     MeetUsComponent,
+    MeetUsHomeComponent,
     OurServicesComponent,
     TeamComponent,
     EventsComponent,
@@ -85,6 +88,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     CompanyDashboardComponent,
     BedsideComponent,
     OfferItemComponent,
+    OfferItemListAdminComponent,
     BottomSheetComponent,
     CandidateDetailComponent,
     CandidateFormComponent,
@@ -92,9 +96,12 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     CompanyDetailComponent,
     CompanyFormComponent,
     CompanyListComponent,
+    CompanyListAdminComponent,
     UserListComponent,
     UserFormComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    UserProfileComponent,
+    OfferFiltersComponent,
   ],
   imports: [
     CommonModule,
@@ -113,6 +120,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     MatDividerModule,
     MatExpansionModule,
     MatBottomSheetModule,
+    MatChipsModule,
   ],
   exports: [
     AutocompleteComponent,
@@ -120,8 +128,6 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     FooterComponent,
     SearcherComponent,
     SocialNetworksComponent,
-    RightMenuComponent,
-    LeftMenuComponent,
     OfferListComponent,
     OfferFormComponent,
     OfferDetailComponent,
@@ -129,6 +135,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     ListComponent,
     SuggestCardComponent,
     MeetUsComponent,
+    MeetUsHomeComponent,
     OurServicesComponent,
     TeamComponent,
     EventsComponent,
@@ -139,16 +146,14 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     CompanyDashboardComponent,
     BedsideComponent,
     OfferItemComponent,
+    OfferItemListAdminComponent,
     BottomSheetComponent,
     CompanyDetailComponent,
     CompanyFormComponent,
-    CompanyListComponent
+    CompanyListComponent,
+    CompanyListAdminComponent,
   ],
   providers: [
-    {
-      provide: MAT_BOTTOM_SHEET_DEFAULT_OPTIONS,
-      useValue: { panelClass: 'mybottomsheet', hasBackdrop: false },
-    },
     CandidateDetailComponent,
     CandidateFormComponent,
     CandidateListComponent,
@@ -157,7 +162,7 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
     CompanyListComponent,
     UserListComponent,
     UserFormComponent,
-    UserDetailComponent
+    UserDetailComponent,
   ],
 })
 export class MainComponentsModule {}

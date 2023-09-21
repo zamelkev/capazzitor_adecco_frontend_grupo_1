@@ -1,0 +1,24 @@
+.searcherContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 20vw;
+  max-width: 95vw;
+  min-height: 10rem;
+  background-color: rgba(255,255,255,0.5);
+  padding: 1rem 0;
+  border-radius: 0.5rem;
+  margin: 6rem;
+}
+.searchActions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem 1rem;
+}
+.searchActions > button {
+  margin: 0 0.5rem;
+  min-width: fit-content;
+}

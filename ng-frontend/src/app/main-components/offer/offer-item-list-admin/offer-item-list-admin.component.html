@@ -1,0 +1,38 @@
+  <div class="offerListWrapper" *ngFor="let offer of offers">
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true"
+                          (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <strong>{{offer.title}}</strong>
+          </mat-panel-title>
+          <mat-panel-description>
+            {{offer.company}}: {{offer.workingDay}} - {{offer.salaryRank}} (Prioridad: {{offer.priority}}) 
+            <!-- <button (click)="onClickDelete(offer)"><strong>Borrar<br>Oferta</strong></button> -->
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <mat-card class="offerItemContainer">
+          <mat-card-header>
+            <img class="firmLogo" width="180vw" src="{{offer.companyPhoto ? offer.companyPhoto:'../../../../assets/img/Logos/3x/capazzitor_logo@3x.png'}}" alt="Company Logotype">
+            <mat-card-title><strong>{{offer.title}}</strong></mat-card-title>
+            <mat-card-subtitle>Detalles: Compañia: {{offer.company}} | Ciudad: {{offer.city}} | Rango Salarial: {{offer.salaryRank}}
+            </mat-card-subtitle>
+          </mat-card-header>
+           <mat-card-content>
+            Compañia: {{offer.company}} <br>
+            Localización: {{offer.city}}, {{offer.country}} <br>
+            Categoría: {{offer.subcategoty}} ({{offer.category}})
+            <br>
+            <strong>Acerca de la oferta de trabajo:</strong>
+            {{offer.workingDay}} - {{offer.salaryRank}} <br><br>
+            <strong>Requisitos:</strong><br>
+            Experiencia mínima: {{offer.experienceMin}} <br>
+            Estudios mínimos: {{offer.studiesMin}} <br>
+            <strong>+ Info: </strong><br>
+            <p>{{offer.description}}</p>
+          </mat-card-content>
+        </mat-card>
+      </mat-expansion-panel>
+    </mat-accordion>
+</div>
+

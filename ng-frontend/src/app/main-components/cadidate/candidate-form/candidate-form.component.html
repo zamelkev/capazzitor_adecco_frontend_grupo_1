@@ -1,0 +1,78 @@
+<mat-card class="example-card" *ngIf="error">
+    Se ha producido un error, Inténtalo de nuevo más tarde.
+  </mat-card>
+
+
+  <form class="example-form" [formGroup]="editCandidateForm" (ngSubmit)="onCandidateFormSubmit()">
+    <div class="form-inputs">      
+      
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nombre & Apellidos</mat-label>
+        <input matInput formControlName="nombreYapellidos">
+        
+        <mat-error *ngIf="editCandidateForm.get('nombreYapellidos')!.invalid && (editCandidateForm.get('nombreYapellidos')!.dirty || editCandidateForm.get('nombreYapellidos')!.touched)">
+          <span *ngIf="editCandidateForm.get('nombreYapellidos')!.getError('required')">Información obligatoria</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>DNI / INE</mat-label>
+        <input matInput formControlName="dni">
+        
+        <mat-error *ngIf="editCandidateForm.get('dni')!.invalid && (editCandidateForm.get('dni')!.dirty || editCandidateForm.get('dni')!.touched)">
+          <span *ngIf="editCandidateForm.get('dni')!.getError('required')">Información obligatoria</span>
+        </mat-error>
+      </mat-form-field>
+      
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Número de Teléfono</mat-label>
+        <input matInput formControlName="telefono">
+        
+        <mat-error *ngIf="editCandidateForm.get('telefono')!.invalid && (editCandidateForm.get('telefono')!.dirty || editCandidateForm.get('telefono')!.touched)">
+          <span *ngIf="editCandidateForm.get('telefono')!.getError('required')">Información obligatoria</span>
+        </mat-error>
+      </mat-form-field>
+      
+      <!-- <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Dirección de Correo Electrónico</mat-label>
+        <input matInput formControlName="correo">
+        
+        <mat-error *ngIf="editCandidateForm.get('correo')!.invalid && (editCandidateForm.get('correo')!.dirty || editCandidateForm.get('correo')!.touched)">
+          <span *ngIf="editCandidateForm.get('correo')!.getError('required')">Información obligatoria</span>
+        </mat-error>
+      </mat-form-field> -->
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Dirección Postal</mat-label>
+        <input matInput formControlName="direccion">
+        
+        <mat-error *ngIf="editCandidateForm.get('direccion')!.invalid && (editCandidateForm.get('direccion')!.dirty || editCandidateForm.get('direccion')!.touched)">
+          <span *ngIf="editCandidateForm.get('direccion')!.getError('required')">Información obligatoria</span>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Formación de mayor nivel formativo</mat-label>
+        <input matInput formControlName="formacion">
+        
+        <mat-error *ngIf="editCandidateForm.get('formacion')!.invalid && (editCandidateForm.get('formacion')!.dirty || editCandidateForm.get('formacion')!.touched)">
+          <span *ngIf="editCandidateForm.get('formacion')!.getError('required')">Información obligatoria</span>
+        </mat-error>
+      </mat-form-field>
+
+      <!-- <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Ofertas</mat-label>
+        <input matInput formControlName="ofertas">
+        
+        <mat-error *ngIf="editCandidateForm.get('ofertas')!.invalid && (editCandidateForm.get('ofertas')!.dirty || editCandidateForm.get('ofertas')!.touched)">
+          <span *ngIf="editCandidateForm.get('ofertas')!.getError('required')">Información obligatoria</span>
+        </mat-error>
+      </mat-form-field> -->
+
+          </div>
+      <div class="buttons">
+        <button mat-raised-button color="primary" type="submit">Guardar datos</button>
+        <button mat-raised-button color="warn" routerLink="/back_office">Cancelar</button>
+        <!-- <button *ngIf="id" mat-raised-button color="warn" (click)="onDelete()">Borrar</button> -->
+    </div>
+  </form>

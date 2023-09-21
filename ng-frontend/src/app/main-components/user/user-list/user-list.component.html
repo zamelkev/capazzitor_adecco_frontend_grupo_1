@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>Listado de Usuari@s:</h2>
+  <br>
+  <div *ngFor="let user of users">
+    <mat-accordion>
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            <strong>{{user.displayName}}</strong> <strong>{{user.email}}</strong>
+            <button (click)="onClickDelete(user)">Borrar usuari@</button>
+            <button (click)="onClickRestore(user)" class="restoreButton">Recuperar contraseña</button>
+          </mat-panel-title>
+          </mat-expansion-panel-header>
+            Nombre de Usuario: <strong>{{user.displayName}}</strong><br>
+            ID: <strong>{{user.uid}}</strong><br>
+            rol: <strong>{{user.role}}</strong><br>
+            URL (Foto de Perfil): <strong>{{user.photoURL}}</strong><br>
+            emailVerified: <strong>{{user.emailVerified}}</strong><br><br>
+            <div class="responsiveButtons"></div>
+            <button (click)="onClickDelete(user)">Borrar usuari@</button>
+            <button (click)="onClickRestore(user)" class="restoreButton">Recuperar contraseña</button>
+          </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>

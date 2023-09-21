@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { CandidateDashboardComponent } from 'src/app/main-components/candidate-dashboard/candidate-dashboard.component';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { defer, from, Observable } from 'rxjs';
 import { User } from 'src/app/models/user.model';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -7,20 +8,16 @@ import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  styleUrls: ['./dashboard.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DashboardComponent implements OnInit {
 
-  user!: User;
-  constructor(public authService: AuthService) {
-    this.user = this.user = {
-              uid: 1,
-              displayName: "",
-              email: "",
-              rol: "Candidato",
-              photoURL: "",
-              emailVerified: true,
-          };
+  user: User | any = this.authService.userData;
+  constructor(public authService: AuthService, private router: Router,) {
+    if (!this.user) {
+      this.router.navigate(['login']);
+    }
   }
   ngOnInit(): void {}
 

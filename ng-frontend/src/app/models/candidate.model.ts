@@ -1,16 +1,15 @@
 import { Direction } from "./direction.model";
 import { Email } from "./email.model";
+import { Offer } from "./offer.model";
 import { Telephone } from "./telephone.model";
 import { User } from "./user.model";
 
 export interface Candidate extends User {
-    idCandidato?: number;
-    nombre?: string;
-    apellidos?: string;
+    nombreYapellidos?: string;
     dni?:string;
     telefono?: number;
     correo?: string;
     direccion?: string;
-    formacion?: string;
-    ofertas?: number;
+    formacion?: string[] | string;
+    ofertas?: number | Offer[];
 }

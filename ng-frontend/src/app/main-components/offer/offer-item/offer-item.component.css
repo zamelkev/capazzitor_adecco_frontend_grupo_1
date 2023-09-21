@@ -1,0 +1,85 @@
+.offerListWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start ;
+    margin-top: 0.5rem;
+}
+mat-expansion-panel {
+  background-color: #eb9130;
+  padding-top: 0.5rem;
+}
+mat-expansion-panel-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 7rem;
+}
+.titleRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+ mat-panel-title {
+  font-weight: 500;
+  color: rgba(255,255,255,1);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+
+}
+mat-panel-description {
+  font-weight: 500;
+  color: rgba(0,0,0,1);
+}
+.offerItemContainer {
+  background-color: rgba(255,255,255,1);
+  border-radius: 0.5rem;
+  min-width: 50vw;
+}
+.firmLogo {
+  background-image: url('../../../../assets/img/Logos/3x/capazzitor_logo@3x.png');
+  background-size: cover;
+  background-color: rgba(255,255,255,1);
+  background-position: center;
+  max-width: 2rem;
+  max-height: 2rem;
+}
+mat-card-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+mat-card-header > button {
+  max-height: 3rem;
+}
+.chip {
+  padding: 0.25rem 0.5rem;
+  color: rgba(255,255,255,1);
+  background-color: transparent;
+  border-radius: 0.25rem;
+  border: 1px solid  #FF4081;
+  margin: 0 0.25rem;
+}
+mat-divider {
+  background-color: #FF4081;
+}
+.innerRow {
+    display: flex;
+    flex-direction: column;
+    align-items: center !important;
+    justify-content: flex-start ;
+}
+.actions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 1rem;
+}
+.actions > button {
+  border: 1px solid #FF4081;
+  margin: 0 0.5rem;
+}

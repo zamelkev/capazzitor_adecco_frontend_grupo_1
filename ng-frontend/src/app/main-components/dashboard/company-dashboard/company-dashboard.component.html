@@ -1,0 +1,57 @@
+<div class="auxiliarContainer">
+  <mat-accordion>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <h4>Completa 'tu' perfil de empresa:</h4>
+      </mat-panel-title>
+      <mat-panel-description>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <app-company-form></app-company-form>
+</mat-expansion-panel>
+</mat-accordion>
+<br>
+<mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+  (closed)="panelOpenState = false">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <h4>Detalles Empresa:</h4>
+    </mat-panel-title>
+    <mat-panel-description>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <app-company-list></app-company-list>
+</mat-expansion-panel>
+</mat-accordion>
+<br>
+<mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+  (closed)="panelOpenState = false">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <h4>Publica una oferta de trabajo:</h4>
+    </mat-panel-title>
+    <mat-panel-description>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <app-offer-form></app-offer-form>
+</mat-expansion-panel>
+</mat-accordion>
+<br>
+<mat-accordion>
+  <mat-expansion-panel (opened)="panelOpenState = true"
+  (closed)="panelOpenState = false">
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      <h4>Ofertas Publicadas:</h4>
+    </mat-panel-title>
+    <mat-panel-description>
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <app-offer-item-list-admin></app-offer-item-list-admin>
+</mat-expansion-panel>
+</mat-accordion>
+</div>

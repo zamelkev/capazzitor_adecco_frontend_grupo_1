@@ -1,1 +1,21 @@
-<p>use-guides works!</p>
+<app-header></app-header>
+<div class="auxContainer">
+    <br>
+    <div class="useGuideContainer" *ngFor="let useguide of useguides">
+    <mat-accordion>
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                <strong>{{useguide.titulo}}</strong>
+              </mat-panel-title>
+              <mat-panel-description>
+                {{useguide.subtitulo}}
+              </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>{{useguide.cuerpo}}</p>
+          </mat-expansion-panel>
+    </mat-accordion>
+    </div>
+    <br>
+</div>
+

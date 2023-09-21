@@ -1,0 +1,43 @@
+<app-header></app-header>
+<div class="displayTable">
+  <div class="displayTableCell">
+    <div class="authBlock">
+      <h3>Registrarse / Register</h3><br>
+      <form [formGroup]="signupForm" (ngSubmit)="onSignupSubmit()">
+        <div class="formGroup">
+        <div class="roleSelector">
+          <label for="role"><strong>Selecciona un Rol de Usuario:</strong></label>
+          <select formControlName="role" id="role" (change)="updateUserRole()">
+            <option value="candidate">Candidat@</option>
+            <option value="company">Empresa</option>
+            <!-- <option value="admin">Admin</option> -->
+          </select>
+        </div>
+        </div>
+        
+        <div class="formGroup">
+          <input class="formControl"  formControlName="displayName" placeholder="Introduce tu nombre de usuario" #displayName />
+        </div>
+        <div class="formGroup">
+          <input class="formControl" formControlName="photoURL" placeholder="'URL' de la imagen de tu perfil" #displayName required />
+        </div>
+        <div class="formGroup">
+          <input type="email" class="formControl"  formControlName="email" placeholder="Introduce tu correo electrónico" #userEmail required />
+        </div>
+        <div class="formGroup">
+          <input type="password" class="formControl" formControlName="password" placeholder="Introduce tu contraseña" #userPwd required />
+        </div>
+        <div class="formGroup">
+          <input class="formControl" formControlName="emailVerified" value=false hidden/>
+        </div>
+        <input type="submit" value="Registrarse" class="btn btnPrimary">
+      </form>
+        <div>
+          <span class="or"><span class="orInner">O</span></span>
+        </div>
+        <div class="redirectToLogin">
+          <span>Ya tienes una cuenta?
+            <span class="redirect" routerLink="/login">Entrar</span></span>
+          </div>
+        </div>
+      </div>

@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
-import {
-  MatBottomSheet, MatBottomSheetConfig, MatBottomSheetRef 
-} from '@angular/material/bottom-sheet';
-import {MatListModule} from '@angular/material/list';
-import {MatButtonModule} from '@angular/material/button';
-import { OfferDetailComponent } from '../offer-detail/offer-detail.component';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { OfferFiltersComponent } from '../offer/offer-filters/offer-filters.component';
 @Component({
   selector: 'app-bottom-sheet',
   templateUrl: './bottom-sheet.component.html',
@@ -12,10 +8,44 @@ import { OfferDetailComponent } from '../offer-detail/offer-detail.component';
 })
 export class BottomSheetComponent {
   
-  constructor(private _bottomSheet: MatBottomSheet) {}
+  constructor(private matBottomSheet: MatBottomSheet) {}
 
-  openBottomSheet(config?: MatBottomSheetConfig) {
-    this._bottomSheet.open(OfferDetailComponent, config);
+  openFiltersSheet() {
+    this.matBottomSheet.open(OfferFiltersComponent, {
+      data: {
+      "contractType": {
+        "title": "Tipo de contrato",
+        "values": [
+          "Jornada completa",
+          "Indefinido",
+          "Temporal",
+          "Media jornada",
+          "Beca / Prácticas",
+          "Autónomo"
+        ],
+      },
+      "localization": {
+        "title": "Localización",
+        "values": [],
+      },
+      "creationDate": {
+        "title": "Fecha de publicación",
+        "values": [],
+      },
+      "category": {
+        "title": "Sector",
+        "values": [],
+      },
+      "studiesLevel": {
+        "title": "Nivel formativo",
+        "values": [],
+      },
+      "estimatedSalary": {
+        "title": "Salario estimado",
+        "values": [],
+      },
+      }
+    });
   }
 }
 

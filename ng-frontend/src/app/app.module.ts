@@ -5,14 +5,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
-import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 
 // Auth service
 import { AuthService } from './services/auth.service';
+// Offer service
+import { OfferService } from './services/offer.service';
 
 // Main
 import { RouterModule } from '@angular/router';
@@ -34,7 +36,6 @@ import { HttpClientModule } from '@angular/common/http';
 // import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
 //Angular material modules
-import {MatBottomSheetModule} from '@angular/material/bottom-sheet'; 
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -46,18 +47,17 @@ import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MAT_BOTTOM_SHEET_DEFAULT_OPTIONS } from '@angular/material/bottom-sheet';
-/* import {
-  MatBottomSheet,
-  MatBottomSheetConfig,
-  MatBottomSheetModule,
-  MatBottomSheetRef,
-} from '@angular/material/bottom-sheet';
- */
+import { MatSelectModule } from '@angular/material/select';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MatChipsModule } from '@angular/material/chips';
+
 //App modules
 import { MainComponentsModule } from './main-components/main-components.module';
 import { ViewsModule } from './views/views.module';
+import { Firestore } from 'firebase/firestore';
+// import { authTokeninterceptorProvider } from './services/interceptors/auth-token.interceptor';
 //import { UsersModule } from './users/users.module';
+
 
 export const firebaseConfig = {
   apiKey: "AIzaSyD5sMKznzYQst-vDhTbUDZKWrHPFn8Fm0U",
@@ -69,6 +69,7 @@ export const firebaseConfig = {
   appId: "1:700855171868:web:33633e3bbe5a5d674bd8d9",
   measurementId: "G-F067FM1D9W"
 };
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -94,23 +95,20 @@ export const firebaseConfig = {
     MatDividerModule,
     MatExpansionModule,
     MatBottomSheetModule,
-    /*     MatBottomSheet,
-    MatBottomSheetConfig,
-    MatBottomSheetModule,
-    MatBottomSheetRef,
- */ // environment,
+    MatSelectModule,
+    MatChipsModule,
     // AngularFireModule.initializeApp(environment.firebase),
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule,
     AngularFireAuthModule,
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     HttpClientModule,
     // provideFirebaseApp(() => initializeApp(environment.firebase)),
-    // provideFirebaseApp(() => initializeApp(firebaseConfig)),
+    provideFirebaseApp(() => initializeApp(firebaseConfig)),
     // provideAuth(() => getAuth()),
     // provideDatabase(() => getDatabase()),
-    // provideFirestore(() => getFirestore()),
+    provideFirestore(() => getFirestore(initializeApp(firebaseConfig))),
     /*     UsersModule,
     //FormControl,
     BrowserModule,
@@ -118,11 +116,10 @@ export const firebaseConfig = {
   ],
   providers: [
     AuthService,
-    {
-      provide: MAT_BOTTOM_SHEET_DEFAULT_OPTIONS,
-      useValue: { panelClass: 'mybottomsheet', hasBackdrop: false },
-    },
+    OfferService,
+    AngularFirestore,
     { provide: FIREBASE_OPTIONS, useValue: firebaseConfig },
+    { provide: AngularFireModule, useValue: firebaseConfig },
   // providers: [AuthService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
   ],
   // providers: [AuthService, { provide: FIREBASE_OPTIONS, useValue: environment.firebase }],

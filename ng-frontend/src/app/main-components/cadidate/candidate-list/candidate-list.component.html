@@ -1,0 +1,24 @@
+<div class="candidateContainer">
+    <h3>Detalles Candidato:</h3>
+    <br>
+    <div *ngFor="let candidate of candidates">
+      <mat-accordion>
+        <mat-expansion-panel (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Candidat@: <strong>{{candidate.nombreYapellidos}}</strong>
+            Sector: <strong>{{candidate.dni}}</strong>
+          </mat-panel-title>
+          <mat-panel-description>
+            Nº Teléfono: <strong>{{candidate.telefono}}</strong>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        Dirección de Correo Electrónico: <strong>{{candidate.correo}}</strong><br>
+        Dirección Postal: <strong>{{candidate.direccion}}</strong><br>
+        Última formación: <strong>{{candidate.formacion}}</strong><br>
+        Nº Ofertas como Candidat@: <strong>{{candidate.ofertas}}</strong><br>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+  </div>
